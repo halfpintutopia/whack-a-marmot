@@ -1,0 +1,5 @@
+#game-area {
+    background: 100% center / cover no-repeat url("../media/background/mountains.svg");
+    height: 100vh;
+    width: 100vw;
+}
