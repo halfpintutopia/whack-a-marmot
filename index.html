@@ -6,24 +6,71 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Whack-A-Marmot</title>
+    <!--    <link rel="icon" type="image/x-icon" href="assets/media/images/logo.ico">-->
     <link rel="stylesheet" href="assets/css/main.css">
+
+    <style>
+        /*https://www.shapedivider.app/*/
+        .custom-shape-divider-bottom-1672494590 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .custom-shape-divider-bottom-1672494590 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+            transform: rotateY(180deg);
+        }
+
+        .custom-shape-divider-bottom-1672494590 .shape-fill {
+            fill: #417505;
+        }
+
+        #wave-example {
+            pointer-events: none;
+        }
+
+        #wave-example .shape-fill {
+            pointer-events: fill;
+        }
+
+        div.red {
+            background-color: red;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            top: 50%;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <header></header>
 <main id="game-area">
-    <div class="background">
-        <div class="background-sun">
-            <!--Sun-->
-            <!--Hill 3-->
-            <!--Hill 2-->
-            <!--Tree-->
-            <!--Hill 1-->
-            <!--Grass-->
-        </div>
+    <div class="custom-shape-divider-bottom-1672494590">
+        <div class="red"></div>
+        <svg id="wave-example" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+             preserveAspectRatio="none">
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                  class="shape-fill"></path>
+        </svg>
     </div>
 </main>
 
 <footer></footer>
-<script !src="assets/js/index.js"></script>
+
+<script src="assets/js/index.js"></script>
+
+<script>
+    document.querySelector('div.red').addEventListener('click', function () {
+        console.log('clicked me')
+    })
+</script>
 </body>
 </html>
