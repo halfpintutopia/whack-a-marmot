@@ -1,14 +1,23 @@
-
 function test() {
-    const hillSVG = document.querySelector('#hill-1');
-    const hillPath = document.querySelector('#hill-1 path');
+    // const hillSVG = document.querySelector('#hill-1');
+    const hillPath = document.querySelector('#wave-example path');
     let randomPercent = Math.floor((Math.random()) * 100);
-    let randomPoint = hillPath.getPointAtLength(randomPercent);
-    let angleCoordinatesA = hillPath.getPointAtLength(randomPercent - 1);
-    let angleCoordinatesB = hillPath.getPointAtLength(randomPercent + 1);
+    const hillPathLength = Math.floor(hillPath.getTotalLength());
 
-    let currentAngle = Math.atan2(angleCoordinatesA.y - angleCoordinatesB.y, angleCoordinatesA.x - angleCoordinatesB.x) * 180 / Math.PI;
+    /*Get percentage for path*/
+    let newPercent = (randomPercent * hillPathLength) / 100;
+    let randomPoint = hillPath.getPointAtLength(newPercent);
+    // let angleCoordinatesA = hillPath.getPointAtLength(randomPercent - 1);
+    // let angleCoordinatesB = hillPath.getPointAtLength(randomPercent + 1);
 
+    // let currentAngle = Math.atan2(angleCoordinatesA.y - angleCoordinatesB.y, angleCoordinatesA.x - angleCoordinatesB.x) * 180 / Math.PI;
+    console.log(randomPoint.x, randomPoint.y)
+    const red = document.querySelector('div.red');
+    red.style.webkitTransform = `translate3d(${randomPoint.x}px, ${randomPoint.y}px, 0)`
+
+    red.addEventListener('click', function () {
+        console.log('clicked me')
+    })
     // marmot.style.transform = `rotate(${currentAngle}deg)`;
     // const marmot = document.getElementById('marmot')
     // console.log(marmot);
