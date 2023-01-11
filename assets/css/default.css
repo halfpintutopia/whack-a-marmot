@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@200;400;600&display=swap');
+
+/* https://getbootstrap.com/docs/5.2/layout/containers/ */
+:root {
+    --xx-large-container: 1400px;
+    --x-large-container: 1200px;
+    --large-container: 992px;
+    --medium-container: 768px;
+    --small-container: 576px;
+    --extra-container: 576px; /* use with less than */
+
+    --azureish-white: hsl(202, 46%, 91%);
+    --pistachio: hsl(73, 89%, 40%);
+    --japanese-indigo: hsl(203, 26%, 24%);
+    --dark-bronze: hsl(75, 97%, 13%);
+    --brown-nose: hsl(28, 58%, 27%);
+    --sky-gradient-day: linear-gradient(to bottom, hsl(200, 62%, 47%) 0%, hsl(212, 65%, 34%) 100%);
+    --sky-gradient-night: linear-gradient(to bottom, hsl(256, 20%, 11%) 85%, hsl(244, 89%, 4%) 100%);
+
+    --font-family-bangers: 'Bangers', cursive;
+    --font-family-oswald: 'Oswald', sans-serif;
+    --font-family-heading: var(--font-family-bangers);
+    --font-family-body: var(--font-family-oswald);
+    --font-family-weight-light: 200;
+    --font-family-weight-regular: 400;
+    --font-family-weight-bold: 600;
+    --font-color-heading: var(--pistachio);
+    --font-color-body: var(--azureish-white);
+    --letter-spacing-heading: 0.1em;
+    --letter-spacing-body: 0.05em;
+
+    --standard-padding: 1rem;
+    --standard-margin: 1rem;
+    --standard-gap: 1rem;
+
+
+}
+
+/*@media (prefers-color-scheme: dark) {*/
+/*    :root {*/
+/*        color-scheme: dark;*/
+/*    }*/
+/*}*/
+
+/* Reset default */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font: inherit;
+}
+
+/* Kevin Powell's explanation of "lobotomised owl" - https://youtu.be/cuEHx9DoWI4?t=342 */
+* + * {
+    margin: 1em 0 0;
+}
+
+html {
+    color-scheme: dark light;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    height: 100%;
+    overflow: auto;
+}
+
+body {
+    min-height: 100vh;
+    /*background-color: var(--body-background-color);*/
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    margin: 0;
+}
+
+img,
+picture,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+textarea,
+button,
+select {
+    font: inherit;
+    border: none;
+    background-color: var(--pampas);
+}
+
+input:focus-visible,
+textarea:focus-visible {
+    border: none;
+}
+
+ input:focus,
+ textarea:focus,
+ select:focus {
+     outline: none;
+ }
