@@ -1,0 +1,22 @@
+.border {
+    background-color: var(--japanese-indigo);
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 255px;
+    border-bottom-right-radius: 255px 15px;
+    border-bottom-left-radius: 15px 255px;
+}
+
+@media only screen and (width >= 768px) {
+    .border {
+        padding: .5rem;
+        margin: 0 .5rem;
+    }
+}
+
+.border.border-thick {
+    border: solid 6px black;
+}
+
+.border.border-thin {
+    border: solid 3px black;
+}
