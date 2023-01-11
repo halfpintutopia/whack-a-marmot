@@ -1,0 +1,100 @@
+#game-area {
+    /*background: 100% center / cover no-repeat url("../media/background/mountains.svg");*/
+    height: calc(100vh - 2em);
+    background: linear-gradient(to bottom, #2d91c2 0%, #1e528e 100%);
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 1rem;
+}
+
+#game-area .background {
+    position: relative;
+    height: 100%;
+    inset: 0;
+}
+
+/*#game-area .background #foreground-hill-1 {*/
+/*    position: absolute;*/
+/*    bottom: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*}*/
+
+
+/*#game-area .background-sun {*/
+/*    height: 600px;*/
+/*    aspect-ratio: 1;*/
+/*}*/
+
+.hill-1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.hill-1 svg {
+    position: relative;
+    display: block;
+    width: calc(116% + 1.3px);
+    height: 128px;
+}
+
+.hill-1 .shape-fill {
+    fill: #9ED90A;
+}
+
+#marmot {
+    height: 100px;
+}
+
+/*https://www.shapedivider.app/*/
+.custom-shape-divider-bottom-1672494590 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1672494590 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+    transform: rotateY(180deg);
+
+}
+
+.custom-shape-divider-bottom-1672494590 .shape-fill {
+    fill: #417505;
+}
+
+#wave-example {
+    pointer-events: none;
+}
+
+#wave-example .shape-fill {
+    pointer-events: fill;
+}
+
+div.red {
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+
+    /*width: 20px;*/
+    /*height: 20px;*/
+    border-radius: 10px;
+    position: absolute;
+    /* Align center */
+    top: -10px;
+    left: -10px;
+    opacity: 0.5;
+}
