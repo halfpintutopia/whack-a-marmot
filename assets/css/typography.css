@@ -1,0 +1,89 @@
+/* https://spectrum.adobe.com/page/typography/#Line-height */
+h1 {
+    font-family: var(--font-family-heading);
+    font-size: clamp(3.75rem, calc(3.23rem + 2.61vw), 5.25rem);
+    color: var(--font-color-heading);
+    line-height: clamp(4.88rem, calc(4.20rem + 3.37vw), 6.81rem);
+    letter-spacing: var(--letter-spacing-heading);
+}
+
+h2 {
+    font-family: var(--font-family-heading);
+    font-size: clamp(3.13rem, calc(2.65rem + 2.39vw), 4.50rem);
+    color: var(--font-color-heading);
+    line-height: clamp(4.06rem, calc(3.43rem + 3.15vw), 5.88rem);
+    letter-spacing: var(--letter-spacing-heading);
+}
+
+h3 {
+    font-family: var(--font-family-heading);
+    font-size: clamp(2.1rem, calc(1.79rem + 1.57vw), 3rem);
+    color: var(--font-color-heading);
+    line-height: clamp(3.44rem, calc(2.94rem + 2.50vw), 4.88rem);
+    letter-spacing: var(--letter-spacing-heading);
+}
+
+h4 {
+    font-family: var(--font-family-body);
+    font-weight: 600;
+    font-size: clamp(2.13rem, calc(1.82rem + 1.52vw), 3.00rem);
+    color: var(--font-color-heading);
+    line-height: clamp(2.75rem, calc(2.36rem + 1.96vw), 3.88rem);
+    letter-spacing: var(--letter-spacing-heading);
+}
+
+h5 {
+    font-family: var(--font-family-heading);
+    font-size: clamp(1.56rem, calc(1.32rem + 1.20vw), 2.25rem);
+    color: var(--font-color-heading);
+    line-height: clamp(2.06rem, calc(1.76rem + 1.52vw), 2.94rem);
+    letter-spacing: var(--letter-spacing-heading);
+}
+
+h6 {
+    font-family: var(--font-family-heading);
+    font-size: clamp(1.31rem, calc(1.12rem + 0.98vw), 1.88rem);
+    color: var(--font-color-heading);
+    line-height: clamp(1.69rem, calc(1.43rem + 1.30vw), 2.44rem);
+    letter-spacing: var(--letter-spacing-heading);
+}
+
+p,
+a,
+span,
+label,
+input,
+address,
+strong {
+    font-family: var(--font-family-body);
+    font-size: clamp(1.13rem, calc(0.99rem + 0.65vw), 1.50rem);
+    font-weight: 300;
+    line-height: clamp(1.44rem, calc(1.15rem + 1.41vw), 2.25rem);
+    color: var(--font-color-body);
+    letter-spacing: var(--letter-spacing-body);
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active{
+    /*color: var(--chestnut);*/
+}
+
+strong {
+    font-weight: 600;
+}
+
+small {
+    font-family: var(--font-family-body);
+    font-size: clamp(0.88rem, calc(0.83rem + 0.22vw), 1.00rem);
+    line-height: clamp(1.31rem, calc(1.25rem + 0.33vw), 1.50rem);;
+    color: var(--font-color-body);
+    letter-spacing: var(--letter-spacing-body);
+}
+
+@media only screen and (width >=768px) {
+}
