@@ -1,0 +1,8 @@
+/* File structure from 7-1 pattern https://itnext.io/structuring-your-sass-projects-c8d41fa55ed4 */
+@use "abstracts";
+@use "base";
+@use "components";
+@use "layout";
+@use "pages";
+@use "themes";
+@use "vendors";

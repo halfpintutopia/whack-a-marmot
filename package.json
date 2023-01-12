@@ -1,0 +1,43 @@
+{
+  "name": "whack-a-marmot",
+  "version": "1.0.0",
+  "description": "The game Whack-A-Mole",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:sass": "sass  --no-source-map src/assets/sass:public/assets/css",
+    "copy:html": "copyfiles -u 1 ./src/*.html public",
+    "copy:assets": "copyfiles -u 1 ./src/assets/media/**/* public/assets/media",
+    "copy:js": "copyfiles -u 1 ./src/assets/js/*.js public/assets/js",
+    "copy": "npm-run-all --parallel copy:*",
+    "watch:html": "onchange \"src/*.html\" -- npm run copy:html",
+    "watch:assets": "onchange \"src/media/**/*\" -- npm run copy:assets",
+    "watch:js": "onchange \"src/assets/js/*.js\" -- npm run copy:js",
+    "watch:sass": "sass  --no-source-map --watch src/assets/sass:public/assets/css",
+    "watch": "npm-run-all --parallel watch:*",
+    "serve": "browser-sync start --server public --files public",
+    "start": "npm-run-all copy --parallel watch serve",
+    "build": "npm-run-all copy:html build:*",
+    "postbuild": "postcss public/assets/css/*.css -u autoprefixer cssnano -r --no-map"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/halfpintutopia/whack-a-marmot.git"
+  },
+  "author": "Siriny Richardson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/halfpintutopia/whack-a-marmot/issues"
+  },
+  "homepage": "https://github.com/halfpintutopia/whack-a-marmot/public/index.html",
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "browser-sync": "^2.27.11",
+    "copyfiles": "^2.4.1",
+    "cssnano": "^5.1.14",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "postcss-cli": "^10.1.0",
+    "sass": "^1.57.1"
+  }
+}
