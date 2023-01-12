@@ -6,30 +6,11 @@
  white: true
  */
 
-// (function () {
-//     'use strict';
-//     let configMap = {
-//         slideClass: '.slide'
-//     };
-//     let htmlElementMap = {
-//         slideElements: null
-//     };
-//
-//     /* DOM */
-//     const initCarousel = () => {
-//
-//     };
-//
-//     const initHTMLElement = () => {
-//         htmlElementMap.slideElements = document.querySelectorAll(configMap.slideClass);
-//     };
-//
-// })();
+/* https://stackoverflow.com/questions/15338054/horizontal-slideshow-with-divs */
+/* JS Hint error but is relevant https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields */
 
-/*https://stackoverflow.com/questions/15338054/horizontal-slideshow-with-divs*/
+/* https://github.com/jshint/jshint/issues/3361 */
 class Carousel {
-    /* JS Hint error but is relevant https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields */
-
     #htmlElements = {
         carouselContainer: '',
         carouselArea: '',
