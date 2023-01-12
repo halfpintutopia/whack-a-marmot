@@ -8,10 +8,19 @@
     <title>Whack-A-Marmot</title>
     <!--    <link rel="icon" type="image/x-icon" href="assets/media/images/logo.ico">-->
     <link rel="stylesheet" href="assets/css/style.css">
-    link
 </head>
 <body>
-<header></header>
+<header>
+    <button id="music-button" class="music-button">
+        <audio src="assets/media/audio/zither-polka-alpenmusik-music-from-the-alps-1394.mp3" class="music-button__audio"
+               controls autoplay loop></audio>
+        <span class="fa-stack fa-2x">
+            <i class="fa-solid fa-square fa-stack-2x"></i>
+            <i class="fa-solid fa-music fa-stack-1x fa-inverse music"></i>
+            <i class="fa-solid fa-slash fa-stack-2x silent active" style="color:Tomato"></i>
+        </span>
+    </button>
+</header>
 <main id="game-area">
     <div class="overlay"></div>
     <div class="buttons border border-thick">
@@ -51,8 +60,12 @@
 <script src="https://kit.fontawesome.com/28847961b6.js" rel="preconnect" crossorigin="anonymous"></script>
 <!--<script src="assets/js/index.js"></script>-->
 <script src="assets/js/carousel.js"></script>
+<script src="assets/js/audio.js"></script>
 <script>
-    const carousel = new Carousel('#carousel');
+    window.addEventListener('load', function () {
+        const carousel = new Carousel('#carousel', 'carousel__area', 'carousel__page', 'carousel__previous', 'carousel__next');
+        const audio = new Audio('#music-button', 'music-button__audio', 'silent');
+    })
 </script>
 </body>
 </html>
