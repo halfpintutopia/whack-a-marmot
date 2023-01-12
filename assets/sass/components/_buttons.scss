@@ -1,3 +1,20 @@
 .buttons {
     display: grid;
 }
+
+.music-button {
+    &__audio {
+        display: none;
+    }
+
+    span, span i {
+        margin: 0
+    }
+    
+    .silent {
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+}
