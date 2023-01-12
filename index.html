@@ -8,6 +8,7 @@
     <title>Whack-A-Marmot</title>
     <!--    <link rel="icon" type="image/x-icon" href="assets/media/images/logo.ico">-->
     <link rel="stylesheet" href="assets/css/style.css">
+    link
 </head>
 <body>
 <header></header>
@@ -28,10 +29,30 @@
     <!--                  class="shape-fill"></path>-->
     <!--        </svg>-->
     <!--    </div>-->
+
+    <div id="carousel" class="carousel">
+        <div class="carousel__area">
+            <div class="carousel__page">
+                First page
+            </div>
+            <div class="carousel__page">
+                Second page
+            </div>
+            <div class="carousel__page">
+                Third page
+            </div>
+        </div>
+        <button class="carousel__previous">Previous</button>
+        <button class="carousel__next">Next</button>
+    </div>
 </main>
 
 <footer></footer>
 
-<script src="assets/js/index.js"></script>
+<!--<script src="assets/js/index.js"></script>-->
+<script src="assets/js/carousel.js"></script>
+<script>
+    const carousel = new Carousel('#carousel');
+</script>
 </body>
 </html>

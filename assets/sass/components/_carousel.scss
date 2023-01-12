@@ -1,0 +1,15 @@
+.carousel {
+  position: relative;
+  overflow: hidden;
+
+  &__area {
+    display: flex;
+    height: 35vh;
+    transition: transform 0.4s;
+  }
+
+  &__page {
+    flex: 1;
+    min-width: 100%;
+  }
+}
