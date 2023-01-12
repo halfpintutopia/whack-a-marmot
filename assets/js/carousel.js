@@ -23,10 +23,10 @@ class Carousel {
             carousel: ''
         },
         classes: {
-            carouselArea: 'carousel__area',
-            carouselPage: 'carousel__page',
-            previousBtn: 'carousel__previous',
-            nextBtn: 'carousel__next'
+            carouselArea: '',
+            carouselPage: '',
+            previousBtn: '',
+            nextBtn: ''
         },
         events: {
             click: 'click'
@@ -35,10 +35,14 @@ class Carousel {
         counter: 0,
         intervalTime: null
     };
-    #static
 
-    constructor(carousel) {
+    constructor(carousel, carouselArea, carouselPage, previousBtn, nextBtn) {
         this.#settings.ids.carousel = carousel;
+        this.#settings.classes.carouselArea = carouselArea;
+        this.#settings.classes.carouselPage = carouselPage;
+        this.#settings.classes.previousBtn = previousBtn;
+        this.#settings.classes.nextBtn = nextBtn;
+
         if (document.querySelector(this.#settings.ids.carousel)) {
             this.#htmlElements.carouselContainer = document.querySelector(this.#settings.ids.carousel);
             this.initHTMLElements();
