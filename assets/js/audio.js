@@ -8,54 +8,43 @@
  */
 
 class Audio {
-    #htmlElements = {
-        buttonContainer: '',
-        audioElement: '',
-        musicButton: '',
-        slashIcon: ''
-    };
-    #settings = {
-        ids: {
-            buttonContainer: ''
-        },
-        classes: {
-            musicButtonAudio: '',
-            slashIcon: '',
-            active: 'active',
-            silent: ''
-        },
-        events: {
-            click: 'click'
-        },
-        tags: {
-            icon: 'i'
-        }
-    };
-
     constructor(buttonContainer, musicButtonAudioClass, silentClass) {
-        this.#settings.ids.buttonContainer = buttonContainer;
-        this.#settings.classes.musicButtonAudio = musicButtonAudioClass;
-        this.#settings.classes.silent = silentClass;
+        this.buttonContainer = buttonContainer;
+        this.musicButtonAudio = musicButtonAudioClass;
+        this.silent = silentClass;
+        this.audioElement = '';
+        this.slashIcon = '';
 
-        if (document.querySelector(this.#settings.ids.buttonContainer)) {
-            this.#htmlElements.buttonContainer = document.querySelector(this.#settings.ids.buttonContainer);
+        if (document.querySelector(this.buttonContainer)) {
+            this.buttonContainer = document.querySelector(this.buttonContainer);
             this.initHTMLElements();
             this.initEvents();
         }
     }
 
     initHTMLElements() {
-        this.#htmlElements.audioElement = this.#htmlElements.buttonContainer.querySelector(`.${this.#settings.classes.musicButtonAudio}`);
-        this.#htmlElements.slashIcon = this.#htmlElements.buttonContainer.querySelector(`.${this.#settings.classes.silent}`);
+        this.audioElement = this.buttonContainer.querySelector(`.${this.musicButtonAudio}`);
+        this.slashIcon = this.buttonContainer.querySelector(`.${this.silent}`);
     }
 
     initEvents() {
-        this.#htmlElements.buttonContainer.addEventListener(this.#settings.events.click, e => this.play(e));
+        this.buttonContainer.addEventListener('click', () => {
+            this.play();
+        });
     }
 
-    play(e) {
-        this.#htmlElements.audioElement.paused ? this.#htmlElements.audioElement.play() : this.#htmlElements.audioElement.pause();
-        this.#htmlElements.slashIcon.classList.contains(this.#settings.classes.active) ? this.#htmlElements.slashIcon.classList.remove(this.#settings.classes.active) : this.#htmlElements.slashIcon.classList.add(this.#settings.classes.active);
+    play() {
+        if (this.audioElement.paused) {
+            this.audioElement.play();
+        } else {
+            this.audioElement.pause();
+        }
+
+        if (this.slashIcon.classList.contains('active')) {
+            this.slashIcon.classList.remove('active');
+        } else {
+            this.slashIcon.classList.add('active');
+        }
     }
 }
 
