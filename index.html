@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+<div class="loader">
+    <h1>Waking up the marmots...</h1>
+</div>
 <header>
     <button id="music-button" class="button button__music">
         <audio src="assets/media/audio/zither-polka-alpenmusik-music-from-the-alps-1394.mp3"
@@ -30,12 +33,12 @@
     </button>
 </header>
 <main id="game-area">
-    <div class="overlay"></div>
+    <!--    <div class="overlay"></div>-->
     <div class="buttons border border-thick">
         <h1>Whack-A-Marmot</h1>
-        <button><h2>Play</h2></button>
-        <button><h2>Instructions</h2></button>
-        <button><h2>Settings</h2></button>
+        <button id="play-btn" type="button"><h2>Play</h2></button>
+        <button id="instructions-btn" type="button"><h2>Instructions</h2></button>
+        <button id="settings-btn" type="button"><h2>Settings</h2></button>
     </div>
 
     <!--    <div class="custom-shape-divider-bottom-1672494590">-->
@@ -47,32 +50,78 @@
     <!--        </svg>-->
     <!--    </div>-->
 
-    <div id="carousel" class="carousel">
-        <div class="carousel__area">
-            <div class="carousel__page">
-                First page
+    <section id="modal-instructions" class="modal modal-settings container border border-thick hidden">
+        <button class="modal__button--close"><i class="fa-solid fa-xmark"></i></button>
+        <div id="carousel" class="carousel">
+            <h2>How to Play</h2>
+            <div class="carousel__area">
+                <div class="carousel__page">
+                    <div class="instructions container">
+                        <p>See the marmot</p>
+                    </div>
+                </div>
+                <div class="carousel__page">
+                    <div class="instructions container">
+                        <p>Whack the mammot</p>
+                    </div>
+                </div>
+                <div class="carousel__page">
+                    <div class="instructions container">
+                        <p>How many marmots can you whack in 2 minutes?</p>
+                    </div>
+                </div>
             </div>
-            <div class="carousel__page">
-                Second page
-            </div>
-            <div class="carousel__page">
-                Third page
-            </div>
+            <button type="button" class="carousel__previous"><i class="fa-solid fa-chevron-left"></i></button>
+            <button type="button" class="carousel__next"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
-        <button class="carousel__previous">Previous</button>
-        <button class="carousel__next">Next</button>
-    </div>
+    </section>
+    <section id="modal-settings" class="modal modal-settings container border border-thick hidden">
+        <button class="modal__button--close"><i class="fa-solid fa-xmark"></i></button>
+        <div id="carousel" class="carousel">
+            <h2>Settings</h2>
+            <div class="carousel__area">
+                <div class="carousel__page">
+                    <div class="instructions container">
+                        <p>See the marmot</p>
+                    </div>
+                </div>
+                <div class="carousel__page">
+                    <div class="instructions container">
+                        <p>Whack the mammot</p>
+                    </div>
+                </div>
+                <div class="carousel__page">
+                    <div class="instructions container">
+                        <p>How many marmots can you whack in 2 minutes?</p>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="carousel__previous"><i class="fa-solid fa-chevron-left"></i></button>
+            <button type="button" class="carousel__next"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </section>
+    <div class="modal__overlay hidden"></div>
+    <!--    <button class="btn modal__button&#45;&#45;open"></button>-->
+
+
+    <div class="hammer"></div>
 </main>
 
 <footer></footer>
 <script src="https://kit.fontawesome.com/28847961b6.js" rel="preconnect" crossorigin="anonymous"></script>
 <!--<script src="assets/js/index.js"></script>-->
+<script src="assets/js/loader.js"></script>
 <script src="assets/js/carousel.js"></script>
 <script src="assets/js/audio.js"></script>
+<script src="assets/js/hammer.js"></script>
+<script src="assets/js/modal.js"></script>
 <script>
     window.addEventListener('load', function () {
         const carousel = new Carousel('#carousel', 'carousel__area', 'carousel__page', 'carousel__previous', 'carousel__next');
         const audio = new Audio('#music-button', 'button__music--audio', 'silent');
+        const hammer = new Hammer('#game-area', '.hammer')
+        const modalSettings = new Modal('#modal-settings', '.modal__overlay', '#settings-btn', '.modal__button--close')
+        const modalInstructions = new Modal('#modal-instructions', '.modal__overlay', '#instructions-btn', '.modal__button--close')
     })
 </script>
 </body>
