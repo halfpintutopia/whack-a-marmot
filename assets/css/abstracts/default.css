@@ -33,7 +33,12 @@
     --standard-margin: 1rem;
     --standard-gap: 1rem;
 
+    --light-box-shadow: hsla(210, 8%, 62%, 0.2) 0px 8px 24px;
+    --dark-box-shadow: hsla(0, 0%, 0%, 0.35) 0px 5px 15px;
+    /* https://css-irl.info/drop-shadow-the-underrated-css-filter/ */
+    --drop-shadow: drop-shadow(0.35rem 0.35rem 0.4rem hsla(0, 0%, 0%, 0.5));
 
+    --z-index-behind: -100;
 }
 
 /*@media (prefers-color-scheme: dark) {*/
@@ -41,68 +46,3 @@
 /*        color-scheme: dark;*/
 /*    }*/
 /*}*/
-
-/* Reset default */
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-
-* {
-    padding: 0;
-    margin: 0;
-    font: inherit;
-    /* CSS debugging https://www.youtube.com/shorts/ii-lSK2_Nu4 */
-    background: rgb(0 100 0 / .1) !important;
-}
-
-/* Kevin Powell's explanation of "lobotomised owl" - https://youtu.be/cuEHx9DoWI4?t=342 */
-* + * {
-    margin: 1em 0 0;
-}
-
-html {
-    color-scheme: dark light;
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-    height: 100%;
-    overflow: auto;
-}
-
-body {
-    min-height: 100vh;
-    /*background-color: var(--body-background-color);*/
-    display: flex;
-    flex-direction: column;
-}
-
-body {
-    margin: 0;
-}
-
-img,
-picture,
-svg,
-video {
-    display: block;
-    max-width: 100%;
-}
-
-input,
-textarea,
-button,
-select {
-    font: inherit;
-    border: none;
-    background-color: var(--pampas);
-}
-
-input:focus-visible,
-textarea:focus-visible {
-    border: none;
-}
-
- input:focus,
- textarea:focus,
- select:focus {
-     outline: none;
- }

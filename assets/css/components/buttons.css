@@ -1,0 +1,31 @@
+.buttons {
+  display: grid;
+}
+
+.button__music--audio {
+  display: none;
+}
+
+.button__music .silent {
+  display: none;
+}
+
+.button__music .silent.active {
+  display: block;
+}
+
+span, span i {
+  margin: 0
+}
+
+button.carousel__next,
+button.carousel__previous {
+  color: var(--pistachio);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+button.carousel__next {
+  right: 0;
+}

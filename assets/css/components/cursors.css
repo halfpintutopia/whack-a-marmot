@@ -1,0 +1,44 @@
+/* https://codepen.io/icao/pen/ErKqjj */
+/* https://codepen.io/developeraspire5/pen/GRMBxWN */
+/* https://codepen.io/kevinpowell/pen/XQEPvB */
+.hammer.active {
+    height: 100px;
+    aspect-ratio: 1;
+    position: absolute;
+    /*transform: translate(-50%, -50%);*/
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+    background: center / contain no-repeat url("../media/images/svg/hammer.svg");
+    /*transform: translateY(20%) translateX(-40%) rotateZ(-54deg);*/
+/*    animation: hammer-hit 3s cubic-bezier(.8, .01, .2, 1) infinite;*/
+    /*transform-origin: 50%;*/
+}
+
+/*.hammer.hit {*/
+/*animation: hammer-hit 550ms infinite alternate;*/
+/*  animation: hammer-hit 550ms;*/
+/*}*/
+
+@keyframes hammer-hit {
+    0%, 60% {
+        transform: translateY(20%) translateX(-40%) rotateZ(-54deg);
+    }
+    60%, 90% {
+        transform: translateY(20%) translateX(-40%) rotateZ(-50deg);
+    }
+    100% {
+        transform: translateY(20%) translateX(-40%) rotateZ(-54deg);
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(3px, 0);
+    }
+    50% {
+        transform: translate(-3px, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}

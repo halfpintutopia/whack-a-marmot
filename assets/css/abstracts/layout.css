@@ -1,0 +1,13 @@
+/* grid or flex */
+.layered-content {
+    display: grid;
+}
+
+.layered-content > * {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+}
+
+.layered-content > .layered-content__media {
+    z-index: var(--z-index-behind);
+}

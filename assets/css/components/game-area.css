@@ -1,11 +1,13 @@
 #game-area {
     /*background: 100% center / cover no-repeat url("../media/background/mountains.svg");*/
-    height: calc(100vh - 2em);
+    //height: calc(100vh - 2em);
+    height: 100vh;
     background: linear-gradient(to bottom, #2d91c2 0%, #1e528e 100%);
     display: grid;
     align-content: center;
     justify-items: center;
     gap: 1rem;
+    position: relative;
 }
 
 #game-area .background {

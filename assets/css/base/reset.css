@@ -1,0 +1,68 @@
+/* Reset default */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    /* CSS debugging https://www.youtube.com/shorts/ii-lSK2_Nu4 */
+    //background: rgb(0 100 0 / .1) !important;
+}
+
+/* Kevin Powell's explanation of "lobotomised owl" - https://youtu.be/cuEHx9DoWI4?t=342 */
+* + * {
+    margin: 1em 0 0;
+}
+
+html {
+    color-scheme: dark light;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    height: 100%;
+    overflow: auto;
+}
+
+body {
+    min-height: 100vh;
+    /*background-color: var(--body-background-color);*/
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    margin: 0;
+}
+
+header, main, footer {
+    margin: 0;
+}
+
+img,
+picture,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+textarea,
+button,
+select {
+    font: inherit;
+    border: none;
+    background-color: transparent;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+    border: none;
+}
+
+ input:focus,
+ textarea:focus,
+ select:focus {
+     outline: none;
+ }
