@@ -4,6 +4,7 @@
     border-top-right-radius: 15px 255px;
     border-bottom-right-radius: 255px 15px;
     border-bottom-left-radius: 15px 255px;
+    box-shadow: var(--dark-box-shadow);
 }
 
 @media only screen and (width >= 768px) {
