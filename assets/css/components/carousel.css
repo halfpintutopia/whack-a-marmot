@@ -13,3 +13,28 @@
     flex: 1;
     min-width: 100%;
 }
+
+.carousel__page > div {
+    height: 100%;
+}
+
+.carousel__page h3 {
+    align-self: end;
+    background-color: rgba(255, 255, 255, .1);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    text-align: center;
+}
+
+.carousel__page .settings-buttons {
+    display: grid;
+    place-items: center;
+}
+
+.carousel__page .settings-buttons strong {
+    align-self: end;
+}
+
+.carousel__page .settings-buttons label {
+    align-self: start;
+}
