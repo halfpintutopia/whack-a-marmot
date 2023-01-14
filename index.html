@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Whack-A-Marmot</title>
-    <!--    <link rel="icon" type="image/x-icon" href="assets/media/images/logo.ico">-->
+    <link rel="icon" type="image/x-icon" href="assets/media/icons/logo.ico">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -19,36 +19,26 @@
                class="button__music--audio"
                controls autoplay loop></audio>
         <span class="fa-stack fa-2x">
-            <i class="fa-solid fa-square fa-stack-2x"></i>
             <i class="fa-solid fa-music fa-stack-1x fa-inverse music"></i>
-            <i class="fa-solid fa-slash fa-stack-2x silent active" style="color:Tomato"></i>
+            <i class="fa-solid fa-slash fa-stack-1x silent active" style="color:Tomato"></i>
         </span>
     </button>
 
     <button id="exit-button" class="button button__exit">
          <span class="fa-stack fa-2x">
-            <i class="fa-solid fa-square fa-stack-2x"></i>
             <i class="fa-solid fa-door-open fa-stack-1x fa-inverse"></i>
         </span>
     </button>
 </header>
 <main id="game-area">
-    <!--    <div class="overlay"></div>-->
     <div class="buttons border border-thick">
         <h1>Whack-A-Marmot</h1>
+    </div>
+    <div class="buttons border border-thick">
         <button id="play-btn" type="button"><h2>Play</h2></button>
         <button id="instructions-btn" type="button"><h2>Instructions</h2></button>
         <button id="settings-btn" type="button"><h2>Settings</h2></button>
     </div>
-
-    <!--    <div class="custom-shape-divider-bottom-1672494590">-->
-    <!--        <div class="red"></div>-->
-    <!--        <svg id="wave-example" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"-->
-    <!--             preserveAspectRatio="none">-->
-    <!--            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"-->
-    <!--                  class="shape-fill"></path>-->
-    <!--        </svg>-->
-    <!--    </div>-->
 
     <section id="modal-instructions" class="modal modal-settings container border border-thick hidden">
         <button class="modal__button--close"><i class="fa-solid fa-xmark"></i></button>
@@ -56,18 +46,45 @@
             <h2>How to Play</h2>
             <div class="carousel__area">
                 <div class="carousel__page">
-                    <div class="instructions container">
-                        <p>See the marmot</p>
+                    <div class="instructions container layered-content">
+                        <img class="modal__media layered-content__media" loading="lazy" srcset="assets/media/images/marmot/xs/marmot_edited-xs_1x.png 300w,
+                            assets/media/images/marmot/sm/marmot_edited-sm_1x.png 800w,
+                            assets/media/images/marmot/md/marmot_edited-md_1x.png 1000w,
+                            assets/media/images/marmot/lg/marmot_edited-lg_1x.png 1200w"
+                             src="assets/media/images/marmot/xl/marmot_edited-xl_1x.png"
+                             sizes="(min-width: 2420px) 2000px,
+                                (min-width: 720px) calc(94.76vw - 274px),
+                                (min-width: 520px) calc(100vw - 96px),
+                                calc(100vw - 32px)" alt="The marmot, your target">
+                        <h3>See the marmot</h3>
                     </div>
                 </div>
                 <div class="carousel__page">
-                    <div class="instructions container">
-                        <p>Whack the mammot</p>
+                    <div class="instructions container layered-content">
+                        <img class="modal__media layered-content__media" loading="lazy" srcset="assets/media/images/hammer-action/xs/hammer_without_action-xs_1x.png 300w,
+                            assets/media/images/hammer-action/sm/hammer_without_action-sm_1x.png 800w,
+                            assets/media/images/hammer-action/md/hammer_without_action-md_1x.png 1000w,
+                            assets/media/images/hammer-action/lg/hammer_without_action-lg_1x.png 1200w"
+                             src="assets/media/images/hammer-action/xl/hammer_without_action-xl_1x.png"
+                             sizes="(min-width: 2420px) 2000px,
+                                (min-width: 720px) calc(94.76vw - 274px),
+                                (min-width: 520px) calc(100vw - 96px),
+                                calc(100vw - 32px)" alt="The hammer, to hit the marmot with">
+                        <h3>Whack the marmot</h3>
                     </div>
                 </div>
                 <div class="carousel__page">
-                    <div class="instructions container">
-                        <p>How many marmots can you whack in 2 minutes?</p>
+                    <div class="instructions container layered-content">
+                        <img class="modal__media layered-content__media" loading="lazy" srcset="assets/media/images/marmot-hit/xs/marmot_hit-xs_1x.png 300w,
+                            assets/media/images/marmot-hit/sm/marmot_hit-sm_1x.png 800w,
+                            assets/media/images/marmot-hit/md/marmot_hit-md_1x.png 1000w,
+                            assets/media/images/marmot-hit/lg/marmot_hit-lg_1x.png 1200w"
+                             src="assets/media/images/marmot-hit/xl/marmot_hit-xl_1x.png"
+                             sizes="(min-width: 2420px) 2000px,
+                                (min-width: 720px) calc(94.76vw - 274px),
+                                (min-width: 520px) calc(100vw - 96px),
+                                calc(100vw - 32px)" alt="Marmot being whacked">
+                        <h3>How many marmots can you whack?</h3>
                     </div>
                 </div>
             </div>
@@ -81,48 +98,45 @@
             <h2>Settings</h2>
             <div class="carousel__area">
                 <div class="carousel__page">
-                    <div class="instructions container">
-                        <p>See the marmot</p>
-                    </div>
-                </div>
-                <div class="carousel__page">
-                    <div class="instructions container">
-                        <p>Whack the mammot</p>
-                    </div>
-                </div>
-                <div class="carousel__page">
-                    <div class="instructions container">
-                        <p>How many marmots can you whack in 2 minutes?</p>
+                    <div class="settings-buttons container">
+                        <strong>Light or dark mode</strong>
+                        <input type="checkbox" id="settings-buttons__mode"
+                               class="toggle settings-buttons__mode--toggle">
+                        <label for="settings-buttons__mode"><span class="settings__mode--light"><i
+                                class="fa-regular fa-lightbulb"></i> Light</span><span class="settings__mode--dark off"><i
+                                class="fa-solid fa-lightbulb"></i> Dark</span> Mode</label>
+
+                        <strong>3 lives or relaxed mode</strong>
+                        <input type="checkbox" id="settings-buttons__play"
+                               class="toggle settings-buttons__play--toggle">
+                        <label for="settings-buttons__play"><span class="settings__mode--limited"><i
+                                class="fa-solid fa-heart-crack"></i> Limited</span><span
+                                class="settings__mode--relaxed off"><i class="fa-solid fa-couch"></i> Relaxed</span>
+                            Mode</label>
                     </div>
                 </div>
             </div>
-            <button type="button" class="carousel__previous"><i class="fa-solid fa-chevron-left"></i></button>
-            <button type="button" class="carousel__next"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
     </section>
     <div class="modal__overlay hidden"></div>
-    <!--    <button class="btn modal__button&#45;&#45;open"></button>-->
-
-
     <div class="hammer"></div>
 </main>
 
 <footer></footer>
 <script src="https://kit.fontawesome.com/28847961b6.js" rel="preconnect" crossorigin="anonymous"></script>
-<!--<script src="assets/js/index.js"></script>-->
 <script src="assets/js/loader.js"></script>
 <script src="assets/js/carousel.js"></script>
 <script src="assets/js/audio.js"></script>
-<script src="assets/js/hammer.js"></script>
+<!--<script src="assets/js/hammer.js"></script>-->
 <script src="assets/js/modal.js"></script>
 <script>
     window.addEventListener('load', function () {
         const carousel = new Carousel('#carousel', 'carousel__area', 'carousel__page', 'carousel__previous', 'carousel__next');
         const audio = new Audio('#music-button', 'button__music--audio', 'silent');
-        const hammer = new Hammer('#game-area', '.hammer')
+        // const hammer = new Hammer('#game-area', '.hammer')
         const modalSettings = new Modal('#modal-settings', '.modal__overlay', '#settings-btn', '.modal__button--close')
         const modalInstructions = new Modal('#modal-instructions', '.modal__overlay', '#instructions-btn', '.modal__button--close')
-    })
+    });
 </script>
 </body>
 </html>
