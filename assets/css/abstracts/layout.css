@@ -1,6 +1,7 @@
 /* grid or flex */
 .layered-content {
     display: grid;
+    place-items: center;
 }
 
 .layered-content > * {
