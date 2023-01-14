@@ -1,5 +1,4 @@
-/*jshint esversion: 6 */
-
+/*jshint esversion: 6, expr: true */
 /*jslint       browser: true, continue: true,
  devel: true, indent: 2, maxerr: 50,
  newcap: true, nomen: true, plusplus: true,
@@ -9,61 +8,49 @@
 
 /* https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/ */
 class Modal {
-    'use strict';
-    #htmlElements = {
-        modal: '',
-        modalOverlay: '',
-        btnOpen: '',
-        btnClose: '',
-    };
-    #settings = {
-        ids: {
-            modal: '',
-            btnOpen: '',
-        },
-        classes: {
-            modalOverlay: '',
-            btnClose: '',
-            hidden: 'hidden'
-        },
-        events: {
-            mouseMove: 'mousemove',
-            click: 'click'
-        },
-    };
+    constructor(modalId, modalOverlayClass, btnOpenID, btnCloseClass) {
+        this.modalId = modalId;
+        this.modalOverlayClass = modalOverlayClass;
+        this.btnOpenID = btnOpenID;
+        this.btnCloseClass = btnCloseClass;
+        this.hiddenClass = 'hidden';
+        this.modal = '';
+        this.modalOverlay = '';
+        this.btnOpen = '';
+        this.btnClose = '';
 
-    constructor(modalClass, modalOverlayClass, btnOpenClass, btnCloseClass) {
-        this.#settings.ids.modal = modalClass;
-        this.#settings.classes.modalOverlay = modalOverlayClass;
-        this.#settings.ids.btnOpen = btnOpenClass;
-        this.#settings.classes.btnClose = btnCloseClass;
-
-        if (document.querySelector(this.#settings.ids.modal)) {
-            this.#htmlElements.modal = document.querySelector(this.#settings.ids.modal);
+        if (document.querySelector(this.modalId)) {
+            this.modal = document.querySelector(this.modalId);
             this.initHTMLElements();
             this.initEvents();
         }
     }
 
     initHTMLElements() {
-        this.#htmlElements.modalOverlay = document.querySelector(this.#settings.classes.modalOverlay);
-        this.#htmlElements.btnOpen = document.querySelector(this.#settings.ids.btnOpen);
-        this.#htmlElements.btnClose = this.#htmlElements.modal.querySelector(this.#settings.classes.btnClose);
+        this.modalOverlay = document.querySelector(this.modalOverlayClass);
+        this.btnOpen = document.querySelector(this.btnOpenID);
+        this.btnClose = this.modal.querySelector(this.btnCloseClass);
     }
 
     initEvents() {
-        this.#htmlElements.btnOpen.addEventListener(this.#settings.events.click, e => this.openModal(e));
-        this.#htmlElements.btnClose.addEventListener(this.#settings.events.click, e => this.closeModal(e));
-        this.#htmlElements.modalOverlay.addEventListener(this.#settings.events.click, e => this.closeModal(e));
-    };
+        this.btnOpen.addEventListener('click', () => {
+            this.openModal();
+        });
+        this.btnClose.addEventListener('click', () => {
+            this.closeModal();
+        });
+        this.modalOverlay.addEventListener('click', () => {
+            this.closeModal();
+        });
+    }
 
-    openModal(e) {
-       this.#htmlElements.modal.classList.remove(this.#settings.classes.hidden);
-       this.#htmlElements.modalOverlay.classList.remove(this.#settings.classes.hidden);
-    };
+    openModal() {
+        this.modal.classList.remove(this.hiddenClass);
+        this.modalOverlay.classList.remove(this.hiddenClass);
+    }
 
-    closeModal(e) {
-        this.#htmlElements.modal.classList.add(this.#settings.classes.hidden);
-       this.#htmlElements.modalOverlay.classList.add(this.#settings.classes.hidden);
+    closeModal() {
+        this.modal.classList.add(this.hiddenClass);
+        this.modalOverlay.classList.add(this.hiddenClass);
     }
 }
