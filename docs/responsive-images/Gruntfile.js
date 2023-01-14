@@ -50,7 +50,7 @@ module.exports = function (grunt) {
                             name: "lg",
                             suffix: "_2x",
                             quality: 80,
-                            width: 1200
+                            width: 2400
                         },
                         {
                             name: "xl",
@@ -62,7 +62,7 @@ module.exports = function (grunt) {
                             name: "xl",
                             suffix: "_2x",
                             quality: 80,
-                            width: 2000
+                            width: 4000
                         },
                     ],
                 },
