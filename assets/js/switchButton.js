@@ -10,45 +10,34 @@
 class SwitchButton {
     constructor(buttonContainerClass) {
         this.buttonContainerClass = buttonContainerClass;
+        this.checkboxes = '';
         this.display = 'display';
         this.playMode = 'play-mode';
-        localStorage.getItem('display') ? this.switchDisplaySetting(this.display, 'light') : localStorage.setItem('display', 'light');
-        localStorage.getItem('play-mode') ? this.switchDisplaySetting(this.playMode, 'limited') : localStorage.setItem('play-mode', 'limited');
+        this.displayDefault = 'light';
+        this.playModeDefault = 'limited';
+        this.switchOffClass = 'off';
 
-
-
-
-
-        if (document.querySelectorAll(this.buttonContainerClass)) {
-            this.buttonContainers = document.querySelectorAll(this.buttonContainerClass);
+        if (document.querySelector(this.buttonContainerClass)) {
+            this.buttonContainer = document.querySelector(this.buttonContainerClass);
             this.initHTMLElements();
             this.initEvents();
+            this.initLocalStorage();
         }
     }
 
     initHTMLElements() {
-        this.buttonContainers.forEach(container => {
-           this.inputCheckboxes = container.querySelectorAll('input[type="checkbox"].toggle');
-           this.inputCheckboxes.forEach(input => {
-              input.addEventListener('change', function() {
-
-                  console.log(this.checked);
-                  this.labelSpans = this.nextElementSibling.querySelectorAll('span');
-                  this.labelSpans.forEach(span => {
-                     if (span.classList.contains('off')) {
-                         span.classList.remove('off');
-                     } else {
-                         span.classList.add('off');
-                     }
-                  });
-                  console.log(`I am checked`, this.labelSpans);
-              });
-           });
-        });
-
+        this.checkboxes = this.buttonContainer.querySelectorAll('input[type="checkbox"].toggle');
     }
 
     initEvents() {
+        this.checkboxes.forEach(input => {
+            input.addEventListener('change', e => this.switchAndSetLocalStorage(e));
+        });
+    }
+
+    initLocalStorage() {
+        localStorage.getItem(this.display) ? this.switchDisplaySetting(this.display, this.displayDefault) : localStorage.setItem(this.display, this.displayDefault);
+        localStorage.getItem(this.playMode) ? this.switchDisplaySetting(this.playMode, this.playModeDefault) : localStorage.setItem(this.playMode, this.playModeDefault);
     }
 
     switchDisplaySetting(settingType, defaultValue) {
@@ -57,12 +46,26 @@ class SwitchButton {
 
         input.checked = localStorage.getItem(`${settingType}`) !== defaultValue;
         labelSpans.forEach(span => {
-            console.log(span.dataset, settingType);
-            span.dataset.display === localStorage.getItem(settingType) || span.dataset.playMode === localStorage.getItem(settingType) ? span.classList.remove('off') : span.classList.add('off');
+            span.dataset.display === localStorage.getItem(settingType) || span.dataset.playMode === localStorage.getItem(settingType) ? span.classList.remove(this.switchOffClass) : span.classList.add(this.switchOffClass);
         });
     }
 
-    switchPlayModeSetting() {
-        localStorage.getItem('playMode');
+    switchAndSetLocalStorage(e) {
+        const spans = e.currentTarget.nextElementSibling.querySelectorAll('span');
+        console.log(e.currentTarget.dataset.input, spans[0].getAttribute(`data-${e.currentTarget.dataset.input}`));
+        spans.forEach(span => {
+            span.classList.remove('off');
+        });
+
+        if (e.currentTarget.checked) {
+            spans[0].classList.add('off');
+            localStorage.setItem(e.currentTarget.dataset.input, spans[1].getAttribute(`data-${e.currentTarget.dataset.input}`));
+
+        } else {
+            spans[1].classList.add('off');
+            localStorage.setItem(e.currentTarget.dataset.input, spans[0].getAttribute(`data-${e.currentTarget.dataset.input}`));
+        }
+        // TODO could be DRYer?
+        // this.initLocalStorage();
     }
 }
