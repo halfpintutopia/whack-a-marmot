@@ -71,7 +71,7 @@ a {
 
 a:hover,
 a:focus,
-a:active{
+a:active {
     /*color: var(--chestnut);*/
 }
 
@@ -88,6 +88,16 @@ small {
     letter-spacing: var(--letter-spacing-body);
 }
 
-@media only screen and (width >=768px) {
+.game-buttons button {
+    font-family: var(--font-family-heading);
+    font-size: clamp(3.13rem, calc(2.65rem + 2.39vw), 4.50rem);
+    color: var(--font-color-heading);
+    line-height: clamp(4.06rem, calc(3.43rem + 3.15vw), 5.88rem);
+    letter-spacing: var(--letter-spacing-heading);
+    text-align: center;
+    cursor: url("/assets/media/images/fa-bullseye.png") 16 16, crosshair;
+}
+
+@media only screen and (width >= 768px) {
 
 }
