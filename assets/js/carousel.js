@@ -8,12 +8,12 @@
 
 /* https://stackoverflow.com/questions/15338054/horizontal-slideshow-with-divs */
 class Carousel {
-    constructor(carousel, carouselArea, carouselPage, previousBtn, nextBtn) {
-        this.carouselId = carousel;
-        this.carouselAreaClass = carouselArea;
-        this.carouselPageClass = carouselPage;
-        this.previousBtnClass = previousBtn;
-        this.nextBtnClass = nextBtn;
+    constructor(carouselId) {
+        this.carouselId = carouselId;
+        this.carouselAreaClass = 'carousel__area';
+        this.carouselPageClass = 'carousel__page';
+        this.previousBtnClass = 'carousel__previous';
+        this.nextBtnClass = 'carousel__next';
         this.carouselPageNumber = 0;
         this.counter = 0;
         this.carouselContainer = '';
@@ -32,8 +32,14 @@ class Carousel {
     initHTMLElements() {
         this.carouselArea = this.carouselContainer.querySelector(`.${this.carouselAreaClass}`);
         this.carouselPages = this.carouselContainer.querySelectorAll(`.${this.carouselPageClass}`);
-        this.previousBtn = this.carouselContainer.querySelector(`.${this.previousBtnClass}`);
-        this.nextBtn = this.carouselContainer.querySelector(`.${this.nextBtnClass}`);
+
+        if (this.carouselContainer.querySelector(`.${this.previousBtnClass}`)) {
+            this.previousBtn = this.carouselContainer.querySelector(`.${this.previousBtnClass}`);
+        }
+
+        if (this.carouselContainer.querySelector(`.${this.nextBtnClass}`)) {
+            this.nextBtn = this.carouselContainer.querySelector(`.${this.nextBtnClass}`);
+        }
 
         if (this.carouselPages) {
             this.carouselPageNumber = this.carouselPages.length;
@@ -41,8 +47,12 @@ class Carousel {
     }
 
     initEvents() {
-        this.previousBtn.addEventListener('click', e => this.slide(e));
-        this.nextBtn.addEventListener('click', e => this.slide(e));
+        if (this.previousBtn) {
+            this.previousBtn.addEventListener('click', e => this.slide(e));
+        }
+        if (this.nextBtn) {
+            this.nextBtn.addEventListener('click', e => this.slide(e));
+        }
     }
 
     slide(e) {
