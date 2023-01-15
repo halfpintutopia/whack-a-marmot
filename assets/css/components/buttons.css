@@ -52,14 +52,14 @@ input[data-type="toggle"] {
     top: -9999px;
 }
 
-input[data-type="toggle"] + label{
+input[data-type="toggle"] + label {
     display: flex;
     position: relative;
     /*cursor: url("assets/media/images/fa-bullseye.png"), crosshair;*/
 }
 
 input[data-type="toggle"]:focus + label::before {
-    outline: 1px solid  black;
+    outline: 1px solid black;
 }
 
 input[data-type="toggle"] + label::before {
@@ -96,4 +96,9 @@ input[data-type="toggle"]:checked + label::after {
 /*input[data-type="toggle"]:checked + label {*/
 /*    color: darkslategrey;*/
 /*}*/
+
+#music-button, #exit-btn {
+    background-color: rgba(255, 255, 255, .1);
+    backdrop-filter: blur(10px);
+}
 

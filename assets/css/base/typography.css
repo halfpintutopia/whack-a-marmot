@@ -26,12 +26,16 @@ h3 {
 }
 
 h4 {
-    font-family: var(--font-family-body);
+    font-family: var(--font-family-heading);
     font-weight: 600;
     font-size: clamp(2.13rem, calc(1.82rem + 1.52vw), 3.00rem);
     color: var(--font-color-heading);
     line-height: clamp(2.75rem, calc(2.36rem + 1.96vw), 3.88rem);
     letter-spacing: var(--letter-spacing-heading);
+}
+
+h4 span {
+    font: inherit;
 }
 
 h5 {

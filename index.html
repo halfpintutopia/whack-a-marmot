@@ -24,13 +24,15 @@
         </span>
     </div>
 
-<!--    <button id="exit-button" class="button button__exit">-->
-<!--         <span class="fa-stack fa-2x">-->
-<!--            <i class="fa-solid fa-door-open fa-stack-1x fa-inverse"></i>-->
-<!--        </span>-->
-<!--    </button>-->
+    <div id="exit-btn" class="button button__exit hidden">
+         <span class="fa-stack fa-2x">
+            <i class="fa-solid fa-door-open fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
 </header>
 <main id="game-area">
+<!--    <img src="assets/media/background/mountains.svg" alt="">-->
+
     <div class="border border-thick">
         <h1>Whack-A-Marmot</h1>
     </div>
@@ -121,7 +123,6 @@
     <div class="hammer"></div>
 </main>
 
-<footer></footer>
 <script src="https://kit.fontawesome.com/28847961b6.js" rel="preconnect" crossorigin="anonymous"></script>
 <script src="assets/js/loader.js"></script>
 <script src="assets/js/carousel.js"></script>
@@ -129,6 +130,7 @@
 <script src="assets/js/hammer.js"></script>
 <script src="assets/js/modal.js"></script>
 <script src="assets/js/switchButton.js"></script>
+<script src="assets/js/game.js"></script>
 <script>
     window.addEventListener('load', function () {
         const carouselSettings = new Carousel('#carousel-settings');
@@ -138,6 +140,7 @@
         const modalSettings = new Modal('#modal-settings', '.modal__overlay', '#settings-btn', '.modal__button--close')
         const modalInstructions = new Modal('#modal-instructions', '.modal__overlay', '#instructions-btn', '.modal__button--close')
         const switchButton = new SwitchButton('.button-container')
+        const game = new Game('#game-area')
     });
 </script>
 </body>
