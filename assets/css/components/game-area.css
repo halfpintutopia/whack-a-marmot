@@ -29,14 +29,14 @@ body {
     grid-template-rows: min-content;
 }
 
-#game-area div:nth-child(1) {
+#game-area .title {
     width: fit-content;
     height: fit-content;
     align-self: end;
     justify-self: center;
 }
 
-#game-area div:nth-child(2) {
+#game-area .buttons {
     width: fit-content;
     height: fit-content;
     justify-self: center;
@@ -53,6 +53,8 @@ body {
 #game-area .game-area__close-btn {
 
 }
+
+
 
 /*#game-area .background #foreground-hill-1 {*/
 /*    position: absolute;*/
@@ -137,4 +139,8 @@ div.red {
     top: -10px;
     left: -10px;
     opacity: 0.5;
+}
+
+.hill-2 {
+    position: relative;
 }

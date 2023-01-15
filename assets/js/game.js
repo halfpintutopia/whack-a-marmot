@@ -32,6 +32,8 @@ class Game {
     initEvents() {
         this.playBtn.addEventListener(this.eventClick, (e) => this.revealGamePage(e));
         this.exitBtn.addEventListener(this.eventClick, (e) => this.exitGame(e));
+
+        this.pathTest();
     }
 
     revealGamePage(e) {
@@ -58,5 +60,33 @@ class Game {
 
     showHideExitBtn() {
         this.exitBtn.classList.contains(this.hiddenClass) ? this.exitBtn.classList.remove(this.hiddenClass) : this.exitBtn.classList.add(this.hiddenClass);
+    }
+
+    pathTest() {
+        const hill2Path = document.querySelector('#hill-2-path');
+
+        let randomPercent = Math.floor((Math.random()) * 100);
+        const hillPathLength = Math.floor(hill2Path.getTotalLength());
+
+        /*Get percentage for path*/
+        randomPercent = randomPercent * hillPathLength / 100;
+        let randomPoint = hill2Path.getPointAtLength(randomPercent);
+        let angleCoordinatesA = hill2Path.getPointAtLength(randomPercent - 1);
+        let angleCoordinatesB = hill2Path.getPointAtLength(randomPercent + 1);
+
+        let currentAngle = Math.atan2(angleCoordinatesA.y - angleCoordinatesB.y, angleCoordinatesA.x - angleCoordinatesB.x) * 180 / Math.PI;
+        console.log(randomPoint.x, randomPoint.y, currentAngle);
+        const red = document.querySelector('div.red');
+        red.style.transform = `translate3d(${randomPoint.x}px, ${randomPoint.y - 51}px, 0) rotate(${currentAngle}deg)`;
+
+        red.addEventListener('click', function() {
+            console.log(this);
+        });
+        // marmot.style.transform = `rotate(${currentAngle}deg)`;
+        // const marmot = document.getElementById('marmot')
+        // console.log(marmot);
+        // marmot.setAttribute('transform', `translate(${randomPoint.x}, ${randomPoint.y})`);
+        // hillSVG.appendChild(marmot);
+        // console.log(randomPoint, currentAngle);
     }
 }
