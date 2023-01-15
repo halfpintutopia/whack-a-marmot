@@ -52,7 +52,6 @@ class SwitchButton {
 
     switchAndSetLocalStorage(e) {
         const spans = e.currentTarget.nextElementSibling.querySelectorAll('span');
-        console.log(e.currentTarget.dataset.input, spans[0].getAttribute(`data-${e.currentTarget.dataset.input}`));
         spans.forEach(span => {
             span.classList.remove('off');
         });
