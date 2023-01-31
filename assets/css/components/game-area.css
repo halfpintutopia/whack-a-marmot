@@ -1,6 +1,8 @@
 body {
     /*background: linear-gradient(to bottom, #2d91c2 0%, #1e528e 100%);*/
     background: linear-gradient(to bottom, #191621 0%, #020111 100%);
+        cursor: url("/assets/media/images/fa-bullseye.png") 16 16, crosshair;
+
 }
 
 #game-area {
@@ -53,7 +55,6 @@ body {
 #game-area .game-area__close-btn {
 
 }
-
 
 
 /*#game-area .background #foreground-hill-1 {*/
@@ -117,30 +118,36 @@ body {
     fill: #417505;
 }
 
-#wave-example {
+#Layer_1 {
     pointer-events: none;
 }
 
-#wave-example .shape-fill {
+#Layer_1 g {
     pointer-events: fill;
 }
 
 div.red {
-    background-color: red;
+    position: absolute;
+    background-image: url("../../media/images/svg/marmot_edited.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /*background-color: red;*/
     height: 100px;
     width: 100px;
-    cursor: url("../../media/images/svg/fa-bullseye.svg") 4 12, crosshair;
 
     /*width: 20px;*/
     /*height: 20px;*/
     border-radius: 10px;
-    position: absolute;
     /* Align center */
-    top: -10px;
-    left: -10px;
-    opacity: 0.5;
+    /*top: -50px;*/
+    /*left: -50px;*/
+    /*opacity: 0.5;*/
 }
 
 .hill-2 {
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }

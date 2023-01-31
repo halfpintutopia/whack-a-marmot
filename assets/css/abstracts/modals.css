@@ -1,73 +1,73 @@
 .modal {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.4rem;
-  padding: 1.3rem;
-  position: absolute;
-  top: 20%;
-  background-color: var(--japanese-indigo);
-  //border: 1px solid #ddd;
-  //border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 1.3rem;
+    position: absolute;
+    top: 20%;
+    background-color: var(--japanese-indigo);
+    align-self: center;
+    justify-self: center;
 }
 
 .modal .flex {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .modal input {
-  padding: 0.7rem 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 0.9em;
+    padding: 0.7rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9em;
 }
 
 .modal p {
-  font-size: 0.9rem;
-  color: #777;
-  margin: 0.4rem 0 0.2rem;
+    font-size: 0.9rem;
+    color: #777;
+    margin: 0.4rem 0 0.2rem;
 }
 
 .btn {
-  display: inline-block;
-  padding: 0.8rem 1.4rem;
-  font-weight: 700;
-  background-color: black;
-  color: white;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 1em;
+    display: inline-block;
+    padding: 0.8rem 1.4rem;
+    font-weight: 700;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1em;
 }
 
 .modal__button--open {
-  position: absolute;
-  bottom: 150px;
+    position: absolute;
+    bottom: 150px;
 }
 
 .modal__overlay {
-  margin: 0;
-  position: fixed;
-  inset: 0;
-  /*width: 100%;*/
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(3px);
-  z-index: 1;
+    margin: 0;
+    position: fixed;
+    inset: 0;
+    /*width: 100%;*/
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 1;
 }
 
 .modal {
-  z-index: 2;
+    z-index: 2;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 .modal__media {
-  height: 100%;
-  object-fit: contain;
+    height: 100%;
+    object-fit: contain;
 }
 
 
