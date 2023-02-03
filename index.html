@@ -2,171 +2,169 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Whack-A-Marmot - Game for all ages. How may can you whack?">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Whack-A-Marmot - Game for all ages. How may can you whack?">
     <title>Whack-A-Marmot</title>
     <link rel="icon" type="image/x-icon" href="assets/media/icons/logo.ico">
-    <!--    <link rel="stylesheet" href="assets/css/style.css">-->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<div class="container">
-    <style>
-        body {
-            margin: 5em;
-        }
-
-        #obj {
-            background-image: url("assets/media/images/marmot.svg");
-            background-repeat: no-repeat;
-            background-size: contain;
-            width: 40px;
-            aspect-ratio: 1;
-            border-radius: 10px;
-            position: absolute;
-            /* Align center */
-            top: -20px;
-            left: -20px;
-            /*z-index: -1;*/
-            cursor: pointer;
-        }
-
-        .container {
-            /*width: 438px;*/
-            margin: 0 auto;
-            position: relative;
-        }
-
-        input[type="range"] {
-            width: 400px;
-        }
-
-        svg {
-            position: relative;
-            pointer-events: none;
-            width: 100vw;
-            /*z-index: 100;*/
-        }
-
-        svg path {
-            /*pointer-events: fill;*/
-        }
-
-    </style>
-    <div id="obj"></div>
-    <!--    <svg  viewBox="0 0 1280.411 364.644">-->
-    <!--&lt;!&ndash;  <path id="path" fill="none" stroke="#000000" stroke-width="2.8243" stroke-miterlimit="10"&ndash;&gt;-->
-    <!--&lt;!&ndash;        d="M1.3,78c0,0,74-172.3,198,0s240-38.3,240-38.3"&ndash;&gt;-->
-    <!--&lt;!&ndash;  />&ndash;&gt;-->
-
-    <!--        <path d="m767.994,61.931c-128.001,0-128.001-60-256.002-60s-127.999,60-255.997,60S127.997,1.931,0,1.931v362.712h1280V61.931c-128.002,0-128.002-60-256.003-60s-128.002,60-256.003,60Z"-->
-    <!--                      fill="#708F2B"/>-->
-    <!--                <path id="path" d="m.411,2c127.997,0,127.997,60,255.994,60S384.403,2,512.402,2s128.001,60,256.002,60S896.406,2,1024.408,2s128.002,60,256.003,60"-->
-    <!--                      fill="none" stroke="#ABD645" stroke-miterlimit="10" stroke-width="4"/>-->
-    <!--  </svg>-->
-
-    <!--    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"-->
-    <!--	 >-->
-    <!--<style type="text/css">-->
-    <!--	.st0{fill:#00FF00;}-->
-    <!--	.st1{fill:none;stroke:#000000;stroke-width:4;stroke-miterlimit:10;}-->
-    <!--</style>-->
-    <!--<g>-->
-    <!--	<path class="st0" d="M200.003,338C133.335,338,66.667,318,0,318v82h400v-82C333.334,318.001,266.668,338,200.003,338z"/>-->
-    <!--	<path id="path" class="st1" d="M0.263,318.17c66.668,0,133.335,20,200.003,20s133.335-20,200.003-20"/>-->
-    <!--</g>-->
-    <!--</svg>-->
-
-
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400.268 83.83">
-        <path d="m200.003,21.83C133.335,21.83,66.667,1.83,0,1.83v82h400V1.83c-66.666,0-133.332,20-199.997,20Z"
-              fill="lime"/>
-        <path id="path" d="m.263,2c66.668,0,133.335,20,200.003,20S333.601,2,400.268,2" fill="none" stroke="#000"
-              stroke-miterlimit="10" stroke-width="4"/>
-        <use href="assets/media/images/svg/marmot.svg#real-marmot"/>
-    </svg>
-
-    <br><br>
-
-    <input type="range" name="slider" id="slider" min="0" max="100" width="500">
-    <input type="text" name="slider_val" size="3" id="slider_val">
-    <br><br>
-    <button id="toggle_animation_btn">Toggle Animation</button>
+<body>
+<div class="loader">
+    <h1>Waking up the marmots...</h1>
 </div>
+<header>
+    <div id="music-button" class="button button__music">
+        <audio src="assets/media/audio/zither-polka-alpenmusik-music-from-the-alps-1394.mp3"
+               class="button__music--audio"
+               controls autoplay loop></audio>
+        <span class="fa-stack fa-2x">
+            <i class="fa-solid fa-music fa-stack-1x fa-inverse music"></i>
+            <i class="fa-solid fa-slash fa-stack-1x silent active" style="color:Tomato"></i>
+        </span>
+    </div>
+
+    <div id="exit-btn" class="button button__exit hidden">
+         <span class="fa-stack fa-2x">
+            <i class="fa-solid fa-door-open fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
+</header>
+<main id="game-area">
+    <!--    <img src="assets/media/background/mountains.svg" alt="">-->
+
+
+    <div class="title border border-thick">
+        <h1>Whack-A-Marmot</h1>
+    </div>
+    <div class="buttons game-buttons border border-thick">
+        <button id="play-btn" class="button" type="button">Play</button>
+        <button id="instructions-btn" class="button" type="button">Instructions</button>
+        <button id="settings-btn" class="button" type="button">Settings</button>
+    </div>
+
+    <section>
+        <!-- hills # 2 -->
+        <div class="hill-2">
+            <div class="red"></div>
+            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 313.836">
+                <g id="hill-2">
+                    <path id="hill-2-background"
+                          d="m1015.726,104c-94.431,0-142.406-25.538-188.802-50.234-45.963-24.466-93.491-49.766-186.924-49.766-78.089,0-117.833,25.26-156.27,49.688-38.918,24.735-79.162,50.312-158.416,50.312-81.894,0-123.484-25.569-163.705-50.296C121.863,29.268,80.763,4,0,4v309.836h1280V4c-65.396,0-98.712,25.212-130.93,49.595-32.745,24.781-66.604,50.405-133.345,50.405Z"
+                          fill="#708f2b"/>
+                    <path id="hill-2-path"
+                          d="m1015.726,100c-93.432,0-140.96-25.299-186.923-49.766C782.407,25.538,734.431,0,640,0c-79.253,0-119.497,25.577-158.415,50.312-38.436,24.429-78.18,49.688-156.27,49.688-80.763,0-121.863-25.268-161.61-49.704C123.484,25.569,81.895,0,0,0v4c80.763,0,121.863,25.268,161.61,49.704,40.221,24.727,81.811,50.296,163.705,50.296,79.253,0,119.497-25.577,158.416-50.312,38.436-24.428,78.18-49.688,156.27-49.688,93.433,0,140.961,25.3,186.924,49.766,46.396,24.696,94.371,50.234,188.802,50.234,66.74,0,100.6-25.624,133.345-50.405,32.218-24.383,65.533-49.595,130.93-49.595V0c-66.739,0-100.599,25.624-133.344,50.405-32.218,24.382-65.533,49.595-130.931,49.595Z"
+                          fill="#abd645"/>
+                </g>
+            </svg>
+        </div>
+
+    </section>
+
+    <section id="modal-instructions" class="modal modal-settings container border border-thick hidden">
+        <button class="modal__button--close"><i class="fa-solid fa-xmark"></i></button>
+        <div id="carousel-instructions" class="carousel">
+            <h2>How to Play</h2>
+            <div class="carousel__area">
+                <div class="carousel__page">
+                    <div class="instructions container layered-content">
+                        <img class="modal__media layered-content__media" loading="lazy" srcset="assets/media/images/marmot/xs/marmot_edited-xs_1x.png 300w,
+                            assets/media/images/marmot/sm/marmot_edited-sm_1x.png 800w,
+                            assets/media/images/marmot/md/marmot_edited-md_1x.png 1000w,
+                            assets/media/images/marmot/lg/marmot_edited-lg_1x.png 1200w"
+                             src="assets/media/images/marmot/xl/marmot_edited-xl_1x.png"
+                             sizes="(min-width: 2420px) 2000px,
+                                (min-width: 720px) calc(94.76vw - 274px),
+                                (min-width: 520px) calc(100vw - 96px),
+                                calc(100vw - 32px)" alt="The marmot, your target">
+                        <h3>See the marmot</h3>
+                    </div>
+                </div>
+                <div class="carousel__page">
+                    <div class="instructions container layered-content">
+                        <img class="modal__media layered-content__media" loading="lazy" srcset="assets/media/images/hammer-action/xs/hammer_without_action-xs_1x.png 300w,
+                            assets/media/images/hammer-action/sm/hammer_without_action-sm_1x.png 800w,
+                            assets/media/images/hammer-action/md/hammer_without_action-md_1x.png 1000w,
+                            assets/media/images/hammer-action/lg/hammer_without_action-lg_1x.png 1200w"
+                             src="assets/media/images/hammer-action/xl/hammer_without_action-xl_1x.png"
+                             sizes="(min-width: 2420px) 2000px,
+                                (min-width: 720px) calc(94.76vw - 274px),
+                                (min-width: 520px) calc(100vw - 96px),
+                                calc(100vw - 32px)" alt="The hammer, to hit the marmot with">
+                        <h3>Whack the marmot</h3>
+                    </div>
+                </div>
+                <div class="carousel__page">
+                    <div class="instructions container layered-content">
+                        <img class="modal__media layered-content__media" loading="lazy" srcset="assets/media/images/marmot-hit/xs/marmot_hit-xs_1x.png 300w,
+                            assets/media/images/marmot-hit/sm/marmot_hit-sm_1x.png 800w,
+                            assets/media/images/marmot-hit/md/marmot_hit-md_1x.png 1000w,
+                            assets/media/images/marmot-hit/lg/marmot_hit-lg_1x.png 1200w"
+                             src="assets/media/images/marmot-hit/xl/marmot_hit-xl_1x.png"
+                             sizes="(min-width: 2420px) 2000px,
+                                (min-width: 720px) calc(94.76vw - 274px),
+                                (min-width: 520px) calc(100vw - 96px),
+                                calc(100vw - 32px)" alt="Marmot being whacked">
+                        <h3>How many marmots can you whack?</h3>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="carousel__previous"><i class="fa-solid fa-chevron-left"></i></button>
+            <button type="button" class="carousel__next"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </section>
+    <section id="modal-settings" class="modal modal-settings container border border-thick hidden">
+        <button class="modal__button--close"><i class="fa-solid fa-xmark"></i></button>
+        <div id="carousel-settings" class="carousel">
+            <h2>Settings</h2>
+            <div class="carousel__area">
+                <div class="carousel__page">
+                    <div class="settings-buttons button-container container">
+                        <strong>Light or dark mode</strong>
+                        <input type="checkbox" id="settings-buttons__mode"
+                               class="toggle settings-buttons__mode--toggle" data-input="display" data-type="toggle">
+                        <label for="settings-buttons__mode" class="container-narrow"><span class="settings__mode--light"
+                                                                                           data-display="light"><i
+                                class="fa-regular fa-lightbulb"></i>&nbsp;&nbsp;Light</span><span
+                                class="settings__mode--dark off" data-display="dark"><i
+                                class="fa-solid fa-lightbulb"></i>&nbsp;&nbsp;Dark</span></label>
+
+                        <strong>3 lives or relaxed mode</strong>
+                        <input type="checkbox" id="settings-buttons__play"
+                               class="toggle settings-buttons__play--toggle" data-input="play-mode" data-type="toggle">
+                        <label for="settings-buttons__play" class="container-narrow"><span
+                                class="settings__mode--limited" data-play-mode="limited"><i
+                                class="fa-solid fa-heart-crack"></i>&nbsp;&nbsp;Limited</span><span
+                                class="settings__mode--relaxed off" data-play-mode="relaxed"><i
+                                class="fa-solid fa-couch"></i>&nbsp;&nbsp;Relaxed</span></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="modal__overlay hidden"></div>
+    <div class="hammer"></div>
+</main>
+
+<script src="https://kit.fontawesome.com/28847961b6.js" rel="preconnect" crossorigin="anonymous"></script>
+<script src="assets/js/loader.js"></script>
+<script src="assets/js/carousel.js"></script>
+<script src="assets/js/audio.js"></script>
+<script src="assets/js/hammer.js"></script>
+<script src="assets/js/modal.js"></script>
+<script src="assets/js/switchButton.js"></script>
+<script src="assets/js/game.js"></script>
 <script>
-    // The two important methods here are
-    // path.getTotalLength and path.getPointAtLength
-
-    // For more info see:
-    // https://developer.mozilla.org/en-US/docs/Web/API/SVGPathElement
-
-    var path = document.getElementById('path')
-    console.log('typeof : ', typeof path);
-    var obj = document.getElementById('obj');
-    // Length of path
-    var pathLength = Math.floor(path.getTotalLength());
-
-    // Move obj element along path based on percentage of total length
-    function moveObj(prcnt) {
-        console.log(prcnt)
-        prcnt = (prcnt * pathLength) / 100;
-        console.log(prcnt, pathLength)
-
-
-        // Get x and y values at a certain point in the line
-        pt = path.getPointAtLength(prcnt);
-        pt.x = Math.round(pt.x);
-        pt.y = Math.round(pt.y);
-
-        obj.style.webkitTransform = 'translate3d(' + pt.x + 'px,' + pt.y + 'px, 0)';
-    }
-
-    // Initialize
-    moveObj(0);
-
-    // Slider functionality
-    var sliderEl = document.getElementById('slider');
-    var sliderValEl = document.getElementById('slider_val');
-    sliderEl.addEventListener('mousemove', function () {
-
-        sliderValEl.value = this.value;
-        moveObj(sliderValEl.value);
+    window.addEventListener('load', function () {
+        const carouselSettings = new Carousel('#carousel-settings');
+        const carouselInstructions = new Carousel('#carousel-instructions');
+        const audio = new Audio('#music-button', 'button__music--audio', 'silent');
+        const hammer = new Hammer('#game-area', '.hammer')
+        const modalSettings = new Modal('#modal-settings', '.modal__overlay', '#settings-btn', '.modal__button--close')
+        const modalInstructions = new Modal('#modal-instructions', '.modal__overlay', '#instructions-btn', '.modal__button--close')
+        const switchButton = new SwitchButton('.button-container')
+        const game = new Game('#game-area')
     });
-
-    // Animation functionality
-    // Use request animation frame for better performance
-    // if you're doing a lot of animation
-    var toggleAnimationBtn = document.getElementById('toggle_animation_btn')
-    var animationTimer = false;
-
-    function animationHandler(prcnt) {
-        moveObj(prcnt);
-        sliderEl.value = prcnt;
-        sliderValEl.value = prcnt;
-
-
-        if (prcnt < 100) {
-            animationTimer = setTimeout(function () {
-                animationHandler(prcnt + 1);
-            }, 50)
-        } else {
-            animationTimer = setTimeout(function () {
-                animationHandler(0);
-            }, 50);
-        }
-    }
-
-    toggleAnimationBtn.addEventListener('mouseup', function () {
-        if (animationTimer) {
-            clearTimeout(animationTimer);
-            animationTimer = false;
-        } else {
-            animationTimer = animationHandler(0);
-        }
-    });
-
-    document.getElementById('obj').addEventListener('click', function () {
-        console.log('damn. you got me');
-    })
-
 </script>
+</body>
 </html>
