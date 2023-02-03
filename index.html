@@ -7,7 +7,7 @@
     <meta name="description" content="Whack-A-Marmot - Game for all ages. How may can you whack?">
     <title>Whack-A-Marmot</title>
     <link rel="icon" type="image/x-icon" href="assets/media/icons/logo.ico">
-<!--    <link rel="stylesheet" href="assets/css/style.css">-->
+    <!--    <link rel="stylesheet" href="assets/css/style.css">-->
 </head>
 <div class="container">
     <style>
@@ -53,16 +53,37 @@
 
     </style>
     <div id="obj"></div>
-    <svg>
-<!--  <path id="path" fill="none" stroke="#000000" stroke-width="2.8243" stroke-miterlimit="10"-->
-<!--        d="M1.3,78c0,0,74-172.3,198,0s240-38.3,240-38.3"-->
-<!--  />-->
+    <!--    <svg  viewBox="0 0 1280.411 364.644">-->
+    <!--&lt;!&ndash;  <path id="path" fill="none" stroke="#000000" stroke-width="2.8243" stroke-miterlimit="10"&ndash;&gt;-->
+    <!--&lt;!&ndash;        d="M1.3,78c0,0,74-172.3,198,0s240-38.3,240-38.3"&ndash;&gt;-->
+    <!--&lt;!&ndash;  />&ndash;&gt;-->
 
-        <path d="m767.994,61.931c-128.001,0-128.001-60-256.002-60s-127.999,60-255.997,60S127.997,1.931,0,1.931v362.712h1280V61.931c-128.002,0-128.002-60-256.003-60s-128.002,60-256.003,60Z"
-                      fill="#708F2B"/>
-                <path id="path" d="m.411,2c127.997,0,127.997,60,255.994,60S384.403,2,512.402,2s128.001,60,256.002,60S896.406,2,1024.408,2s128.002,60,256.003,60"
-                      fill="none" stroke="#ABD645" stroke-miterlimit="10" stroke-width="4"/>
-  </svg>
+    <!--        <path d="m767.994,61.931c-128.001,0-128.001-60-256.002-60s-127.999,60-255.997,60S127.997,1.931,0,1.931v362.712h1280V61.931c-128.002,0-128.002-60-256.003-60s-128.002,60-256.003,60Z"-->
+    <!--                      fill="#708F2B"/>-->
+    <!--                <path id="path" d="m.411,2c127.997,0,127.997,60,255.994,60S384.403,2,512.402,2s128.001,60,256.002,60S896.406,2,1024.408,2s128.002,60,256.003,60"-->
+    <!--                      fill="none" stroke="#ABD645" stroke-miterlimit="10" stroke-width="4"/>-->
+    <!--  </svg>-->
+
+    <!--    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"-->
+    <!--	 >-->
+    <!--<style type="text/css">-->
+    <!--	.st0{fill:#00FF00;}-->
+    <!--	.st1{fill:none;stroke:#000000;stroke-width:4;stroke-miterlimit:10;}-->
+    <!--</style>-->
+    <!--<g>-->
+    <!--	<path class="st0" d="M200.003,338C133.335,338,66.667,318,0,318v82h400v-82C333.334,318.001,266.668,338,200.003,338z"/>-->
+    <!--	<path id="path" class="st1" d="M0.263,318.17c66.668,0,133.335,20,200.003,20s133.335-20,200.003-20"/>-->
+    <!--</g>-->
+    <!--</svg>-->
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400.268 83.83">
+        <path d="m200.003,21.83C133.335,21.83,66.667,1.83,0,1.83v82h400V1.83c-66.666,0-133.332,20-199.997,20Z"
+              fill="lime"/>
+        <path id="path" d="m.263,2c66.668,0,133.335,20,200.003,20S333.601,2,400.268,2" fill="none" stroke="#000"
+              stroke-miterlimit="10" stroke-width="4"/>
+        <use href="assets/media/images/svg/marmot.svg#real-marmot"/>
+    </svg>
 
     <br><br>
 
@@ -143,7 +164,7 @@
         }
     });
 
-    document.getElementById('obj').addEventListener('click', function() {
+    document.getElementById('obj').addEventListener('click', function () {
         console.log('damn. you got me');
     })
 
