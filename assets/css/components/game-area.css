@@ -1,30 +1,22 @@
-body {
-    /*background: linear-gradient(to bottom, #2d91c2 0%, #1e528e 100%);*/
-    background: linear-gradient(to bottom, #191621 0%, #020111 100%);
-        cursor: url("/assets/media/images/fa-bullseye.png") 16 16, crosshair;
-
-}
-
 #game-area {
-    /*background: 100% center / cover no-repeat url("../../media/background/mountains.svg");*/
-    /*height: calc(100vh - 2em);*/
     height: 100vh;
-    /*background: linear-gradient(to bottom, #2d91c2 0%, #1e528e 100%);*/
     display: grid;
     gap: 1rem;
     position: relative;
-
-    background-image: url("../../media/background/mountains.svg");
-    background-position: -55em center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-origin: padding-box;
-    background-clip: border-box;
-    background-attachment: scroll;
-    background-color: rgba(0, 0, 0, 0.1);
-
+    background: var(--sky-linear-gradient);
     transition: all .4s ease-in-out;
-    /*background-color: linear-gradient(to bottom, #2d91c2 0%, #1e528e 100%);*/
+}
+
+#game-area.active {
+    cursor: var(--bullseye-cursor);
+}
+
+#game-area svg {
+    height: 100vh;
+}
+
+#game-area.active .text {
+    height: 100vh;
 }
 
 #game-area.active {
@@ -38,12 +30,6 @@ body {
     justify-self: center;
 }
 
-#game-area .buttons {
-    width: fit-content;
-    height: fit-content;
-    justify-self: center;
-}
-
 #game-area.active div:nth-child(1) {
     align-self: start;
 }
@@ -54,100 +40,4 @@ body {
 
 #game-area .game-area__close-btn {
 
-}
-
-
-/*#game-area .background #foreground-hill-1 {*/
-/*    position: absolute;*/
-/*    bottom: 0;*/
-/*    left: 0;*/
-/*    right: 0;*/
-/*}*/
-
-
-/*#game-area .background-sun {*/
-/*    height: 600px;*/
-/*    aspect-ratio: 1;*/
-/*}*/
-
-.hill-1 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-}
-
-.hill-1 svg {
-    position: relative;
-    display: block;
-    width: calc(116% + 1.3px);
-    height: 128px;
-}
-
-.hill-1 .shape-fill {
-    fill: #9ED90A;
-}
-
-#marmot {
-    height: 100px;
-}
-
-/*https://www.shapedivider.app/*/
-.custom-shape-divider-bottom-1672494590 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
-
-.custom-shape-divider-bottom-1672494590 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 150px;
-    transform: rotateY(180deg);
-
-}
-
-.custom-shape-divider-bottom-1672494590 .shape-fill {
-    fill: #417505;
-}
-
-#Layer_1 {
-    pointer-events: none;
-}
-
-#Layer_1 g {
-    pointer-events: fill;
-}
-
-div.red {
-    position: absolute;
-    background-image: url("../../media/images/svg/marmot_edited.svg");
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    /*background-color: red;*/
-    height: 100px;
-    width: 100px;
-
-    /*width: 20px;*/
-    /*height: 20px;*/
-    border-radius: 10px;
-    /* Align center */
-    /*top: -50px;*/
-    /*left: -50px;*/
-    /*opacity: 0.5;*/
-}
-
-.hill-2 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
 }
