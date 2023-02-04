@@ -1,0 +1,28 @@
+/*Self hosting fonts https://www.youtube.com/watch?v=zK-yy6C2Nck&list=WL&index=3*/
+@font-face {
+    font-family: 'Bangers';
+    font-weight: 400;
+    src: url("./fonts/bangers/woff2/bangers-regular-webfont.woff2") format("woff2"),
+    url("./fonts/bangers/woff/bangers-regular-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'Oswald Extra Light';
+    font-weight: 200;
+    src: url("./fonts/oswald/woff2/oswald-extralight-webfont.woff2") format("woff2"),
+    url("./fonts/oswald/woff/oswald-extralight-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'Oswald Regular';
+    font-weight: 400;
+    src: url("./fonts/oswald/woff2/oswald-regular-webfont.woff2") format("woff2"),
+    url("./fonts/oswald/woff/oswald-regular-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'Oswald Semi-Bold';
+    font-weight: 600;
+    src: url("./fonts/oswald/woff2/oswald-demibold-webfont.woff2") format("woff2"),
+    url("./fonts/oswald/woff/oswald-demibold-webfont.woff") format("woff");
+}
