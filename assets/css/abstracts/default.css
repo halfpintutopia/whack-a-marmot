@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@200;400;600&display=swap');
-
 /* https://getbootstrap.com/docs/5.2/layout/containers/ */
 :root {
     --xx-large-container: 1400px;
@@ -18,9 +16,11 @@
     --sky-gradient-night: linear-gradient(to bottom, hsl(256, 20%, 11%) 85%, hsl(244, 89%, 4%) 100%);
 
     --font-family-bangers: 'Bangers', cursive;
-    --font-family-oswald: 'Oswald', sans-serif;
+    --font-family-oswald-extra-light: 'Oswald Extra Light', sans-serif;
+    --font-family-oswald: 'Oswald Regular', sans-serif;
+    --font-family-oswald-semi-bold: 'Oswald Semi-Bold', sans-serif;
     --font-family-heading: var(--font-family-bangers);
-    --font-family-body: var(--font-family-oswald);
+    --font-family-body: var(--font-family-oswald-extra-light);
     --font-family-weight-light: 200;
     --font-family-weight-regular: 400;
     --font-family-weight-bold: 600;
@@ -41,8 +41,27 @@
 
     --z-index-behind-neg-100: -100;
     --z-index-behind-100: 100;
-}
 
+    /*svg colours*/
+
+}
+.st1{fill:#634618;}
+	.st2{fill:#629531;}
+	.st3{fill:#77AE37;}
+	.st4{fill:#8CC63E;}
+	.st5{fill:#669A32;}
+	.st6{fill:#FFFFFF;}
+	.st7{fill:#FDBE45;}
+	.st8{fill:#70A535;}
+	.st9{fill:#71A635;}
+	.st10{fill:#8D5910;}
+	.st11{fill:#649832;}
+	.st12{fill:#8E523A;}
+	.st13{fill:#63413B;}
+	.st14{fill:#B76436;}
+	.st15{fill:#F0B777;}
+	.st16{fill:#CC6E34;}
+	.st17{fill:#2E282B;}
 /*@custom-media -- small (width >= 400px);*/
 
 /*@media (prefers-color-scheme: dark) {*/
