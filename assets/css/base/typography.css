@@ -99,7 +99,7 @@ small {
     line-height: clamp(4.06rem, calc(3.43rem + 3.15vw), 5.88rem);
     letter-spacing: var(--letter-spacing-heading);
     text-align: center;
-    cursor: url("/assets/media/images/fa-bullseye.png") 16 16, crosshair;
+    cursor: pointer;
 }
 
 @media only screen and (width >= 768px) {

@@ -55,7 +55,6 @@ input[data-type="toggle"] {
 input[data-type="toggle"] + label {
     display: flex;
     position: relative;
-    /*cursor: url("assets/media/images/fa-bullseye.png"), crosshair;*/
 }
 
 input[data-type="toggle"]:focus + label::before {

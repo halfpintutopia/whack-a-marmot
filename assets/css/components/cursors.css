@@ -1,7 +1,7 @@
 /* https://codepen.io/icao/pen/ErKqjj */
 /* https://codepen.io/developeraspire5/pen/GRMBxWN */
 /* https://codepen.io/kevinpowell/pen/XQEPvB */
-.hammer {
+.active .hammer {
     height: 100px;
     aspect-ratio: 1;
     position: absolute;
