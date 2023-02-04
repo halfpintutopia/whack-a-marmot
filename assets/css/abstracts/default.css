@@ -42,26 +42,34 @@
     --z-index-behind-neg-100: -100;
     --z-index-behind-100: 100;
 
+    --bullseye-cursor: url("/assets/media/images/fa-bullseye.png") 16 16, crosshair;
+
     /*svg colours*/
+    --light-cyan: hsl(167, 100%, 94%);
+    --light-cyan-2: hsl(168, 95%, 92%);
+    --aero-blue: hsl(168, 91%, 87%);
+    --pale-blue: hsl(167, 86%, 80%);
+    --aquamarine: hsl(168, 84%, 70%);
+    --aquamarine-2: hsl(171, 79%, 67%);
+    --turquoise: hsl(177, 69%, 58%);
+    --battery-charged-blue: hsl(186, 74%, 48%);
+    --battery-charged-blue-2: hsl(187, 82%, 46%);
+
+    --sky-gradient-1: var(--light-cyan);
+    --sky-gradient-2: var(--light-cyan-2);
+    --sky-gradient-3: var(--aero-blue);
+    --sky-gradient-4: var(--pale-blue);
+    --sky-gradient-5: var(--aquamarine);
+    --sky-gradient-6: var(--aquamarine-2);
+    --sky-gradient-7: var(--turquoise);
+    --sky-gradient-8: var(--battery-charged-blue);
+    --sky-gradient-9: var(--battery-charged-blue-2);
+
+    --sky-linear-gradient: linear-gradient(var(--sky-gradient-1) 0%, var(--sky-gradient-2) 8%, var(--sky-gradient-3) 20%, var(--sky-gradient-4) 36%, var(--sky-gradient-5) 53%, var(--sky-gradient-6) 62%, var(--sky-gradient-7) 77%, var(--sky-gradient-8) 95%, var(--sky-gradient-9) 100%);
 
 }
-.st1{fill:#634618;}
-	.st2{fill:#629531;}
-	.st3{fill:#77AE37;}
-	.st4{fill:#8CC63E;}
-	.st5{fill:#669A32;}
-	.st6{fill:#FFFFFF;}
-	.st7{fill:#FDBE45;}
-	.st8{fill:#70A535;}
-	.st9{fill:#71A635;}
-	.st10{fill:#8D5910;}
-	.st11{fill:#649832;}
-	.st12{fill:#8E523A;}
-	.st13{fill:#63413B;}
-	.st14{fill:#B76436;}
-	.st15{fill:#F0B777;}
-	.st16{fill:#CC6E34;}
-	.st17{fill:#2E282B;}
+
+
 /*@custom-media -- small (width >= 400px);*/
 
 /*@media (prefers-color-scheme: dark) {*/
@@ -69,3 +77,7 @@
 /*        color-scheme: dark;*/
 /*    }*/
 /*}*/
+
+.sky-gradient-1 {
+    stop-color: var(--light-cyan);
+}
