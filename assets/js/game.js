@@ -6,78 +6,87 @@
  regexp: true, sloppy: true, vars: false,
  white: true
  */
-
+/* https://github.com/jshint/jshint/issues/3361 */
 /* https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/ */
 class Game {
-    constructor(gameId) {
-        this.gameId = gameId;
-        this.playBtnId = '#play-btn';
-        this.playBtn = '';
-        this.eventClick = 'click';
-        this.activeClass = 'active';
-        this.hiddenClass = 'hidden';
-        this.gameButtonsClass = '.game-buttons';
-        this.exitBtnId = '#exit-btn';
-        this.localStorageKeyGame = 'game';
+    #htmlElements = {
+        game: '',
+        gameButtonContainer: '',
+        playBtn: '',
+        exitBtn: ''
+    };
+    #settings = {
+        id: {
+            game: '',
+            playBtn: 'play-btn',
+            exitBtn: 'exit-btn'
+        },
+        classes: {
+            active: 'active',
+            hidden: 'hidden',
+            gameButtons: '.game-buttons'
+        },
+        events: {
+            click: 'click',
+            custom: 'gameReady'
+        },
+        game: {
+            buttons: ['play', 'instructions', 'settings'],
+            localStorageKeyGame: 'game'
+        }
+    };
 
-        if (document.querySelector(this.gameId)) {
-            this.game = document.querySelector(this.gameId);
+    constructor(gameId) {
+        this.#settings.id.game = gameId;
+        this.#htmlElements.game = document.getElementById(this.#settings.id.game);
+        this.#htmlElements.gameButtonContainer = this.#htmlElements.game.querySelector(this.#settings.classes.gameButtons);
+        if (this.#htmlElements.game) {
+            this.createButtons();
             this.initHTMLElements();
             this.initEvents();
         }
     }
 
+    createButtons() {
+        this.#htmlElements.gameButtonContainer.innerHTML = '';
+
+        this.#settings.game.buttons.map((type, index) => {
+            let button = document.createElement('button');
+            button.id = `${type}-btn`;
+            button.classList.add('button');
+            button.setAttribute('type', 'button');
+            button.innerHTML = `${this.capitaliseFirstLetter(type)}`;
+            if (type === 'play') {
+                button.addEventListener(this.#settings.events.click, e => this.initStartGame(e));
+            }
+            this.#htmlElements.gameButtonContainer.appendChild(button);
+        });
+
+    }
+
     initHTMLElements() {
-        this.playBtn = this.game.querySelector(this.playBtnId);
-        this.exitBtn = document.querySelector(this.exitBtnId);
-        this.gameButtonContainer = this.game.querySelector(this.gameButtonsClass);
+        this.#htmlElements.playBtn = document.getElementById(this.#settings.id.playBtn);
+        this.#htmlElements.exitBtn = document.getElementById(this.#settings.id.exitBtn);
     }
 
     initEvents() {
-        this.playBtn.addEventListener(this.eventClick, this.initStartGame);
-        this.exitBtn.addEventListener(this.eventClick, this.initExitGame);
-        window.addEventListener('storage', (event) => {
-            console.log(event);
-            //
-            // return true;
-        });
-
-
-        console.log(new URLSearchParams(window.location.search));
-
-
-        // listen for keys in localhost
-        // if (localStorage.getItem(this.localStorageKeyGame)) {
-        //     // change to play view
-        //     if (localStorage.getItem(this.localStorageKeyGame) === 'play') {
-        //         this.revealGameArea();
-        //     } else {
-        //         // hide the game
-        //         this.hideGameArea();
-        //     }
-        // }
-
-        this.pathTest();
+        const gameEvent = new CustomEvent(this.#settings.events.custom);
+        window.dispatchEvent(gameEvent);
     }
 
-    // TODO add debounce
-
-    initStartGame() {
-        localStorage.setItem('game', 'play');
-    }
-
-    initExitGame() {
-        localStorage.setItem('game', 'off');
+    initStartGame(e) {
+        this.#htmlElements.game.classList.add(this.#settings.classes.active);
+        this.revealGameArea();
     }
 
     revealGameArea() {
-        this.game.classList.add(this.activeClass);
         this.createInnerGameBoard();
         this.showHideExitBtn();
     }
 
     hideGameArea() {
-        window.location.reload();
+        this.createButtons();
+        this.showHideExitBtn();
     }
 
     storageHandler() {
@@ -85,7 +94,7 @@ class Game {
     }
 
     createInnerGameBoard() {
-        this.gameButtonContainer.innerHTML = '';
+        this.#htmlElements.gameButtonContainer.innerHTML = '';
 
         const numberOfLivesDiv = document.createElement('div');
         numberOfLivesDiv.innerHTML = `<h4><span class="lives__remaining">3</span> out of <span class="lives__total">3</span></h4>`;
@@ -93,54 +102,28 @@ class Game {
         const numberOfMarmotsDiv = document.createElement('div');
         numberOfMarmotsDiv.innerHTML = `<h4 class="marmot-hit__total"><span>0</span> marmots</h4>`;
 
-        this.gameButtonContainer.append(numberOfLivesDiv, numberOfMarmotsDiv);
+        this.#htmlElements.gameButtonContainer.append(numberOfLivesDiv, numberOfMarmotsDiv);
     }
 
 
     showHideExitBtn() {
-        this.exitBtn.classList.contains(this.hiddenClass) ? this.exitBtn.classList.remove(this.hiddenClass) : this.exitBtn.classList.add(this.hiddenClass);
+        if (this.#htmlElements.exitBtn.classList.contains(this.#settings.classes.hidden)) {
+            this.#htmlElements.exitBtn.classList.remove(this.#settings.classes.hidden);
+            this.#htmlElements.exitBtn.addEventListener(this.#settings.events.click, e => this.initExitGame(e));
+        } else {
+            this.#htmlElements.exitBtn.removeEventListener(this.#settings.events.click, e => this.initExitGame(e));
+            this.#htmlElements.exitBtn.classList.add(this.#settings.classes.hidden);
+        }
+
     }
 
-    pathTest() {
-        const hill2Path = document.getElementById('hill-2-stroke');
-        const hill2PathLength = Math.floor(hill2Path.getTotalLength());
+    initExitGame(e) {
+        this.#htmlElements.game.classList.remove(this.#settings.classes.active);
+        this.hideGameArea();
+    }
 
-        const target = document.querySelector('div.red');
-
-        let randomPercent = Math.floor(Math.random() * 100 + 1);
-        /*Get percentage for path*/
-        let lengthPercentage = (randomPercent * hill2PathLength) / 100;
-
-        const {x, y} = hill2Path.getPointAtLength(lengthPercentage);
-        const {x: x2, y: y2} = hill2Path.getPointAtLength(lengthPercentage + 15);
-        const slope = Math.atan2(y - y2, x - x2);
-
-        console.log(target);
-//         target.setAttribute('transform', `translate(${x}px ${y})px rotate(${slope * 180 / Math.PI}deg)`);
-// target.style.transform = 'translate3d('+x+'px,'+y+'px, 0)';
-target.style.transform = `translate3d(${Math.round(x)}px, ${Math.round(y)}px, 0) rotate(${180 - Math.round(slope * 180 / Math.PI)}deg)`;
-target.style.transformOrigin = `center`;
-
-        let hill2PathPoint = hill2Path.getPointAtLength(lengthPercentage);
-        let pointX = Math.round(hill2PathPoint.x);
-        let pointY = Math.round(hill2PathPoint.y);
-
-        // let angleCoordinatesA = hill2Path.getPointAtLength(randomPercent - 1);
-        // let angleCoordinatesB = hill2Path.getPointAtLength(randomPercent + 1);
-        //
-        // let currentAngle = Math.atan2(angleCoordinatesA.y - angleCoordinatesB.y, angleCoordinatesA.x - angleCoordinatesB.x) * 180 / Math.PI;
-        // console.log(randomPoint.x, randomPoint.y, currentAngle);
-        // red.style.transform = `translate3d(${randomPoint.x}px, ${randomPoint.y}px, 0) rotate(${currentAngle}deg)`;
-
-
-        target.addEventListener('click', function () {
-            console.log(this);
-        });
-        // marmot.style.transform = `rotate(${currentAngle}deg)`;
-        // const marmot = document.getElementById('marmot')
-        // console.log(marmot);
-        // marmot.setAttribute('transform', `translate(${randomPoint.x}, ${randomPoint.y})`);
-        // hillSVG.appendChild(marmot);
-        // console.log(randomPoint, currentAngle);
+    // https://www.freecodecamp.org/news/javascript-capitalize-first-letter-of-word/
+    capitaliseFirstLetter(word) {
+        return `${word.charAt(0).toUpperCase()}${word.substring(1)}`;
     }
 }
