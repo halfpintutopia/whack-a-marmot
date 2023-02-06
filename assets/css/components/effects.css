@@ -1,0 +1,44 @@
+/*To do with grid*/
+/*https://www.youtube.com/watch?v=1zDRqHifoX0*/
+.hole {
+    --transform: .4s ease-in-out;
+    position: relative;
+    max-width: 15rem;
+    margin-inline: auto;
+}
+
+.marmot__container {
+    background-color: orangered;
+    aspect-ratio: 1 / 1.5;
+    display: grid;
+    align-items: end;
+    border-radius: 0 0 100vw 100vw;
+    overflow: hidden;
+    /*transition: transform var(--transform);*/
+}
+
+.marmot__container:hover {
+    /*transform: scale(1.1);*/
+}
+
+.circle {
+    position: absolute;
+    inset: auto 0 0;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    margin-inline: auto;
+    object-fit: cover;
+}
+
+.marmot__img {
+    position: relative;
+    left: 2.5rem;
+    z-index: 2;
+    transform: scale(1.3);
+    transition: transform var(--transform);
+}
+
+.marmot__container:hover .marmot__img {
+    transform: scale(1.3) translateY(-1.5rem);
+}
