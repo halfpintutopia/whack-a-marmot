@@ -30,7 +30,7 @@
         </span>
     </div>
 </header>
-<main id="game-area">
+<main id="game-area" class="active">
     <section class="layered-content">
         <svg class="layered-content__media" version="1.1" xmlns="http://www.w3.org/2000/svg"
              preserveAspectRatio="xMidYMid slice" viewBox="0 0 3000 1689">
@@ -42,13 +42,12 @@
                 <h1>Whack-A-Marmot</h1>
             </div>
 
-            <div class="buttons game-buttons border border-thick">
-                <button id="play-btn" class="button" type="button">Play</button>
-                <button id="instructions-btn" class="button" type="button">Instructions</button>
-                <button id="settings-btn" class="button" type="button">Settings</button>
-            </div>
+            <div class="buttons game-buttons border border-thick"></div>
         </div>
 
+        <div class="holes">
+            <div class="holes-container"></div>
+        </div>
     </section>
 
     <section id="modal-instructions" class="modal modal-settings container border border-thick hidden">
@@ -138,23 +137,6 @@
 
 <script src="https://kit.fontawesome.com/28847961b6.js" rel="preconnect" crossorigin="anonymous"></script>
 <script src="assets/js/loader.js"></script>
-<script src="assets/js/carousel.js"></script>
-<script src="assets/js/audio.js"></script>
-<script src="assets/js/hammer.js"></script>
-<script src="assets/js/modal.js"></script>
-<script src="assets/js/switchButton.js"></script>
-<script src="assets/js/game.js"></script>
-<script>
-    window.addEventListener('load', function () {
-        const carouselSettings = new Carousel('#carousel-settings');
-        const carouselInstructions = new Carousel('#carousel-instructions');
-        const audio = new Audio('#music-button', 'button__music--audio', 'silent');
-        const hammer = new Hammer('#game-area', '.hammer')
-        const modalSettings = new Modal('#modal-settings', '.modal__overlay', '#settings-btn', '.modal__button--close')
-        const modalInstructions = new Modal('#modal-instructions', '.modal__overlay', '#instructions-btn', '.modal__button--close')
-        const switchButton = new SwitchButton('.button-container')
-        const game = new Game('#game-area')
-    });
-</script>
+<script type="module" src="assets/js/main.js"></script>
 </body>
 </html>
