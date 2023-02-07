@@ -1,160 +1,945 @@
-# Whack-A-Mole
+# Whack-A-Marmot
 
-The game Whack-A-Mole 
+![Screenshot of the site on the Am I Responsive site](./docs/media/images/am_i_responsive.png)
 
-# Table of contents
+[View the live project here.](https://halfpintutopia.github.io/magic-forest-trail/)
 
-* [User Experience]()
-  * [Intended Audience]()
-  * [User Stories]()
-* [Design]()
-  * [Wireframes]()
-  * [Colour Scheme]()
-  * [Typography]()
-  * [Imagery]()
-* [Features]()
-  * [General Features]()
-  * [Future Implementations]()
-  * [Accessibility]()
-* [Technologies Used]()
-  * [Languages Used]()
-  * [Frameworks, Libraries, Programs Used]()
-* [Remote & Local Development]()
-  * [Remote Deployment]()
-  * [Local Deployment]()
-  * [How to Fork]()
-  * [How to Clone]()
-* [Testing]()
-* [Credits]()
-  * [Code Used]()
-  * [Content]()
-  * [Media]()
-  * [Acknowledgments]()
+The website is a fan website and has been created solely for the course, but it was inspired by an actual hiking trail based in Braunwald, Glarus-Süd, in the North East of Switzerland. "Zwerg Bartli", a mountain-dwelling    
+The dwarf is an affectionately well-known character in this area—a fictitious character made famous by a children's book. 
 
-In this section, you will include one or two paragraphs providing an overview of your project. Essentially, this part is your sales pitch. At this stage, you should have a name for your project so use it! Don’t introduce the project as a Portfolio project for the diploma. In this section, describe what the project hopes to accomplish, who it is intended to target and how it will be useful to the target audience. 
+![GitHub forks](https://img.shields.io/github/forks/halfpintutopia/magic-forest-trail?style=social)
+![W3C Validation](https://img.shields.io/w3c-validation/html?style=social&targetUrl=https%3A%2F%2Fhalfpintutopia.github.io%2Fmagic-forest-trail%2F)
+---
 
-For example, Love Maths is a site that hopes to demonstrate how pure JavaScript works in a real-world context. The site will be targeted toward people who not only love to implement more advanced JavaScript concepts but also maths. Love Maths is a fully responsive JavaScript maths game that will allow users to add, subtract, multiply and divide numbers. 
+## Table of contents
+* [User Experience](#user-experience-ux)
+  * [Intended Audience](#intended-audience)
+  * [User Stories](#user-stories)
 
-![Responsice Mockup](media/love_maths_mockup.png)
+* [Design](#design)
+  * [Wireframes](#wireframes)
+  * [Colour Scheme](#colour-scheme)
+  * [Typography](#typography)
+  * [Imagery](#imagery)
 
-## Features 
+* [Features](#features)
+  * [General Features on Each Page](#general-features-on-each-page)
+  * [Future Implementations](#future-implementations)
+  * [Accessibility](#accessibility)
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so. You will need to explain what value each of the features provides for the user, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+* [Technologies Used](#technologies-used)
+  * [Languages Used](#languages-used)
+  * [Frameworks, Libraries & Programs Used](#frameworks-libraries-and-programs-used)
 
-### Existing Features
+* [Remote & Local Development](#remote-and-local-deployment)
+  * [Remote Deployment](#remote-deployment)
+  * [Local Deployment](#local-deployment)
+    * [How to Fork](#how-to-fork)
+    * [How to Clone](#how-to-clone)
 
-- __The Love Maths Logo and Heading__
+* [Testing](#testing)
 
-  - Featured at the top of the page, the Love Maths logo and heading is easy to see for the user. Upon viewing the page, the user will be able to see the name of the game.
+* [Credits](#credits)
+  * [Code Used](#code-used)
+  * [Content](#content)
+  * [Media](#media)
+  * [Acknowledgments](#acknowledgments)
 
-![Logo](media/love_maths_logo.png)
+---
 
-- __The Game Area__
+# User Experience (UX)
 
-  - This section will allow the user to play the maths game. The user will be able to easily see icons for addition,  subtraction, multiplication, and division games.
-  - The user will be able to select the type of maths game they will be playing by clicking on the different icons. 
+The site was designed and developed mobile first. 
 
-![Game](media/love_maths_icons.png)
+The idea of the website was inspired by a friend, Hermina Oláh Vass. She and her family are very enthusiastic about the trail. She is motivated to breathe a new breath of life into this local attraction. The idea was to provide an essential website to start her project. and gain support from investors in Braunwald. As due to climate change, the winter season needs to be open to ventures, other than winter sports. 
 
-- __The Question section__
+## Intended Audience
 
-  - The question section is where the user will be able to see the elementary arithmetic question to answer as part of the game. The user will be able answer the questions in the answer box provide
-  - The user will be able to submit their answer and a pop-up will make it known to the user if they answered correctly. 
-
-![Question](media/love_maths_question.png)
-
-- __The Score Area__
-
-  - This section will allow the user to see exactly how many correct and incorrect answers they have provided. 
-
-![score](media/love_maths_answer.png)
-
-For some/all of your features, you may choose to reference the specific project files that implement them.
-
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
-
-### Features Left to Implement
-
-- Another feature idea
-
-## Testing 
-
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your project’s features and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+* Parents with children
+* Families
+* Schools
 
 
-### Validator Testing 
+* ## User stories
 
-- HTML
-    - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcode-institute-org.github.io%2Flove-maths%2F)
-- CSS
-    - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-maths%252F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
-- JavaScript
-    - No errors were found when passing through the official [Jshint validator](https://jshint.com/)
-      - The following metrics were returned: 
-      - There are 11 functions in this file.
-      - Function with the largest signature takes 2 arguments, while the median is 0.
-      - Largest function has 10 statements in it, while the median is 3.
-      - The most complex function has a cyclomatic complexity value of 4 while the median is 2.
-
-### Unfixed Bugs
-
-You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed. 
-
-## Deployment
-
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub) 
-
-- The site was deployed to GitHub pages. The steps to deploy are as follows: 
-  - In the GitHub repository, navigate to the Settings tab 
-  - From the source section drop-down menu, select the Master Branch
-  - Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
-
-The live link can be found here - https://code-institute-org.github.io/love-maths/
+* Client Goals
+    * Provide content that is child appropriate
+    * Provide content for adults or parents with children
+    * Provide easy access to routes
+        * Show trail distances
+        * Show approximate times to hike
+        * Show difficulty level
+    * Provide a booking form
+        * For people to book family passes in advance
+        * To also ask questions about the trail
+* First Time Visitor Goals
+    * Find information about the trails
+    * Find out how to get to the start of the trails
+    * Find information about the distance of the trails
+    * Find variations of the trial
+    * Find the difficulty and suitability of the trails
+    * See images of various trails
+* Return Visitor Goals
+    * Try alternative routes
+* Frequent Visitor Goals
+    * Refer their friends, families and associates about the hiking trail.
 
 
-## Credits 
+# Design
 
-In this section you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
+## Wireframes
+Wireframes were created for the site with [Figma](https://www.figma.com).
 
-You can break the credits section up into Content and Media, depending on what you have included in your project. 
+![Figma Wireframe for mobile and desktop](./docs/media/images/wireframe/game_page.png)
 
-### Content 
+*Wireframe for mobile and desktop*
 
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+<details>
+<summary>Game page for mobile and desktop</summary>
+<br>
 
-### Media
+![Figma Wireframe of start page for mobile and desktop](./docs/media/images/wireframe/start_page.png)
 
-- The photos used on the home and sign up page are from This Open Source site
-- The images used for the gallery page were taken from this other open source site
+*Start page - mobile and desktop*
+</details>
+<br>
+
+<details>
+<summary>Instructions modal for mobile and desktop</summary>
+<br>
+
+![Figma Wireframe of trail list for mobile and desktop](./docs/media/images/wireframe/how_to_play.png)
+
+*Instructions modal - mobile and desktop*
+</details>
+<br>
+
+<details>
+<summary>Settings modal for mobile and desktop</summary>
+<br>
+
+![Figma Wireframe of trail page for mobile and desktop](./docs/media/images/wireframe/settings.png)
+
+*Settings modal - mobile and desktop*
+</details>
+<br>
+
+To see the full wireframe, view it [here](https://www.figma.com/file/uxe1pvEmLdY4evLEZttrqL/Whack-A-Marmot-(Copy)?t=gLTwq7qkJGoX6F3p-1).
+
+---
+
+The website consists of the following:
+
+* Start page
+* Play page
+* A 404 page
+* Instructions modal
+* Settings modal
+* Leaderboard
+
+## Colour Scheme
+
+The colour palette was meant to support a cheerful and natural backdrop to showcase the trails. The colours should complement greens to represent nature and the forest. The red was to represent Bartli's hat. 
+
+Created colour palette using:
+* [Adobe Color](https://color.adobe.com/create/image) 
+
+![Colour palette for the website](./docs/media/images/design/color-palette/theme_from_image.png)
+
+### Accessibility Concerns
+
+The colour palette was altered to improve accessibility and increase contrast.
+
+Accessibility tested using the Adobe's [Accessibility Tools](https://color.adobe.com/create/color-contrast-analyzer).
+
+Results and contrast improvements suggestions:
+
+<details>
+<summary>Dark purple & Pale blue</summary>
+<br>
+
+![Adobe Accessibility Tools - Color contrast between dark purple and pale blue](./docs/media/images/wireframe/settings.png)
+
+*Settings modal - mobile and desktop*
+</details>
+<br>
+
+Feedback from lighthouse testing raised an issue with accessibility and colour contrast. As a result, the red colour was changed on the button with white font. 
+
+## Typography
+
+Permanent Marker and Overpass Fonts were chosen from [Google Fonts](https://fonts.google.com). Fonts were selected to represent fun, playful, clear and easy to read.
+
+![Permanent Marker 400](./docs/media/images/typography/permanent_400.png)
+
+![Overpass 200](./docs/media/images/typography/overpass_200.png)
+
+![Overpass 400](./docs/media/images/typography/overpass_400.png)
+
+![Overpass 600](./docs/media/images/typography/overpass_600.png)
+
+<br>
+
+### References for typography:
+
+When thinking about typography, the type had to suit responsively as well. The fonts had to be also readable on mobile View.
+
+Using Utopia, clamps for fonts and spaces were created. This minimised errors where fonts would be oversized or too small on desktop or mobile devices. 
+
+* [min(), max(), and clamp(): three logical CSS functions to use today](https://web.dev/min-max-clamp/)
+* [Modern Fluid Typography Using CSS Clamp](https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/)
+* [RFS](https://github.com/twbs/rfs#installation)
+* [Utopia - Responsive font and space sizing](https://utopia.fyi)
+
+## Imagery
+
+Images are located on all pages. At the top of the page, under the navigation, is the header image. All pages have the same thematic layout, and the layout should be consistent on all pages, including the home page. 
+
+Hiking photos have been used from:
+
+* [Pexels](https://www.pexels.com/)
+* [Unsplash](https://unsplash.com/)
 
 
-Congratulations on completing your Readme, you have made another big stride in the direction of being a developer! 
+Illustrated images, icons and favicons were generously provided by:
 
-## Other General Project Advice
+* Hermina Oláh Vass
 
-Below you will find a couple of extra tips that may be helpful when completing your project. Remember that each of these projects will become part of your final portfolio so it’s important to allow enough time to showcase your best work! 
 
-- One of the most basic elements of keeping a healthy commit history is with the commit message. When getting started with your project, read through [this article](https://chris.beams.io/posts/git-commit/) by Chris Beams on How to Write  a Git Commit Message 
-  - Make sure to keep the messages in the imperative mood 
+All images should match the theme of the site, families with children on hiking activities. The hand-drawn illustrations were to support the theme of the trail being inspired by an illustrated storybook. 
 
-- When naming the files in your project directory, make sure to consider meaningful naming of files, point to specific names and sections of content.
-  - For example, instead of naming an image used ‘image1.png’ consider naming it ‘landing_page_img.png’. This will ensure that there are clear file paths kept. 
+To increase the speed of the website., all images were compressed. Also, I added the ```lazy-loading``` attribute to images showing below the fold.
 
-- Do some extra research on good and bad coding practices, there are a handful of useful articles to read, consider reviewing the following list when getting started:
-  - [Writing Your Best Code](https://learn.shayhowe.com/html-css/writing-your-best-code/)
-  - [HTML & CSS Coding Best Practices](https://medium.com/@inceptiondj.info/html-css-coding-best-practice-fadb9870a00f)
-  - [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#General)
+### References for images
 
-Getting started with your Portfolio Projects can be daunting, planning your project can make it a lot easier to tackle, take small steps to reach the final outcome and enjoy the process! 
+* [An image format for the Web](https://developers.google.com/speed/webp)
+* [A Guide to Responsive Images with Ready-to-Use Templates](https://medium.com/free-code-camp/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433)
 
-https://thinkdobecreate.com/articles/minimum-static-site-sass-setup/
-https://pixabay.com/music/search/alps/?manual_search=1&order=None
-Music by <a href="https://pixabay.com/users/juliush-3921568/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=1394">JuliusH</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=1394">Pixabay</a>
+<br>
+
+Icons were used for social links and buttons. The icons used on the site were taken from:
+
+* [Font Awesome](https://fontawesome.com/)
+
+<br>
+
+The footprints-SVG was created using the SVG from:
+
+* [Pixabay](https://pixabay.com)
+
+* [Footprint](https://pixabay.com/vectors/shoe-print-boot-mark-traces-36730/) by <a href="https://pixabay.com/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=155457">OpenClipart-Vectors</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=155457">Pixabay</a>
+
+The footprints were created by using GIMP to manipulate the Image, and then the SVG was created with Inkscape. 
+
+# Features
+
+Details of each feature are listed under [General Features on Each Page](#general-features-on-each-page).
+
+The website consists of the following pages:
+* Home page
+* Storybook page
+* Individual hiking trail pages
+    * Full trail
+    * Option 1
+    * Option 2
+    * Option 3
+    * Option 4
+    * Option 5
+* Form page
+    * with a success page
+* 404 page 
+
+---
+
+[Home](https://halfpintutopia.github.io/magic-forest-trail/index.html)
+
+The home page consists of 5 sections. 
+* Full height and width image with:
+    * text overlay
+    * button to scroll down to hiking trail cards
+* Image, title and text
+* Trail cards
+* Image, title and text (reversed order)
+* Gallery
+* Floating booking button
+
+--- 
+
+[Storybook](https://halfpintutopia.github.io/magic-forest-trail//storybook.html)
+
+The storybook page consists of the following:
+* Image banner at the top of the page
+* Multiple images, title and text, alternatively reversing the order
+
+---
+
+[Individual trail page](https://halfpintutopia.github.io/magic-forest-trail/trails/full-trail.html)
+
+Individual trail pages are accessed via the home page. A link around each card directs visitors to see more about the trail.
+
+The hiking trail page consists of the following:
+* Image banner at the top of the page
+* Statistics are divided into 3 "boxes."
+* A back-to-trail list link, which redirects visitors back to the home page to the Trail Cards
+* A table of the stages, trails are divided into easy-to-walk stages
+* A map with markers of the locations indicated in the stages
+
+---
+
+[Form](https://halfpintutopia.github.io/magic-forest-trail/contact-us.html)
+
+The form page consists of the following:
+* A table to clearly present the tickets and prices
+* Form to add first name, last name, email address, number of adults and children and additional comments.
+* A map with the location of the main station
+
+---
+
+Every page except the 404 page, success page and form page has a CTA Button, which is a button to take visitors to the booking form.
+
+## General Features on Each Page 
+
+### Specific features
+
+#### Trail List
+
+![Screenshot of the trail (lists) feature](./docs/media/images/features/trail-list/trail_list_mobile.png)
+
+*Screenshot of the trail (lists) feature for mobile*
+
+<br>
+
+![Screenshot of the trail (lists) feature](./docs/media/images/features/trail-list/trail_list_desktop.png)
+
+*Screenshot of the trail (lists) feature for desktop*
+
+<br>
+
+The trail cards displayed contain text descriptions. The height of each card depends on the size of the device. A class was added to shorten the text so that the card heights were manageable on mobile devices. 
+
+#### Gallery
+
+![Screenshot of the gallery feature for mobile](./docs/media/images/features/gallery/gallery_mobile.png)
+
+*Screenshot of the gallery feature for mobile*
+
+<br>
+
+![Screenshot of the gallery feature for desktop](./docs/media/images/features/gallery/gallery_desktop.png)
+
+*Screenshot of the gallery feature for desktop*
+
+<br>
+
+The gallery is in a grid layout masonry style. The gallery was to suit and demonstrate images that are meant to be viewed in portrait or landscape.
+
+### Buttons
+
+#### Call to action
+
+![Screenshot of the cta feature for mobile](./docs/media/images/features/cta/cta_button_mobile.png)
+
+*Screenshot of the CTA feature for mobile*
+
+<br>
+
+![Screenshot of the cta feature for desktop](./docs/media/images/features/cta/cta_button_desktop.png)
+
+*Screenshot of the CTA feature for desktop*
+
+<br>
+
+The button link for the contact form is a floating element on the page. This was changed from the original wireframe, as the CTA button was to be visible wherever the user was on the page. Floating, it made it visible and accessible for visitors to easily click. 
+
+
+#### Back to trails button
+
+![Screenshot of the back button feature for mobile](./docs/media/images/features/back-btn/back-btn_mobile.png)
+
+*Screenshot of the back button feature for mobile*
+
+<br>
+
+![Screenshot of the back button feature for desktop](./docs/media/images/features/back-btn/back-btn_desktop.png)
+
+*Screenshot of the back button feature for desktop*
+
+<br>
+
+The back button is to enable visitors to go back to the trail card list quickly after viewing the trail page. On mobile, the backlink is always coloured red, but on the desktop, there is a hover effect from white to red. 
+
+
+#### Explore button
+
+https://user-images.githubusercontent.com/30613818/208512665-33657fd0-3047-4207-b8a4-384b875249ab.mov
+
+The explore button is located on the landing page. The button takes visitors directly to the trail cards so that they can explore the different hiking trails. 
+
+### Header image
+
+### With statistics (distance, level and time) and a back button
+
+![Screenshot of the header image for trail page with statistics and back button feature for mobile](./docs/media/images/features/header-img/header-img_stats_back-btn_mobile.png)
+
+*Screenshot of the header image for trail page with statistics and back button feature for mobile*
+
+<br>
+
+![Screenshot of the header image for trail page with statistics and back button feature for desktop](./docs/media/images/features/header-img/header-img_stats_back-btn_desktop.png)
+
+*Screenshot of the header image for trail page with statistics and back button feature for desktop*
+
+<br>
+
+The header image should be the first View of the landscape and also quick information about the trail. Showing the distance, approximate time to hike and the level of ease.  
+
+### Trail map
+
+#### Map using leaflet.js
+
+![Screenshot of the trail map on trail page feature for mobile](./docs/media/images/features/trail-map/trail-map_mobile.png)
+
+*Screenshot of the trail map on trail page feature for mobile*
+
+<br>
+
+![Screenshot of the trail map on trail page feature for desktop](./docs/media/images/features/trail-map/trail-map_desktop.png)
+
+*Screenshot of the trail map on trail page feature for desktop*
+
+<br>
+
+The trail map should show all the locations the trail encounters. The trail map markers are custom markers of Bartli.
+
+
+### text and Image
+
+#### Text Image Sections (with & without quick links)
+
+Version 1:
+
+![Screenshot of the text image feature for mobile](./docs/media/images/features/text-image/feature_image-title-text_mobile.png)
+
+*Screenshot of the text image feature for mobile*
+
+<br>
+
+![Screenshot of the text image feature for desktop](./docs/media/images/features/text-image/feature_image-title-text.png)
+
+*Screenshot of the text image feature for desktop*
+
+<br>
+
+Version 2:
+
+![Screenshot of the text image with quicklinks feature for mobile](./docs/media/images/features/text-image/feature_image-title-text-with-quicklinks_mobile.png)
+
+*Screenshot of the text image with quick links feature for mobile*
+
+<br>
+
+![Screenshot of the text image with quicklinks feature for desktop](./docs/media/images/features/text-image/feature_image-title-text-with-quicklinks.png)
+
+*Screenshot of the text image with quick links feature for desktop*
+
+<br>
+
+There are two versions of the text-image feature. 
+
+The first one can be found on the home page. This is a simple layout of a single image and text. When multiple image text sections are on the same page, they are set to be alternative sides. The text remains in a container, and the Image stretches to either the left or right side, dependent on which side of the text it is positioned. This effect was to fill empty space on wider devices and to add colour.
+
+The second version is seen on the storybook page. The layout is exactly the same. The content is slightly different, as, under each text, there is a link which enables the visitor to quickly go to the trail page if they are interested in visiting the place mentioned in the story. 
+
+## Future Implementations
+
+1. Add SwissMobility API to show:
+    * Show actual height
+    * Show real distances
+    * Show declines and inclines
+    *  the ascent and descent
+2. Connect Instagram API to enable hikers to share images
+    * Share their photos on social media
+    * Try other activities provided in the area
+3. Connect to other local companies
+    * Be able to contact Braunwaldbahn, the company that provides the cable car service
+    * Stay overnight in the accommodation provided in the area
+    * Try other recommended activities in the local area
+4. Provide a platform that boosts tourism in the area
+
+## Accessibility
+
+* Use of semantic HTML
+* Use of ARIA
+* Use of alt attributes
+* Provide an invisible "Skip to content" button for a screen reader. Enabling visitors to skip the navigation menu
+* Use Adobe Color to check colour contrast
+* Fixed header, providing visitors with easy access to other pages
+* Floating button element providing visitors to reach the contact form easily
+
+# Technologies Used
+
+## Languages Used
+
+* HTML5
+* CSS3
+* JavaScript
+
+## Frameworks, Libraries and Programs Used
+
+* [Google Fonts](https://fonts.google.com)
+    * Google Fonts was used to import the font to the style.css, which is used on all pages throughout the project.
+* [Font Awesome](https://fontawesome.com/)
+    * Font Awesome was used on all necessary pages throughout the website to add icons for aesthetic and UX purposes.
+* [Git](https://git-scm.com/)
+    * Git was used for version control by utilising the Gitpod terminal to commit to Git and push to GitHub.
+* [GitHub](https://github.com/)
+    * GitHub was used to store the project's code after being pushed from Git.
+* [Gitpod](https://www.gitpod.io/)
+* [Coolors](https://coolors.co/)
+* [Adobe Color](https://color.adobe.com/create/color-wheel)
+* [Pexels](https://www.pexels.com/)
+* [Unsplash](https://unsplash.com/)
+* Devtool
+    * [Firefox](https://firefox-source-docs.mozilla.org/devtools-user/)
+    * [Chrome](https://developer.chrome.com/docs/devtools/)
+* [Browserstack](https://www.browserstack.com)
+* [LeafletJS](https://leafletjs.com/) - [Use of GeoJSON with Leaflet](https://leafletjs.com/examples/geojson/)
+* [Figma](https://www.figma.com/)
+* [Inkscape](https://inkscape.org/)
+* [GIMP](https://www.gimp.org/)
+* [SVGator](https://app.svgator.com)
+
+# Remote and Local Deployment
+
+Git was used for version control. Version control was done locally and remotely. For remote version control, GitHub was used. Regular commits were made after each file change.
+
+## Remote deployment
+GitHub Pages was used to deploy the site remotely. 
+
+https://user-images.githubusercontent.com/30613818/205482822-4c33545b-8b52-4a2b-9212-0e119214ff22.mov
+
+*Screencast of deployment*
+
+<br>
+
+1. Go to the repository
+2. Click the Settings tab
+3. Click on Pages in the left-hand menu, under code and automation
+![Click Pages](./docs/media/images/deployment/deployment_pages.png)
+   *Screenshot of how to get the Pages section*
+
+4. Under Build and deployment > Source, ensure Deploy from a branch is selected 
+![Choose Source](./docs/media/images/deployment/deployment_pages_source.png)
+   *Screenshot of source option*
+
+5. Under Build and deployment > Branch, select the main branch 
+![Choose Branch](./docs/media/images/deployment/deployment_pages_branch.png)
+   *Screenshot of branch option*
+
+6. Click save
+7. It may take more than a few minutes, but when the page has been created, you will see the following success message 
+![Successful deployed](./docs/media/images/deployment/successful_page.png)
+   *Screenshot of success message*
+
+
+## Local Deployment
+
+To contribute or check the code yourself, you can:
+* fork the repository
+* clone the repository
+
+### How to Fork
+
+1. To fork, go the repository
+2. Click on the Fork button in the top left corner of the page. ![Click Fork](./docs/media/images/fork/fork_button.png)
+3. Fill in the form with either keep the name or create a new name for the repository 
+![Create Fork](./docs/media/images/fork/fork.png)
+
+### How to Clone
+
+1. To clone on the repository 
+2. Click on the Code button above the repository files. 
+3. A drop-down will appear and choose either 
+![Click Code](./docs/media/images/deployment/clone.png): 
+    * HTTP
+    * SSH
+    * GitHub CLI 
+4. Go to your terminal and decide where you want to clone the files.
+5. Use the copy/paste button and copy it into your terminal
+6. You also have the option to download a ZIP file of the code
+
+# Testing
+
+Browserstack was used for testing. The devices selected were:
+* Windows
+    * Firefox 108 on Windows 11
+    * Chrome 108 on Windows 11
+* Apple
+    * Ventura Safari 16
+* Android
+    * Chrome Galaxy S22
+    * Xiaomi Redmi Note 11 Chrome
+* Apple iOS
+    * Safari iPhone SE 2022
+
+## User experience
+
+Testing implemented from [User stories](#user-stories)
+
+### Client Goals Testing
+
+| Client goal | Implementation | Tested | Successful |
+| ------------- |:-------------:|:-----:|:-----:|
+| Provide content that is child appropriate | The content was child-friendly | Yes | Yes |
+| Provide content for adults or parents with children | The content is descriptive yet simple  | Yes | Yes |
+| Provide easy access to routes |  Trail list navigated via the nav bar. Quick links added to the Storybook page | Yes | Yes |
+| Inform visitors of trail distances | Trail details and distances are easily seen on the top of the page  | Yes | Yes |
+| Inform visitors of approximate times to hike the trail | Trail details, approximate times easily seen on the top of the page  | Yes | Yes |
+| Inform visitors of difficulty levels | Trail details, difficulty levels easily seen on the top of the page  | Yes | Yes |
+| Provide a booking form | Accessible via the CTA button show on all pages  | Yes | Yes |
+| Provide a form which allows users to book family passes in advance | form has inputs for booking the number of adults and children for family pass | Yes | Yes |
+| Provide a form for visitors to ask a question about the trail | Textarea input added for users to ask comments or ask questions | Yes | Yes |
+
+### First-Time Visitor Goals
+
+| First Time Visitor Goals | Implementation | Tested | Successful |
+| ------------- |:-------------:|:-----:|:-----:|
+| Find information about the trails | Trail list shows available trails. The link from the home page takes visitors to individual trail pages  | Yes | Yes |
+| Find information about the distance of the trails | information about the distance is above the fold on individual trail pages | Yes | Yes |
+| Find variations of the trial | List of trail variations are on the home page  | Yes | Yes |
+| Find the difficulty of the trails | information about the level is above the fold on individual trail pages  | Yes | Yes |
+| See images of various trails | Images of hiking trails in the gallery on the home page. The main Image in the header is of the trail | Yes | Yes |
+
+### Return Visitor Goals
+
+| Return Vistor Goals | Implementation | Tested | Successful |
+| ------------- |:-------------:|:-----:|:-----:|
+| Try alternative routes | List of trails on the home page. Visitors can check other routes | Yes | Yes |
+
+
+### Frequent Visitor Goals
+
+| Frequent Vistor Goals | Implementation | Tested | Successful |
+| ------------- |:-------------:|:-----:|:-----:|
+| Refer their friends, families and associates about the trail | Visitors can share the [trail list](https://halfpintutopia.github.io/magic-forest-trail/index.html#trails) and each of the individual trail pages | Yes | Yes |
+
+### Bugs and fixes
+
+|Bug / Errors | Where / Location site | Browser | Device | Remarks | Mode (light / dark) | Fixed | Solution |
+|-------------|-----------------------|---------|--------|---------|:-------------------:|:-----:|----------|
+| Fields in form not visible | contact form | Chrome, Firefox | Apple Laptop| | dark | Yes | Change line colors for field. Applied colour for dark and light mode |
+| Only adults and kids visible (missing: first name, last name, email, telephone)| contact form | Chrome | Apple Laptop | | dark | Yes | Change font colour to suit dark and light mode |
+| Arrows to add / sub-adults / kids only visible on mouse over | contact form | Chrome | Apple Laptop | | dark | | No | Arrow colour are determined by the browser |
+| Reference * not visible (bottom of the page) | contact form | Chrome | Apple Laptop | actually there are * but they are at form fields marking mandatory entries, slightly confusing | dark | | Yes | Removed the Reference as it was not relevant to the content |
+| Social media icons go white (on white), therefore not visible on mouse over everywhere / every page | Chrome, Firefox | Apple Laptop| | | dark | Yes | Changed the icon colours in the footer |
+| Twitter link typo - redirects to "Twiiter" instead of "Twitter" | everywhere / every page | Chrome, Firefox | Apple Laptop | | dark | Yes | Corrected typos |
+| Text box / frame of text box not visible | contact form | Chrome, Firefox | Apple Laptop| | dark | Yes | Added border to textarea field. Applied colour for both dark and light modes |
+| Image not loading | full trail | Chrome, Firefox | Apple Laptop| | dark | Yes | Fixed the broken link by correcting the relative path |
+| Zoom/pan on the map does not include all dwarfs, only the top half | every trail page | Chrome | Apple Laptop | | dark | Yes | Added bounds to the leaflet map to centre the map according to all markers |
+| Shorten text on the first story (size is off in comparison to the next story bits), not a bug, just looking off | storybook | Chrome, Firefox | Apple Laptop| | dark | Yes | The text remains the same but changed spacing on the text image grid areas |
+| Links either labelled wrong or wrong links set (Trail option 3 leads to variation 1) | storybook | Chrome, Firefox | Apple Laptop | | dark | Yes | Fixed links to suit the actual href |
+| Image not loading | full trail | Chrome | Android mobile | | dark | Yes | Fixed the broken link by correcting the relative path |
+| Little arrow to expand/collapse above adults doesn't do anything | contact form | Chrome, Firefox | Apple Laptop | | light / dark | Yes | form made visible by changing colours for dark and light mode |
+| Neither the labels nor the placeholder texts are visible at the first name, last name, email and phone number inputs | contact form |  |  |  | dark | Yes | Make placeholders visible by changing the default opacity to 1 for input placeholders. I also had to fix specificity, as I initially assumed the issue had occurred due to the wrong pseudo element being selected. After trial and error, I discovered that the problem occurred due to specificity, as form input needed to be more specific. |
+| Zoom out of your maps more than the max size of the maps are | All trail pages |  |  |  |  | Yes | Set a min and max zoom on the leaflet map |
+| Error form display in Chrome only sometimes notifies about wrong inputs. Firefox tells you correctly which input is wrong | contact form | Chrome | Apple Laptop | | dark | Not a fix | Chrome moves the page to the area of the error, the red border line highlights the missing information |
+| When going back from the trail page to the storybook, the last chosen trail option is marked in green instead of red. Nice, but I wonder if intentional. does not happen in Chrome only ff | storybook | Firefox | Apple Laptop | | dark | Yes | Change the look of the button, ensure :visited pseudo is not used |
+
+#### Not solved
+
+The following bug was found, but it was hard to determine the reason for the jumping of the sticky button. It only occurred on mobile devices. The issue still needs to be resolved and added as an issue to GitHub.
+
+https://user-images.githubusercontent.com/30613818/208293996-427c7401-a60a-47dc-bd0f-677ca0110535.mp4
+
+|Bug / Errors | Where / Location site | Browser | Device | Remarks | Mode (light / dark) |
+|-------------|-----------------------|---------|--------|---------|:-------------------:|
+| book your family pass blocks scroll down text and animation; Book your family pass goes into hiding when scrolled to the position of any header; Book your family pass seemingly jumps around randomly when scrolling; Book your family pass snaps back down after scrolling up from the bottom of the page | Home / Storybook | Chrome | Android mobile | | dark |
+
+### Lighthouse
+
+<details>
+<summary>Home page</summary>
+
+![Home page in light mode](docs/media/images/testing/lighthouse/light/lighthouse_index_light-mode.png)
+
+*Home page in light mode*
+
+<br>
+
+![Home page in dark mode](docs/media/images/testing/lighthouse/dark/lighthouse_index_dark_mode.png)
+
+*Home page in dark mode*
+
+</details>
+
+<details>
+<summary>Storybook page</summary>
+
+![Storybook page in light mode](docs/media/images/testing/lighthouse/light/lighthouse_storybook_light-mode.png)
+
+*Storybook page in light mode*
+
+<br>
+
+![Storybook page in dark mode](docs/media/images/testing/lighthouse/dark/lighthouse_storybook_dark_mode.png)
+
+*Storybook page in dark mode*
+
+</details>
+
+<details>
+<summary>Full trail page</summary>
+
+
+![Full trail page in light mode](docs/media/images/testing/lighthouse/light/lighthouse_full-trail_light-mode.png)
+
+*Full trail page in light mode*
+
+<br>
+
+![Full trail page in dark mode](docs/media/images/testing/lighthouse/dark/lighthouse_full-trail_dark_mode.png)
+
+*Full trail page in dark mode*
+
+</details>
+
+<details>
+<summary>Option 1 trail page</summary>
+
+![Option 1 trail page in light mode](docs/media/images/testing/lighthouse/light/lighthouse_variation-1_light-mode.png)
+
+*Option trail page in light mode*
+
+<br>
+
+![Option 1 trail page in dark mode](docs/media/images/testing/lighthouse/dark/lighthouse_variation-1_dark_mode.png)
+
+*Option trail page in dark mode*
+
+</details>
+
+<details>
+<summary>Option 2 trail page</summary>
+
+![Option 2 trail page in light mode](docs/media/images/testing/lighthouse/light/lighthouse_variation-2_light-mode.png)
+
+*Option 2 trail page in light mode*
+
+<br>
+
+![Option 2 trail page in dark mode](docs/media/images/testing/lighthouse/dark/lighthouse_variation-2_dark_mode.png)
+
+*Option 2 trail page in dark mode*
+
+</details>
+
+<details>
+<summary>Option 3 trail page</summary>
+
+![Option 3 trail page in light mode](docs/media/images/testing/lighthouse/light/lighthouse_variation-3_light-mode.png)
+
+*Option 3 trail page in light mode*
+
+<br>
+
+![Option 3 trail page in dark mode](docs/media/images/testing/lighthouse/dark/lighthouse_variation-3_dark_mode.png)
+
+*Option 3 trail page in dark mode*
+
+</details>
+
+<details>
+<summary>Option 4 trail page</summary>
+
+![Option 4 trail page in light mode](docs/media/images/testing/lighthouse/light/lighthouse_variation-4_light-mode.png)
+
+*Option 4 trail page in light mode*
+
+<br>
+
+![Option 4 trail page in dark mode](docs/media/images/testing/lighthouse/dark/lighthouse_variation-4_dark_mode.png)
+
+*Option 4 trail page in dark mode*
+
+#### Error in Lighthouse testing
+
+![Best practice error in dark mode](docs/media/images/testing/lighthouse/dark/lighthouse_variation-4_dark_mode_best-practice-error.png)
+
+*Best practice error in dark mode*
+
+<br>
+
+The error states: 
+
+"Image natural dimensions should be proportional to the display size and the pixel ratio to maximise image clarity."
+
+This error looks to be from the map tile, as all the screenshots refer to the Image added by the tile, linked by [vmts.geo.admin.ch](vmts.geo.admin.ch).
+
+</details>
+
+<details>
+<summary>Option 5 trail page</summary>
+
+![Option 5 trail page in light mode](docs/media/images/testing/lighthouse/light/lighthouse_variation-5_light-mode.png)
+
+*Option 5 trail page in light mode*
+
+<br>
+
+![Option 5 trail page in dark mode](docs/media/images/testing/lighthouse/dark/lighthouse_variation-5_dark_mode.png)
+
+*Option 5 trail page in dark mode*
+
+</details>
+
+<details>
+<summary>Contact us form page</summary>
+
+![Contact us form page in light mode](docs/media/images/testing/lighthouse/light/lighthouse_contact-us_light-mode.png)
+
+*Contact us form page in light mode*
+
+<br>
+
+![Contact us form page in dark mode](docs/media/images/testing/lighthouse/dark/lighthouse_contact-us_dark_mode.png)
+
+*Contact us form page in dark mode*
+
+</details>
+
+<details>
+<summary>Success form page</summary>
+
+![Success form page in light mode](docs/media/images/testing/lighthouse/light/lighthouse_success_light-mode.png)
+
+*Success form page in light mode*
+
+<br>
+
+![Success form page in dark mode](docs/media/images/testing/lighthouse/dark/lighthouse_success_dark_mode.png)
+
+*Success form page in dark mode*
+
+</details>
+
+<details>
+<summary>404 page</summary>
+
+![404 page in light mode](docs/media/images/testing/lighthouse/light/lighthouse_404_light-mode.png)
+
+*404 page in light mode*
+
+<br>
+
+![404 page in dark mode](docs/media/images/testing/lighthouse/dark/lighthouse_404_dark_mode.png)
+
+*404 page in dark mode*
+
+</details>
+
+### Validator Testing
+
+* Use [W3C Markup Validation Service](https://validator.w3.org) to validate all HTML pages
+* Use [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) to validate all stylesheets
+    * Error (```width: min(100% - var(--container-padding), var(--container-max-width));```) caused from related to the following issue:
+        * [Please add support for CSS variables ("custom properties"), a widely supported and crucial feature](https://github.com/w3c/css-validator/issues/111)
+
+# Credits
+
+## Code Used
+All code is also referenced as a comment in stylesheets.
+
+* [Fix hover effect](https://css-tricks.com/cool-hover-effects-using-background-properties)
+* [Fix error with scroll to content](https://www.youtube.com/watch?v=iGUSTyG-CYw)
+* [Screen Reader only - hidden elements](https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/style.css#L112)
+* [Custom Checkbox](https://moderncss.dev/pure-css-custom-checkbox-style/)
+* [Gallery layout](https://www.youtube.com/watch?v=rg7Fvvl3taU&t=1306s)
+* [Containers](https://www.youtube.com/watch?v=VsNAuGkCpQU&t=366s)
+* [Image with text overlay](https://www.youtube.com/shorts/oy2iUDT0mf8)
+* [Assessibility - Kevin Powell - Most sites have a "hidden" link, and yours should too!](https://www.youtube.com/watch?v=jDDaOFr9nqQ)
+
+
+### References & Resources
+A list of references used for the site:
+
+* [Kevin Powell](https://www.youtube.com/@KevinPowell)
+* [Box shadows](https://www.cssmatic.com/box-shadow)
+* [CSS Tricks - HTML Picture](https://css-tricks.com/a-guide-to-the-responsive-images-syntax-in-html/#using-picture)
+* [Web Dev - Browser level image lazy loading](https://web.dev/browser-level-image-lazy-loading/)
+* [Editorx - Font size](https://www.editorx.com/shaping-design/article/font-size)
+* [The 100% correct way to do CSS breakpoints](https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862)
+* [Containers - width for different devices](https://getbootstrap.com/docs/5.2/layout/containers)
+* [Jonas Schmedtmann](https://www.udemy.com/user/jonasschmedtmann/)
+* [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+    
+## Content
+
+The content created for this website was created by my partner, Stefan Tschudi, a colleague, Hermina Oláh Vass and myself. The story was loosely based on a rough translation of the character based on "Der Zwerg Bartli" by Lorly Jenny. 
+
+All maps were created from actual locations found in [Zwerg-Bartli-Erlebnisweg](https://braunwald.ch/de/map/detail/zwerg-bartli-erlebnisweg-9ff632fe-5eaf-45d9-a6ea-4d743635148f.html). 
+
+The address, email and telephone number on the contact page were made up and are not associated with Braunwald or the story.
+
+The trail is an actual, locally well-known tourist attraction. The trail locations were based on the existing hiking trails in Braunwald, Glarus-Süd in, Switzerland.
+
+## Media
+
+<details>
+<summary>Homepage</summary>
+
+* [Green Trees on Brown Soil](https://www.pexels.com/photo/green-trees-on-brown-soil-3670681/)
+* [Footprint](https://pixabay.com/vectors/shoe-print-boot-mark-traces-36730/) by <a href="https://pixabay.com/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=155457">OpenClipart-Vectors</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=155457">Pixabay</a>
+
+The footprints were created by using GIMP to manipulate the Image, and then the SVG was created with Inkscape. 
+
+* [Two Girls Sitting on Brown Bench Near Body of Water photo by Susanne Jutzeler, suju-foto](https://www.pexels.com/photo/two-girls-sitting-on-brown-bench-near-body-of-water-1292006/)
+* [children and adults hiking on a trail in the mountains](https://unsplash.com/photos/FSdsaiuRNfc) by <a href="https://unsplash.com/@greg_rosenke?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Greg Rosenke</a> on <a href="https://unsplash.com/@greg_rosenke?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  
+</details>
+
+<details>
+<summary>Gallery</summary>
+
+* [Man, woman, and child walking together along dirt road](https://unsplash.com/photos/REKXJ7JhwiI) by <a href="https://unsplash.com/@acasetta?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alberto Casetta</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+* [Child looking at map photo](https://unsplash.com/photos/kZO9xqmO_TA) by <a href="https://unsplash.com/@anniespratt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Annie Spratt</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+* [Two boys hiking through tall trees in forest](https://unsplash.com/photos/e3PQpLM_SGo) by <a href="https://unsplash.com/@greg_rosenke?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Greg Rosenke</a> on <a href="https://unsplash.com/s/photos/kids-hiking-adventure?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+* [Man carrying child](https://unsplash.com/photos/nzUHrjz4wu4) by <a href="https://unsplash.com/@katiemoum?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Katie Moum</a> on <a href="https://unsplash.com/s/photos/kids-hiking-adventure?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+* [Girl with turquois backpack, walking with family and friends](https://unsplash.com/photos/jd4_-NCdLE4) by <a href="https://unsplash.com/@greg_rosenke?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Greg Rosenke</a> on <a href="https://unsplash.com/@greg_rosenke?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  
+</details>
+
+<details>
+<summary>Trail list and Trail Pages</summary>
+
+* [White-Red-White Hiking flag painted on rock](https://unsplash.com/photos/ZIFccT5-36Y) by <a href="https://unsplash.com/@giger_00?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Curdin Giger</a> on <a href="https://unsplash.com/s/photos/hiking-switzerland?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+* [View of the View with the mountain as the backdrop](https://unsplash.com/photos/FNaFLvbLFuk) by <a href="https://unsplash.com/@chris_regg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Christian Regg</a> on <a href="https://unsplash.com/s/photos/hiking-switzerland?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+* [View from the path that leads to the lake](https://unsplash.com/photos/guc520jc0lk) by <a href="https://unsplash.com/@mamuej?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marc</a> on <a href="https://unsplash.com/s/photos/hiking-switzerland?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+* [View of mountain and valley below](https://unsplash.com/photos/NaEIPJ51EHE) by <a href="https://unsplash.com/@bladeoftree?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marco Meyer</a> on <a href="https://unsplash.com/s/photos/hiking-switzerland?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+* [View from the top of the mountain](https://unsplash.com/photos/NaEIPJ51EHE) by <a href="https://unsplash.com/@msafwat?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Mohammed Abdullatif</a> on <a href="https://unsplash.com/s/photos/hiking-switzerland?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+* [Swiss Alps in the middle of summer on a sunny day](https://unsplash.com/photos/fZsIcej_bQA) by <a href="https://unsplash.com/@allphotobangkok?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Paul Szewczyk</a> on <a href="https://unsplash.com/s/photos/hiking-switzerland?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+</details>
+
+<details>
+<summary>Storybook</summary>
+
+* [Children and adults hiking on a trail in the photo of the mountains from Unsplash](https://unsplash.com/photos/FSdsaiuRNfc) by <a href="https://unsplash.com/@greg_rosenke?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Greg Rosenke</a> on <a href="https://unsplash.com/s/photos/free-hiking-family-mountains?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+* [Girl journalling on a rocky surface](https://unsplash.com/photos/q-motCAvPBM) by <a href="https://unsplash.com/@nixcreative?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tyler Nix</a> on <a href="https://unsplash.com/s/photos/hiking-family-mountains?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+* [Family and dog going down the mountain](https://unsplash.com/photos/7MrXw_o7Eo4) by <a href="https://unsplash.com/@souvenirpixels?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">James Wheeler</a> on <a href="https://unsplash.com/s/photos/hiking-family-mountains?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+* [Boy climbing up rocky steps](https://unsplash.com/photos/t9VI_OSaErI) by <a href="https://unsplash.com/@mael_balland?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Mael BALLAND</a> on <a href="https://unsplash.com/s/photos/family-hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+* [Sun rays beating down on mother and daughter walking in the forest](https://unsplash.com/photos/RRZM3cwS1DU) by <a href="https://unsplash.com/@souvenirpixels?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">James Wheeler</a> on <a href="https://unsplash.com/s/photos/hiking-family-mountains?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+* [Boy walking up alpine hiking trail path](https://unsplash.com/photos/DgSRu6944ZQ) by <a href="https://unsplash.com/@morganddl?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Morgan David de Lossy</a> on <a href="https://unsplash.com/s/photos/children-hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+* [Small child with pink teepee tent](https://www.pexels.com/photo/pink-teepee-tent-3038343/) Photo by Caleb Oquendo from Pexels
+
+
+</details>
+
+## Acknowledgements
+A big thank you goes to all the incredible people who supported me during this process. Acknowledgements go to those who took the time to provide great insights and advice
+* Rahul Lakhanpal - for keeping me focussed.
+* Stefan Tschudi - for repeatedly testing my site on his computer and mobile. Being continually supportive and keeping me on track.
+* Hermina Oláh Vass - for providing beautiful illustrations and allowing me the privilege to use your images on my website.
+
+<br>
+
+Also, a huge thank you for the support on Code Institute's Slack Channels, especially Ger Tobin, who suggested using Leaflet and Szilvia Csernus, for reviewing my project and taking the time to give me constructive feedback, which I was able to report as bugs. 
