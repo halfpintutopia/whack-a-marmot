@@ -7,49 +7,38 @@
  white: true
  */
 /* https://github.com/jshint/jshint/issues/3361 */
-
 /* https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/ */
-class Game {
-    #htmlElements = {
-        game: '',
-        gameButtonContainer: '',
-        playBtn: '',
-        exitBtn: ''
-    };
-    #settings = {
-        id: {
-            game: '',
-            playBtn: 'play-btn',
-            exitBtn: 'exit-btn'
-        },
-        classes: {
-            active: 'active',
-            hidden: 'hidden',
-            gameButtons: '.game-buttons',
-            desktop: 'desktop',
-            mobile: 'mobile'
-        },
-        events: {
-            click: 'click',
-            custom: 'gameReady',
-            resize: 'resize'
-        },
-        game: {
-            buttons: ['play', 'instructions', 'settings'],
-            localStorageKeyGame: 'game',
-            gridColumnMobile: 3,
-            gridColumnDesktop: 4,
-            gridRowMobile: 2,
-            gridRowDesktop: 4,
-            responsiveMinWidth: 768,
-        }
-    };
 
+export class Game {
     constructor(gameId) {
-        this.#settings.id.game = gameId;
-        this.#htmlElements.game = document.getElementById(this.#settings.id.game);
-        this.#htmlElements.gameButtonContainer = this.#htmlElements.game.querySelector(this.#settings.classes.gameButtons);
-        if (this.#htmlElements.game) {
+        this.gameId = gameId;
+        this.playBtnId = 'play-btn';
+        this.exitBtnId = 'exit-btn';
+        this.gameButtonsClass = '.game-buttons';
+        this.activeClass = 'active';
+        this.hiddenClass = 'hidden';
+        this.desktopClass = 'desktop';
+        this.mobileClass = 'mobile';
+
+        this.clickEvent = 'click';
+        this.customEvent = 'gameReady';
+        this.resizeEvent = 'resize';
+
+        this.game = document.getElementById(this.gameId);
+        this.gameButtonContainer = this.game.querySelector(this.gameButtonsClass);
+        this.playBtn = '';
+        this.exitBtn = '';
+
+        this.gameButtons = ['play', 'instructions', 'settings'];
+        this.gameLocalStorageKeyGame = 'game';
+        this.gameGridColumnMobile = 3;
+        this.gameGridColumnDesktop = 4;
+        this.gameGridRowMobile = 2;
+        this.gameGridRowDesktop = 4;
+        this.gameResponsiveMinWidth = 768;
+        this.timeout = 300;
+
+        if (this.game && this.gameButtonContainer) {
             this.createButtons();
             this.initHTMLElements();
             this.initEvents();
@@ -58,36 +47,37 @@ class Game {
     }
 
     createButtons() {
-        this.#htmlElements.gameButtonContainer.innerHTML = '';
+        this.gameButtonContainer.innerHTML = '';
 
-        this.#settings.game.buttons.map((type, index) => {
+        this.gameButtons.map((type, index) => {
             let button = document.createElement('button');
             button.id = `${type}-btn`;
             button.classList.add('button');
             button.setAttribute('type', 'button');
             button.innerHTML = `${this.capitaliseFirstLetter(type)}`;
             if (type === 'play') {
-                button.addEventListener(this.#settings.events.click, e => this.initStartGame(e));
+                button.addEventListener(this.clickEvent, e => this.initStartGame(e));
             }
-            this.#htmlElements.gameButtonContainer.appendChild(button);
+            this.gameButtonContainer.appendChild(button);
         });
 
     }
 
     initHTMLElements() {
-        this.#htmlElements.playBtn = document.getElementById(this.#settings.id.playBtn);
-        this.#htmlElements.exitBtn = document.getElementById(this.#settings.id.exitBtn);
+        this.playBtn = document.getElementById(this.playBtnId);
+        this.exitBtn = document.getElementById(this.exitBtnId);
     }
 
     initEvents() {
-        const gameEvent = new CustomEvent(this.#settings.events.custom);
+        const gameEvent = new CustomEvent(this.customEvent);
         window.dispatchEvent(gameEvent);
 
-        window.addEventListener(this.#settings.events.resize, this.changeGridLayout);
+        // Issue with on resizing losing this https://stackoverflow.com/questions/47017093/es6-class-variable-gets-undefined
+        window.addEventListener(this.resizeEvent, this.changeGridLayout.bind(this));
     }
 
     initStartGame(e) {
-        this.#htmlElements.game.classList.add(this.#settings.classes.active);
+        this.game.classList.add(this.activeClass);
         this.revealGameArea();
     }
 
@@ -101,12 +91,8 @@ class Game {
         this.showHideExitBtn();
     }
 
-    storageHandler() {
-
-    }
-
     createInnerGameBoard() {
-        this.#htmlElements.gameButtonContainer.innerHTML = '';
+        this.gameButtonContainer.innerHTML = '';
 
         const numberOfLivesDiv = document.createElement('div');
         numberOfLivesDiv.innerHTML = `<h4><span class="lives__remaining">3</span> out of <span class="lives__total">3</span></h4>`;
@@ -114,23 +100,23 @@ class Game {
         const numberOfMarmotsDiv = document.createElement('div');
         numberOfMarmotsDiv.innerHTML = `<h4 class="marmot-hit__total"><span>0</span> marmots</h4>`;
 
-        this.#htmlElements.gameButtonContainer.append(numberOfLivesDiv, numberOfMarmotsDiv);
+        this.gameButtonContainer.append(numberOfLivesDiv, numberOfMarmotsDiv);
     }
 
 
     showHideExitBtn() {
-        if (this.#htmlElements.exitBtn.classList.contains(this.#settings.classes.hidden)) {
-            this.#htmlElements.exitBtn.classList.remove(this.#settings.classes.hidden);
-            this.#htmlElements.exitBtn.addEventListener(this.#settings.events.click, e => this.initExitGame(e));
+        if (this.exitBtn.classList.contains(this.hiddenClass)) {
+            this.exitBtn.classList.remove(this.hiddenClass);
+            this.exitBtn.addEventListener(this.clickEvent, e => this.initExitGame(e));
         } else {
-            this.#htmlElements.exitBtn.removeEventListener(this.#settings.events.click, e => this.initExitGame(e));
-            this.#htmlElements.exitBtn.classList.add(this.#settings.classes.hidden);
+            this.exitBtn.removeEventListener(this.clickEvent, e => this.initExitGame(e));
+            this.exitBtn.classList.add(this.hiddenClass);
         }
 
     }
 
     initExitGame(e) {
-        this.#htmlElements.game.classList.remove(this.#settings.classes.active);
+        this.game.classList.remove(this.activeClass);
         this.hideGameArea();
     }
 
@@ -139,14 +125,18 @@ class Game {
         return `${word.charAt(0).toUpperCase()}${word.substring(1)}`;
     }
 
-    changeGridLayout(e) {
-        console.log(window.innerWidth > this.#settings.game.responsiveMinWidth);
-        // if (window.innerWidth > this.#settings.game.responsiveMinWidth) {
-        //     document.body.classList.add(this.#settings.classes.desktop);
-        //     document.body.classList.remove(this.#settings.classes.mobile);
-        // } else {
-        //     document.body.classList.add(this.#settings.classes.mobile);
-        //     document.body.classList.remove(this.#settings.classes.desktop);
-        // }
+    changeGridLayout() {
+        console.log(typeof window.innerWidth, typeof this.gameResponsiveMinWidth, this.gameResponsiveMinWidth);
+        if (window.innerWidth > this.gameResponsiveMinWidth) {
+            console.log('desktop');
+            document.body.classList.add(this.desktopClass);
+            document.body.classList.remove(this.mobileClass);
+        } else {
+            console.log('mobile');
+            document.body.classList.add(this.mobileClass);
+            document.body.classList.remove(this.desktopClass);
+        }
     }
+
+
 }
