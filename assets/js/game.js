@@ -7,7 +7,9 @@
  white: true
  */
 /* https://github.com/jshint/jshint/issues/3361 */
+
 /* https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/ */
+import {openModal} from "./modal.js";
 
 export class Game {
     constructor(gameId) {
@@ -19,6 +21,12 @@ export class Game {
         this.hiddenClass = 'hidden';
         this.desktopClass = 'desktop';
         this.mobileClass = 'mobile';
+        this.holeClass = 'hole';
+        this.marmotContainerClass = 'marmot__container';
+        this.holeContainerClass = 'hole__container';
+        this.marmotImageClass = 'marmot__img';
+        this.marmotImageSrc = 'assets/media/images/marmot.svg';
+        this.marmotImageAlt = 'Marmot';
 
         this.clickEvent = 'click';
         this.customEvent = 'gameReady';
@@ -28,6 +36,9 @@ export class Game {
         this.gameButtonContainer = this.game.querySelector(this.gameButtonsClass);
         this.playBtn = '';
         this.exitBtn = '';
+        this.screenSize = '';
+        this.numberOfHoles = 0;
+        this.marmotPlacementArray = [];
 
         this.gameButtons = ['play', 'instructions', 'settings'];
         this.gameLocalStorageKeyGame = 'game';
@@ -54,10 +65,20 @@ export class Game {
             button.id = `${type}-btn`;
             button.classList.add('button');
             button.setAttribute('type', 'button');
+            button.setAttribute('data-type', type);
             button.innerHTML = `${this.capitaliseFirstLetter(type)}`;
-            if (type === 'play') {
-                button.addEventListener(this.clickEvent, e => this.initStartGame(e));
+            switch (type) {
+                case 'play':
+                    button.addEventListener(this.clickEvent, e => this.initStartGame(e));
+                    break;
+                case 'settings':
+                    button.addEventListener(this.clickEvent, openModal);
+                    break;
+                case 'instructions':
+                    button.addEventListener(this.clickEvent, openModal);
+                    break;
             }
+
             this.gameButtonContainer.appendChild(button);
         });
 
@@ -126,17 +147,77 @@ export class Game {
     }
 
     changeGridLayout() {
-        console.log(typeof window.innerWidth, typeof this.gameResponsiveMinWidth, this.gameResponsiveMinWidth);
         if (window.innerWidth > this.gameResponsiveMinWidth) {
-            console.log('desktop');
             document.body.classList.add(this.desktopClass);
             document.body.classList.remove(this.mobileClass);
+            this.screenSize = 'desktop';
+            this.numberOfHoles = 8;
         } else {
-            console.log('mobile');
             document.body.classList.add(this.mobileClass);
             document.body.classList.remove(this.desktopClass);
+            this.screenSize = 'mobile';
+            this.numberOfHoles = 6;
+        }
+
+        this.placeMarmotHoles();
+    }
+
+    placeMarmotHoles() {
+        let i = 0;
+        while (i < this.numberOfHoles) {
+            this.createMarmotHole();
+            i++;
         }
     }
 
+    createMarmotHole() {
+        const hole = document.createElement('div');
+        const holesContainer = document.querySelector('.holes-container');
+        hole.classList.add('hole');
 
+        hole.style.gridArea = this.generateGridArea();
+
+        const marmotContainer = document.createElement('div');
+        marmotContainer.classList.add(this.marmotContainerClass);
+
+        const holeContainer = document.createElement('div');
+        holeContainer.classList.add(this.holeContainerClass);
+
+        const marmotImage = document.createElement('img');
+        marmotImage.classList.add(this.marmotImageClass);
+        marmotImage.setAttribute('src', this.marmotImageSrc);
+        marmotImage.setAttribute('alt', this.marmotImageAlt);
+
+        marmotContainer.append(holeContainer, marmotImage);
+
+        hole.append(marmotContainer);
+        holesContainer.append(hole);
+    }
+
+    generateGridArea() {
+        let startRow, startColumn, placement;
+        if (this.screenSize === 'mobile') {
+            startRow = this.generateNumberBetweenMinAndMax(1, this.gameGridRowMobile);
+            startColumn = this.generateNumberBetweenMinAndMax(1, this.gameGridColumnMobile);
+        } else {
+            startRow = this.generateNumberBetweenMinAndMax(this.gameGridRowDesktop / 2, this.gameGridRowDesktop);
+            startColumn = this.generateNumberBetweenMinAndMax(1, this.gameGridColumnDesktop);
+        }
+
+        placement = `${startRow} / ${startColumn} / ${startRow + 1} / ${startColumn + 1}`;
+
+        if (this.marmotPlacementArray.includes(placement)) {
+            console.log('already inside');
+            this.generateGridArea();
+        }
+
+        this.marmotPlacementArray.push(`${startRow} / ${startColumn} / ${startRow + 1} / ${startColumn + 1}`);
+
+        return placement
+    }
+
+    // https://stackoverflow.com/a/24152886/8614652
+    generateNumberBetweenMinAndMax(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 }
