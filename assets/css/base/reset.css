@@ -17,7 +17,7 @@
 }
 
 html {
-    color-scheme: dark light;
+    /*color-scheme: dark light;*/
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
     height: 100%;
@@ -26,7 +26,6 @@ html {
 
 body {
     min-height: 100vh;
-    /*background-color: var(--body-background-color);*/
     display: flex;
     flex-direction: column;
 }

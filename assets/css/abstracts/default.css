@@ -1,4 +1,5 @@
 /* https://getbootstrap.com/docs/5.2/layout/containers/ */
+/* Name that color - https://chir.ag/projects/name-that-color/ */
 :root {
     --xx-large-container: 1400px;
     --x-large-container: 1200px;
@@ -7,13 +8,16 @@
     --small-container: 576px;
     --extra-container: 576px; /* use with less than */
 
-    --azureish-white: hsl(202, 46%, 91%);
-    --pistachio: hsl(73, 89%, 40%);
-    --japanese-indigo: hsl(203, 26%, 24%);
-    --dark-bronze: hsl(75, 97%, 13%);
-    --brown-nose: hsl(28, 58%, 27%);
-    --sky-gradient-day: linear-gradient(to bottom, hsl(200, 62%, 47%) 0%, hsl(212, 65%, 34%) 100%);
-    --sky-gradient-night: linear-gradient(to bottom, hsl(256, 20%, 11%) 85%, hsl(244, 89%, 4%) 100%);
+    /* Color scheme */
+    --revolver: hsl(270, 35%, 20%);
+    --spray: hsl(174, 88%, 66%);
+    --conifer: hsl(79, 68%, 54%);
+    --deep-forest-green: hsl(102, 66%, 13%);
+    --sun: hsl(43, 95%, 53%);
+    --iceberg: hsl(164, 57%, 88%);
+
+    /*--sky-gradient-day: linear-gradient(to bottom, hsl(200, 62%, 47%) 0%, hsl(212, 65%, 34%) 100%);*/
+    /*--sky-gradient-night: linear-gradient(to bottom, hsl(256, 20%, 11%) 85%, hsl(244, 89%, 4%) 100%);*/
 
     --font-family-bangers: 'Bangers', cursive;
     --font-family-oswald-extra-light: 'Oswald Extra Light', sans-serif;
@@ -24,8 +28,8 @@
     --font-family-weight-light: 200;
     --font-family-weight-regular: 400;
     --font-family-weight-bold: 600;
-    --font-color-heading: var(--pistachio);
-    --font-color-body: var(--azureish-white);
+    --font-color-heading: var(--deep-forest-green);
+    --font-color-body: var(--iceberg);
     --letter-spacing-heading: 0.1em;
     --letter-spacing-body: 0.05em;
 
@@ -66,18 +70,14 @@
     --sky-gradient-9: var(--battery-charged-blue-2);
 
     --sky-linear-gradient: linear-gradient(var(--sky-gradient-1) 0%, var(--sky-gradient-2) 8%, var(--sky-gradient-3) 20%, var(--sky-gradient-4) 36%, var(--sky-gradient-5) 53%, var(--sky-gradient-6) 62%, var(--sky-gradient-7) 77%, var(--sky-gradient-8) 95%, var(--sky-gradient-9) 100%);
-
 }
 
+.mobile {
+    --game-grid-columns: 3;
+    --game-grid-row: 2;
+}
 
-/*@custom-media -- small (width >= 400px);*/
-
-/*@media (prefers-color-scheme: dark) {*/
-/*    :root {*/
-/*        color-scheme: dark;*/
-/*    }*/
-/*}*/
-
-.sky-gradient-1 {
-    stop-color: var(--light-cyan);
+.desktop {
+    --game-grid-columns: 4;
+    --game-grid-row: 4;
 }
