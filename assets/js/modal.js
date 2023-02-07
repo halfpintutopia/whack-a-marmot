@@ -7,50 +7,21 @@
  */
 
 /* https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/ */
-export class Modal {
-    constructor(modalId, modalOverlayClass, btnOpenID, btnCloseClass) {
-        this.modalId = modalId;
-        this.modalOverlayClass = modalOverlayClass;
-        this.btnOpenID = btnOpenID;
-        this.btnCloseClass = btnCloseClass;
-        this.hiddenClass = 'hidden';
-        this.modal = '';
-        this.modalOverlay = '';
-        this.btnOpen = '';
-        this.btnClose = '';
+export const openModal = (e) => {
+    const modal = document.querySelector(`#modal-${e.target.dataset.type}`);
+    const modalOverlay = document.querySelector('.modal__overlay');
+    const btnClose = modal.querySelector('.modal__button--close');
 
-        if (document.querySelector(this.modalId)) {
-            this.modal = document.querySelector(this.modalId);
-            this.initHTMLElements();
-            this.initEvents();
-        }
-    }
+    modal.classList.remove('hidden');
+    modalOverlay.classList.remove('hidden');
 
-    initHTMLElements() {
-        this.modalOverlay = document.querySelector(this.modalOverlayClass);
-        this.btnOpen = document.querySelector(this.btnOpenID);
-        this.btnClose = this.modal.querySelector(this.btnCloseClass);
-    }
+    btnClose.addEventListener('click', closeModal);
+};
 
-    initEvents() {
-        this.btnOpen.addEventListener('click', () => {
-            this.openModal();
-        });
-        this.btnClose.addEventListener('click', () => {
-            this.closeModal();
-        });
-        this.modalOverlay.addEventListener('click', () => {
-            this.closeModal();
-        });
-    }
-
-    openModal() {
-        this.modal.classList.remove(this.hiddenClass);
-        this.modalOverlay.classList.remove(this.hiddenClass);
-    }
-
-    closeModal() {
-        this.modal.classList.add(this.hiddenClass);
-        this.modalOverlay.classList.add(this.hiddenClass);
-    }
-}
+const closeModal = (e) => {
+    console.log(e.target.closest('.modal'));
+    const modal = e.target.closest('.modal');
+    const modalOverlay = document.querySelector('.modal__overlay');
+    modal.classList.add('hidden');
+    modalOverlay.classList.add('hidden');
+};
