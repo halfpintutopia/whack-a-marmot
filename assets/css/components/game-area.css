@@ -15,8 +15,13 @@
     height: 100vh;
 }
 
-#game-area.active .text {
+#game-area .text {
     height: 100vh;
+    margin-top: 0;
+}
+
+#game-area .text .title {
+    margin-top: 1em;
 }
 
 #game-area.active {
@@ -26,18 +31,8 @@
 #game-area .title {
     width: fit-content;
     height: fit-content;
-    align-self: end;
-    justify-self: center;
 }
 
-#game-area.active div:nth-child(1) {
-    align-self: start;
-}
-
-#game-area.active div:nth-child(2) {
-    padding: 2em;
-}
-
-#game-area .game-area__close-btn {
-
+#game-area .game-buttons button {
+    margin-top: 0;
 }
