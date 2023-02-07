@@ -7,7 +7,7 @@
  */
 
 /* https://stackoverflow.com/questions/15338054/horizontal-slideshow-with-divs */
-class Carousel {
+export class Carousel {
     constructor(carouselId) {
         this.carouselId = carouselId;
         this.carouselAreaClass = 'carousel__area';

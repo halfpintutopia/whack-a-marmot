@@ -6,14 +6,13 @@
  regexp: true, sloppy: true, vars: false,
  white: true
  */
-class Hammer {
-
+export class Hammer {
     constructor(gameContainerId, cursorClass) {
         this.gameContainerId = gameContainerId;
         this.cursorClass = cursorClass;
         this.gameContainer = '';
         this.cursor = '';
-        this.playBtnClass = 'play-btn';
+        this.playBtnId = 'play-btn';
 
         if (document.querySelector(this.gameContainerId)) {
             this.gameContainer = document.querySelector(this.gameContainerId);
@@ -23,16 +22,17 @@ class Hammer {
     }
 
     initHTMLElements() {
-        this.cursor = this.gameContainer.querySelector(this.cursorClass);
-        document.getElementById(this.playBtnClass).addEventListener('mousedown', function () {
+        this.cursor = document.querySelector(this.cursorClass);
+        this.playBtn = document.getElementById(this.playBtnId)
+        this.playBtn.addEventListener('mousedown', function () {
             // document.querySelector('.hammer').classList.add('active')
             this.style.animation = 'shake 150ms 2 linear';
         });
-        document.getElementById(this.playBtnClass).addEventListener('mouseup', function () {
+        document.getElementById(this.playBtnId).addEventListener('mouseup', function () {
 
             this.style.animation = '';
         });
-        document.getElementById(this.playBtnClass).addEventListener('mouseleave', function () {
+        document.getElementById(this.playBtnId).addEventListener('mouseleave', function () {
             // document.querySelector('.hammer').classList.add('active')
             this.style.animation = '';
         });

@@ -7,7 +7,7 @@
  */
 
 /* https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/ */
-class SwitchButton {
+export class SwitchButton {
     constructor(buttonContainerClass) {
         this.buttonContainerClass = buttonContainerClass;
         this.checkboxes = '';

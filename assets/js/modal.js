@@ -7,7 +7,7 @@
  */
 
 /* https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/ */
-class Modal {
+export class Modal {
     constructor(modalId, modalOverlayClass, btnOpenID, btnCloseClass) {
         this.modalId = modalId;
         this.modalOverlayClass = modalOverlayClass;
