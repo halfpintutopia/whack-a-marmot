@@ -7,6 +7,7 @@
  white: true
  */
 /* https://github.com/jshint/jshint/issues/3361 */
+
 /* https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/ */
 class Game {
     #htmlElements = {
@@ -24,15 +25,23 @@ class Game {
         classes: {
             active: 'active',
             hidden: 'hidden',
-            gameButtons: '.game-buttons'
+            gameButtons: '.game-buttons',
+            desktop: 'desktop',
+            mobile: 'mobile'
         },
         events: {
             click: 'click',
-            custom: 'gameReady'
+            custom: 'gameReady',
+            resize: 'resize'
         },
         game: {
             buttons: ['play', 'instructions', 'settings'],
-            localStorageKeyGame: 'game'
+            localStorageKeyGame: 'game',
+            gridColumnMobile: 3,
+            gridColumnDesktop: 4,
+            gridRowMobile: 2,
+            gridRowDesktop: 4,
+            responsiveMinWidth: 768,
         }
     };
 
@@ -44,6 +53,7 @@ class Game {
             this.createButtons();
             this.initHTMLElements();
             this.initEvents();
+            this.changeGridLayout();
         }
     }
 
@@ -72,6 +82,8 @@ class Game {
     initEvents() {
         const gameEvent = new CustomEvent(this.#settings.events.custom);
         window.dispatchEvent(gameEvent);
+
+        window.addEventListener(this.#settings.events.resize, this.changeGridLayout);
     }
 
     initStartGame(e) {
@@ -125,5 +137,16 @@ class Game {
     // https://www.freecodecamp.org/news/javascript-capitalize-first-letter-of-word/
     capitaliseFirstLetter(word) {
         return `${word.charAt(0).toUpperCase()}${word.substring(1)}`;
+    }
+
+    changeGridLayout(e) {
+        console.log(window.innerWidth > this.#settings.game.responsiveMinWidth);
+        // if (window.innerWidth > this.#settings.game.responsiveMinWidth) {
+        //     document.body.classList.add(this.#settings.classes.desktop);
+        //     document.body.classList.remove(this.#settings.classes.mobile);
+        // } else {
+        //     document.body.classList.add(this.#settings.classes.mobile);
+        //     document.body.classList.remove(this.#settings.classes.desktop);
+        // }
     }
 }
