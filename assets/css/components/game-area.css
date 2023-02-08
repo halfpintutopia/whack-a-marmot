@@ -33,6 +33,21 @@
     height: fit-content;
 }
 
+#game-area.active .game-buttons,
+#game-area.active .game-buttons > div:first-child,
+#game-area.active .game-buttons .marmot-hit h4 {
+    text-align: center;
+}
+
 #game-area .game-buttons button {
+    margin-top: 0;
+}
+
+#game-area.active .game-buttons .marmot-hit {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+#game-area.active .game-buttons .marmot-hit__left {
     margin-top: 0;
 }

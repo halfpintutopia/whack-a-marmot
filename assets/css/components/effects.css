@@ -1,8 +1,6 @@
 /*To do with grid*/
 /*https://www.youtube.com/watch?v=1zDRqHifoX0*/
 .holes {
-    width: 100vw;
-    /*height: 50vh;*/
     align-self: end;
 }
 
@@ -11,12 +9,14 @@
     display: grid;
     grid-template-columns: repeat(var(--game-grid-columns), 1fr);
     grid-template-rows: repeat(var(--game-grid-row), 1fr);
+    margin-bottom: 1em;
 }
 
 @media only screen and (width >= 768px) {
     .holes-container {
         grid-template-columns: repeat(var(--game-grid-columns), 1fr);
         grid-template-rows: repeat(var(--game-grid-row), 1fr);
+        margin-bottom: 3em;
     }
 }
 

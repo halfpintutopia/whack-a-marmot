@@ -10,7 +10,7 @@
 
 /* https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/ */
 import {openModal} from "./modal.js";
-import {debounce, generateNumberBetweenMinAndMax} from "./helpers.js";
+import {debounce, generateNumberBetweenMinAndMax, capitaliseFirstLetter} from "./helpers.js";
 
 export class Game {
     constructor(gameId) {
@@ -35,7 +35,8 @@ export class Game {
 
         this.game = document.getElementById(this.gameId);
         this.gameButtonContainer = this.game.querySelector(this.gameButtonsClass);
-        this.holes = '';
+        this.marmots = '';
+        this.timerDiv = '';
 
         this.playBtn = '';
         this.exitBtn = '';
@@ -53,7 +54,18 @@ export class Game {
         this.gameGridRowDesktop = 4;
         this.gameResponsiveMinWidth = 768;
         this.timeout = 300;
-        this.marmotPopTimer = 0;
+        this.marmotPopTimerId = null;
+        this.countdownTimerId = null;
+        this.lastMarmot = '';
+        this.timer = 30000;
+        this.timerInterval = 500;
+        this.countDownTimerInterval = 1000;
+        this.currentTime = 60;
+        this.currentScore = 0;
+
+        // Fix events with bind https://stackoverflow.com/a/22870717/8614652
+        this.initStartListener = this.initStartGame.bind(this);
+        this.hitMarmotListener = this.hitMarmot.bind(this);
 
         if (this.game && this.gameButtonContainer) {
             this.createButtons();
@@ -71,10 +83,10 @@ export class Game {
             button.classList.add('button');
             button.setAttribute('type', 'button');
             button.setAttribute('data-type', type);
-            button.innerHTML = `${this.capitaliseFirstLetter(type)}`;
+            button.innerHTML = `${capitaliseFirstLetter(type)}`;
             switch (type) {
                 case 'play':
-                    button.addEventListener(this.clickEvent, e => this.initStartGame(e));
+                    button.addEventListener(this.clickEvent, this.initStartListener);
                     break;
                 case 'settings':
                     button.addEventListener(this.clickEvent, openModal);
@@ -101,13 +113,17 @@ export class Game {
     createInnerGameBoard() {
         this.gameButtonContainer.innerHTML = '';
 
-        const numberOfLivesDiv = document.createElement('div');
-        numberOfLivesDiv.innerHTML = `<h4><span class="lives__remaining">3</span> out of <span class="lives__total">3</span></h4>`;
+        const timerDiv = document.createElement('div');
+        timerDiv.innerHTML = `<h4><span class="timer-container">Timer: <span class="timer-container__countdown">0</span></span></h4>`;
 
         const numberOfMarmotsDiv = document.createElement('div');
-        numberOfMarmotsDiv.innerHTML = `<h4 class="marmot-hit__total"><span>0</span> marmots</h4>`;
+        numberOfMarmotsDiv.classList.add('marmot-hit');
+        numberOfMarmotsDiv.innerHTML = `<h4>Hits: <span class="marmot-hit__total">0</span></h4><h4 class="marmot-hit__left">Missed: <span class="marmot-hit__miss">0</span></h4>`;
 
-        this.gameButtonContainer.append(numberOfLivesDiv, numberOfMarmotsDiv);
+        this.gameButtonContainer.append(timerDiv, numberOfMarmotsDiv);
+
+        this.timerDiv = document.querySelector('.timer-container__countdown');
+
     }
 
 
@@ -121,10 +137,6 @@ export class Game {
         }
     }
 
-    // https://www.freecodecamp.org/news/javascript-capitalize-first-letter-of-word/
-    capitaliseFirstLetter(word) {
-        return `${word.charAt(0).toUpperCase()}${word.substring(1)}`;
-    }
 
     changeGridLayout() {
         if (window.innerWidth > this.gameResponsiveMinWidth) {
@@ -181,26 +193,44 @@ export class Game {
             }
         }
 
-        this.holes = document.querySelectorAll(`.${this.marmotImageClass}`);
+        this.marmots = document.querySelectorAll(`.${this.marmotImageClass}`);
+        this.moveMarmot();
     }
 
     startGame() {
-        this.marmotPop();
+        this.moveMarmot();
     }
 
-    pickRandomHole(holes) {
-        return holes[Math.floor(Math.random() * holes.length)];
+    hitMarmot() {
+        const score = document.querySelector('.marmot-hit__total');
+        score.innerHTML = ++this.currentScore;
     }
 
-    marmotPop() {
-        const time = generateNumberBetweenMinAndMax(200, 1000);
-        const hole = this.pickRandomHole(this.holes);
-        hole.classList.add('pop');
+    moveMarmot() {
+        this.marmotPopTimerId = setInterval(this.pickRandomHole.bind(this), this.timerInterval);
+        this.countdownTimerId = setInterval(this.countdown.bind(this), this.countDownTimerInterval);
+    }
 
-        this.marmotPopTimer = setTimeout(() => {
-            hole.classList.remove('pop');
-            this.marmotPop();
-        }, time);
+    pickRandomHole() {
+        console.log(this.hitMarmotListener);
+        this.marmots.forEach(marmot => {
+            console.log(marmot);
+            marmot.classList.remove('pop');
+            marmot.removeEventListener(this.clickEvent, this.hitMarmotListener);
+        });
+
+        const marmot = this.marmots[Math.floor(Math.random() * this.marmots.length)];
+        marmot.classList.add('pop');
+        marmot.addEventListener(this.clickEvent, this.hitMarmotListener);
+    }
+
+    countdown() {
+        this.timerDiv.innerHTML = --this.currentTime;
+        if (this.currentTime === 0) {
+            clearInterval(this.marmotPopTimerId);
+            clearInterval(this.countdownTimerId);
+        }
+        //TODO add leaderboard
     }
 
     initHTMLElements() {
@@ -216,14 +246,14 @@ export class Game {
         window.addEventListener(this.resizeEvent, debounce(this.changeGridLayout.bind(this), 500));
     }
 
-    initStartGame(e) {
+    initStartGame() {
         this.game.classList.add(this.activeClass);
         this.revealGameArea();
         this.changeGridLayout();
         this.startGame();
     }
 
-    initExitGame(e) {
+    initExitGame() {
         this.game.classList.remove(this.activeClass);
         this.hideGameArea();
         this.removeGridLayout();
