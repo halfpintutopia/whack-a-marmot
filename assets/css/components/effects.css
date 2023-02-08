@@ -62,6 +62,6 @@
     transition: transform var(--transform);
 }
 
-.marmot__container:hover .marmot__img {
+.marmot__container .marmot__img.pop {
     transform: scale(2) translateY(-1rem);
 }

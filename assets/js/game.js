@@ -10,7 +10,7 @@
 
 /* https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/ */
 import {openModal} from "./modal.js";
-import {debounce} from "./helpers.js";
+import {debounce, generateNumberBetweenMinAndMax} from "./helpers.js";
 
 export class Game {
     constructor(gameId) {
@@ -35,6 +35,8 @@ export class Game {
 
         this.game = document.getElementById(this.gameId);
         this.gameButtonContainer = this.game.querySelector(this.gameButtonsClass);
+        this.holes = '';
+
         this.playBtn = '';
         this.exitBtn = '';
         this.screenSize = '';
@@ -51,6 +53,7 @@ export class Game {
         this.gameGridRowDesktop = 4;
         this.gameResponsiveMinWidth = 768;
         this.timeout = 300;
+        this.marmotPopTimer = 0;
 
         if (this.game && this.gameButtonContainer) {
             this.createButtons();
@@ -177,6 +180,27 @@ export class Game {
                 holesContainer.append(hole);
             }
         }
+
+        this.holes = document.querySelectorAll(`.${this.marmotImageClass}`);
+    }
+
+    startGame() {
+        this.marmotPop();
+    }
+
+    pickRandomHole(holes) {
+        return holes[Math.floor(Math.random() * holes.length)];
+    }
+
+    marmotPop() {
+        const time = generateNumberBetweenMinAndMax(200, 1000);
+        const hole = this.pickRandomHole(this.holes);
+        hole.classList.add('pop');
+
+        this.marmotPopTimer = setTimeout(() => {
+            hole.classList.remove('pop');
+            this.marmotPop();
+        }, time);
     }
 
     initHTMLElements() {
@@ -189,8 +213,6 @@ export class Game {
         window.dispatchEvent(gameEvent);
 
         // Issue with on resizing losing this https://stackoverflow.com/questions/47017093/es6-class-variable-gets-undefined
-        // window.addEventListener(this.resizeEvent, this.changeGridLayout.bind(this));
-
         window.addEventListener(this.resizeEvent, debounce(this.changeGridLayout.bind(this), 500));
     }
 
@@ -198,6 +220,7 @@ export class Game {
         this.game.classList.add(this.activeClass);
         this.revealGameArea();
         this.changeGridLayout();
+        this.startGame();
     }
 
     initExitGame(e) {
