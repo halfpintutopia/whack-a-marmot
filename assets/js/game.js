@@ -10,7 +10,7 @@
 
 /* https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/ */
 import {openModal} from "./modal.js";
-import {debounce} from "./debounce.js";
+import {debounce} from "./helpers.js";
 
 export class Game {
     constructor(gameId) {
@@ -83,28 +83,6 @@ export class Game {
 
             this.gameButtonContainer.appendChild(button);
         });
-
-    }
-
-    initHTMLElements() {
-        this.playBtn = document.getElementById(this.playBtnId);
-        this.exitBtn = document.getElementById(this.exitBtnId);
-    }
-
-    initEvents() {
-        const gameEvent = new CustomEvent(this.customEvent);
-        window.dispatchEvent(gameEvent);
-
-        // Issue with on resizing losing this https://stackoverflow.com/questions/47017093/es6-class-variable-gets-undefined
-        // window.addEventListener(this.resizeEvent, this.changeGridLayout.bind(this));
-
-        window.addEventListener(this.resizeEvent, debounce(this.changeGridLayout.bind(this), 500));
-    }
-
-    initStartGame(e) {
-        this.game.classList.add(this.activeClass);
-        this.revealGameArea();
-        this.changeGridLayout();
     }
 
     revealGameArea() {
@@ -138,13 +116,6 @@ export class Game {
             this.exitBtn.removeEventListener(this.clickEvent, e => this.initExitGame(e));
             this.exitBtn.classList.add(this.hiddenClass);
         }
-
-    }
-
-    initExitGame(e) {
-        this.game.classList.remove(this.activeClass);
-        this.hideGameArea();
-        this.removeGridLayout();
     }
 
     // https://www.freecodecamp.org/news/javascript-capitalize-first-letter-of-word/
@@ -178,7 +149,9 @@ export class Game {
     }
 
     createMarmotHoles() {
-        let start = this.screenSize === 'desktop' ? 2 : 1;
+        let numberOfMarmots,
+            start = this.screenSize === 'desktop' ? 2 : 1;
+
         for (let i = start; i <= this.gameGridRow; i++) {
             for (let j = 1; j <= this.gameGridColumn; j++) {
                 const holesContainer = document.querySelector('.holes-container');
@@ -204,5 +177,32 @@ export class Game {
                 holesContainer.append(hole);
             }
         }
+    }
+
+    initHTMLElements() {
+        this.playBtn = document.getElementById(this.playBtnId);
+        this.exitBtn = document.getElementById(this.exitBtnId);
+    }
+
+    initEvents() {
+        const gameEvent = new CustomEvent(this.customEvent);
+        window.dispatchEvent(gameEvent);
+
+        // Issue with on resizing losing this https://stackoverflow.com/questions/47017093/es6-class-variable-gets-undefined
+        // window.addEventListener(this.resizeEvent, this.changeGridLayout.bind(this));
+
+        window.addEventListener(this.resizeEvent, debounce(this.changeGridLayout.bind(this), 500));
+    }
+
+    initStartGame(e) {
+        this.game.classList.add(this.activeClass);
+        this.revealGameArea();
+        this.changeGridLayout();
+    }
+
+    initExitGame(e) {
+        this.game.classList.remove(this.activeClass);
+        this.hideGameArea();
+        this.removeGridLayout();
     }
 }

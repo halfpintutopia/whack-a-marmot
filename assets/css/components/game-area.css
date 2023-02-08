@@ -15,7 +15,7 @@
     height: 100vh;
 }
 
-#game-area .text {
+#game-area.active .text {
     height: 100vh;
     margin-top: 0;
 }

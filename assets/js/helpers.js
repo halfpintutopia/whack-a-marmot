@@ -18,3 +18,7 @@ export const debounce = (callback, wait) => {
     };
 };
 
+// https://stackoverflow.com/a/24152886/8614652
+export const generateNumberBetweenMinAndMax = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
