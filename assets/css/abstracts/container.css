@@ -7,3 +7,36 @@
   width: min(100% - 8rem, 40rem);
   margin-inline: auto;
 }
+
+.container {
+    width: min(100% - var(--container-padding), var(--container-max-width));
+    margin-inline: auto;
+}
+
+.container[data-type="regular"] {
+    --container-max-width: var(--container-width-wide);
+    --container-padding: calc(var(--standard-padding) * 2);
+}
+
+@media only screen and (width >=768px) {
+    .container[data-type="regular"] {
+        --container-max-width: var(--container-width-regular);
+        --container-padding: calc(var(--standard-padding) * 2);
+    }
+}
+
+.container[data-type="wide"] {
+    --container-max-width: var(--container-width-wide);
+    --container-padding: calc(var(--standard-padding) * 2);
+}
+
+.container[data-type="full"] {
+    --container-max-width: var(--container-width-full);
+}
+
+@media only screen and (width >=768px) {
+    .container[data-type="full"] {
+        --container-max-width: var(--container-width-wide);
+        --container-padding: calc(var(--standard-padding) * 2);
+    }
+}

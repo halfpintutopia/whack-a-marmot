@@ -8,6 +8,10 @@
     --small-container: 576px;
     --extra-container: 576px; /* use with less than */
 
+    --container-width-wide: 87.5rem;
+    --container-width-regular: 75rem;
+    --container-width-full: 100%;
+
     /* Color scheme */
     --revolver: hsl(270, 35%, 20%);
     --spray: hsl(174, 88%, 66%);
@@ -80,4 +84,27 @@
 .desktop {
     --game-grid-columns: 4;
     --game-grid-row: 4;
+}
+
+
+/* @see https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/style.css#L112 */
+.visually-hidden {
+    border: 0;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    white-space: inherit;
+    width: auto;
 }

@@ -10,6 +10,7 @@
 
 /* https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/ */
 import {openModal} from "./modal.js";
+import {debounce} from "./debounce.js";
 
 export class Game {
     constructor(gameId) {
@@ -42,6 +43,8 @@ export class Game {
 
         this.gameButtons = ['play', 'instructions', 'settings'];
         this.gameLocalStorageKeyGame = 'game';
+        this.gameGridColumn = 0;
+        this.gameGridRow = 0;
         this.gameGridColumnMobile = 3;
         this.gameGridColumnDesktop = 4;
         this.gameGridRowMobile = 2;
@@ -53,7 +56,6 @@ export class Game {
             this.createButtons();
             this.initHTMLElements();
             this.initEvents();
-            this.changeGridLayout();
         }
     }
 
@@ -94,12 +96,15 @@ export class Game {
         window.dispatchEvent(gameEvent);
 
         // Issue with on resizing losing this https://stackoverflow.com/questions/47017093/es6-class-variable-gets-undefined
-        window.addEventListener(this.resizeEvent, this.changeGridLayout.bind(this));
+        // window.addEventListener(this.resizeEvent, this.changeGridLayout.bind(this));
+
+        window.addEventListener(this.resizeEvent, debounce(this.changeGridLayout.bind(this), 500));
     }
 
     initStartGame(e) {
         this.game.classList.add(this.activeClass);
         this.revealGameArea();
+        this.changeGridLayout();
     }
 
     revealGameArea() {
@@ -139,6 +144,7 @@ export class Game {
     initExitGame(e) {
         this.game.classList.remove(this.activeClass);
         this.hideGameArea();
+        this.removeGridLayout();
     }
 
     // https://www.freecodecamp.org/news/javascript-capitalize-first-letter-of-word/
@@ -151,73 +157,52 @@ export class Game {
             document.body.classList.add(this.desktopClass);
             document.body.classList.remove(this.mobileClass);
             this.screenSize = 'desktop';
-            this.numberOfHoles = 8;
+            this.numberOfHoles = 12;
+            this.gameGridColumn = this.gameGridColumnDesktop;
+            this.gameGridRow = this.gameGridRowDesktop;
         } else {
             document.body.classList.add(this.mobileClass);
             document.body.classList.remove(this.desktopClass);
             this.screenSize = 'mobile';
             this.numberOfHoles = 6;
+            this.gameGridColumn = this.gameGridColumnMobile;
+            this.gameGridRow = this.gameGridRowMobile;
         }
 
-        this.placeMarmotHoles();
+        this.createMarmotHoles();
     }
 
-    placeMarmotHoles() {
-        let i = 0;
-        while (i < this.numberOfHoles) {
-            this.createMarmotHole();
-            i++;
-        }
-    }
-
-    createMarmotHole() {
-        const hole = document.createElement('div');
+    removeGridLayout() {
         const holesContainer = document.querySelector('.holes-container');
-        hole.classList.add('hole');
-
-        hole.style.gridArea = this.generateGridArea();
-
-        const marmotContainer = document.createElement('div');
-        marmotContainer.classList.add(this.marmotContainerClass);
-
-        const holeContainer = document.createElement('div');
-        holeContainer.classList.add(this.holeContainerClass);
-
-        const marmotImage = document.createElement('img');
-        marmotImage.classList.add(this.marmotImageClass);
-        marmotImage.setAttribute('src', this.marmotImageSrc);
-        marmotImage.setAttribute('alt', this.marmotImageAlt);
-
-        marmotContainer.append(holeContainer, marmotImage);
-
-        hole.append(marmotContainer);
-        holesContainer.append(hole);
+        holesContainer.innerHTML = '';
     }
 
-    generateGridArea() {
-        let startRow, startColumn, placement;
-        if (this.screenSize === 'mobile') {
-            startRow = this.generateNumberBetweenMinAndMax(1, this.gameGridRowMobile);
-            startColumn = this.generateNumberBetweenMinAndMax(1, this.gameGridColumnMobile);
-        } else {
-            startRow = this.generateNumberBetweenMinAndMax(this.gameGridRowDesktop / 2, this.gameGridRowDesktop);
-            startColumn = this.generateNumberBetweenMinAndMax(1, this.gameGridColumnDesktop);
+    createMarmotHoles() {
+        let start = this.screenSize === 'desktop' ? 2 : 1;
+        for (let i = start; i <= this.gameGridRow; i++) {
+            for (let j = 1; j <= this.gameGridColumn; j++) {
+                const holesContainer = document.querySelector('.holes-container');
+                const hole = document.createElement('div');
+                hole.classList.add(this.holeClass);
+
+                hole.style.gridArea = `${i} / ${j} / ${i + 1} / ${j + 1}`;
+
+                const marmotContainer = document.createElement('div');
+                marmotContainer.classList.add(this.marmotContainerClass);
+
+                const holeContainer = document.createElement('div');
+                holeContainer.classList.add(this.holeContainerClass);
+
+                const marmotImage = document.createElement('img');
+                marmotImage.classList.add(this.marmotImageClass);
+                marmotImage.setAttribute('src', this.marmotImageSrc);
+                marmotImage.setAttribute('alt', this.marmotImageAlt);
+
+                marmotContainer.append(holeContainer, marmotImage);
+
+                hole.append(marmotContainer);
+                holesContainer.append(hole);
+            }
         }
-
-        placement = `${startRow} / ${startColumn} / ${startRow + 1} / ${startColumn + 1}`;
-
-        if (this.marmotPlacementArray.includes(placement)) {
-            console.log('already inside');
-            this.generateGridArea();
-        }
-
-        this.marmotPlacementArray.push(`${startRow} / ${startColumn} / ${startRow + 1} / ${startColumn + 1}`);
-
-        return placement
-    }
-
-    // https://stackoverflow.com/a/24152886/8614652
-    generateNumberBetweenMinAndMax(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 }

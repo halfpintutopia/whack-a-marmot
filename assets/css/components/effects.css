@@ -25,6 +25,7 @@
     position: relative;
     max-width: 15rem;
     margin-inline: auto;
+    transition: .4s ease;
 }
 
 .marmot__container {
@@ -57,10 +58,10 @@
     left: 1em;
     bottom: -6em;
     z-index: 2;
-    transform: scale(1.3);
+    transform: scale(2);
     transition: transform var(--transform);
 }
 
 .marmot__container:hover .marmot__img {
-    transform: scale(1.3) translateY(-3rem);
+    transform: scale(2) translateY(-1rem);
 }
