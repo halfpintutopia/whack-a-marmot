@@ -6,9 +6,9 @@ import {SwitchButton} from "./switchButton.js";
 
 window.addEventListener('DOMContentLoaded', function () {
     const game = new Game('game-area');
+    const audio = new Audio('#music-button', 'button__music--audio', 'silent');
 
     window.addEventListener('gameReady', function () {
-        const audio = new Audio('#music-button', 'button__music--audio', 'silent');
         const carouselSettings = new Carousel('#carousel-settings');
         const carouselInstructions = new Carousel('#carousel-instructions');
         const hammer = new Hammer('#game-area', '.hammer');
