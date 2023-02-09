@@ -5,11 +5,13 @@
  regexp: true, sloppy: true, vars: false,
  white: true
  */
+const modals = document.querySelectorAll('.modal');
+const modalOverlay = document.querySelector('.modal__overlay');
+const closeButtons = document.querySelectorAll('.modal__button--close');
 
 /* https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/ */
 export const openModal = (e) => {
     const modal = document.querySelector(`#modal-${e.target.dataset.type}`);
-    const modalOverlay = document.querySelector('.modal__overlay');
     const btnClose = modal.querySelector('.modal__button--close');
 
     modal.classList.remove('hidden');
@@ -18,12 +20,35 @@ export const openModal = (e) => {
     if (btnClose) {
         btnClose.addEventListener('click', closeModal);
     }
+
+    modalOverlay.addEventListener('click', closeAllModal);
+    window.addEventListener('keydown', keyPressExit);
 };
 
 const closeModal = (e) => {
-    console.log(e.target.closest('.modal'));
     const modal = e.target.closest('.modal');
-    const modalOverlay = document.querySelector('.modal__overlay');
     modal.classList.add('hidden');
     modalOverlay.classList.add('hidden');
+
+    [...closeButtons].map(button => {
+        button.removeEventListener('click', closeModal);
+    });
+
+    modalOverlay.removeEventListener('click', closeModal);
+};
+
+const keyPressExit = (e) => {
+    if (e.key === 'Escape' || e.key === 'Enter') {
+        closeAllModal();
+    }
+    window.removeEventListener('keydown', keyPressExit);
+};
+
+const closeAllModal = () => {
+    [...modals].map(modal => {
+        modal.classList.add('hidden');
+        modalOverlay.classList.add('hidden');
+    });
+
+    modalOverlay.removeEventListener('click', closeAllModal);
 };
