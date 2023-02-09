@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="loader">
-    <h1>Waking up the marmots...</h1>
+    <h2>Waking up the marmots...</h2>
 </div>
 <header>
     <div id="music-button" class="button button__music">
@@ -32,11 +32,6 @@
 </header>
 <main id="game-area">
     <section class="layered-content">
-<!--        <svg class="layered-content__media" version="1.1" xmlns="http://www.w3.org/2000/svg"-->
-<!--             preserveAspectRatio="xMidYMid slice" viewBox="0 0 3000 1689">-->
-<!--            <use id="background-1" href="assets/media/images/svg/background.svg#background"></use>-->
-<!--        </svg>-->
-
         <div class="text">
             <div class="title border border-thick">
                 <h1>Whack-A-Marmot</h1>
@@ -55,7 +50,8 @@
         <input type="text" data-input="username">
         <button data-type="add-player">Continue</button>
     </section>
-    <section id="modal-instructions" class="modal modal-instructions container border border-thick hidden" data-type="regular">
+    <section id="modal-instructions" class="modal modal-instructions container border border-thick hidden"
+             data-type="regular">
         <button class="modal__button--close"><i class="fa-solid fa-xmark"></i></button>
         <div id="carousel-instructions" class="carousel">
             <h2>How to Play</h2>
@@ -139,6 +135,8 @@
 </main>
 
 <script src="https://kit.fontawesome.com/28847961b6.js" rel="preconnect" crossorigin="anonymous"></script>
+<script src="assets/js/loader.js"></script>
+
 <script type="module" src="assets/js/audio.js"></script>
 <script type="module" src="assets/js/gameButton.js"></script>
 <script type="module" src="assets/js/modal.js"></script>
@@ -147,6 +145,5 @@
 <script type="module" src="assets/js/settings.js"></script>
 <script type="module" src="assets/js/play.js"></script>
 
-<script src="assets/js/loader.js"></script>
 </body>
 </html>
