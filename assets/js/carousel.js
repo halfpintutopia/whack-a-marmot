@@ -7,7 +7,7 @@
  */
 
 /* https://stackoverflow.com/questions/15338054/horizontal-slideshow-with-divs */
-export class Carousel {
+class Carousel {
     constructor(carouselId) {
         this.carouselId = carouselId;
         this.carouselAreaClass = 'carousel__area';
@@ -16,49 +16,34 @@ export class Carousel {
         this.nextBtnClass = 'carousel__next';
         this.carouselPageNumber = 0;
         this.counter = 0;
-        this.carouselContainer = '';
-        this.carouselArea = '';
-        this.carouselPages = '';
-        this.previousBtn = '';
-        this.nextBtn = '';
-
-        if (document.querySelector(this.carouselId)) {
-            this.carouselContainer = document.querySelector(this.carouselId);
-            this.initHTMLElements();
-            this.initEvents();
-        }
     }
 
-    initHTMLElements() {
-        this.carouselArea = this.carouselContainer.querySelector(`.${this.carouselAreaClass}`);
-        this.carouselPages = this.carouselContainer.querySelectorAll(`.${this.carouselPageClass}`);
-
-        if (this.carouselContainer.querySelector(`.${this.previousBtnClass}`)) {
-            this.previousBtn = this.carouselContainer.querySelector(`.${this.previousBtnClass}`);
-        }
-
-        if (this.carouselContainer.querySelector(`.${this.nextBtnClass}`)) {
-            this.nextBtn = this.carouselContainer.querySelector(`.${this.nextBtnClass}`);
-        }
-
-        if (this.carouselPages) {
-            this.carouselPageNumber = this.carouselPages.length;
-        }
+    decreaseCounter() {
+        this.counter--;
+        return this.counter;
     }
 
-    initEvents() {
-        if (this.previousBtn) {
-            this.previousBtn.addEventListener('click', e => this.slide(e));
-        }
-        if (this.nextBtn) {
-            this.nextBtn.addEventListener('click', e => this.slide(e));
-        }
-    }
-
-    slide(e) {
-        const currentCounter = e.currentTarget.classList.contains(this.previousBtnClass) ? --this.counter : ++this.counter;
-        this.counter = currentCounter < 0 ? parseInt(this.carouselPageNumber) - 1 : parseInt(this.counter) % parseInt(this.carouselPageNumber);
-        this.carouselArea.style.transform = `translateX(-${parseInt(this.counter) * 100}%)`;
+    increaseCounter() {
+        this.counter++;
+        return this.counter;
     }
 }
 
+const carouselInstructions = new Carousel('#carousel-instructions');
+const carouselContainer = document.querySelector(carouselInstructions.carouselId);
+const carouselArea = carouselContainer.querySelector(`.${carouselInstructions.carouselAreaClass}`);
+const carouselPages = carouselContainer.querySelectorAll(`.${carouselInstructions.carouselPageClass}`);
+const previousBtn = carouselContainer.querySelector(`.${carouselInstructions.previousBtnClass}`);
+const nextBtn = carouselContainer.querySelector(`.${carouselInstructions.nextBtnClass}`);
+const carouselPageNumber = carouselPages.length;
+
+previousBtn.addEventListener('click', slide);
+nextBtn.addEventListener('click', slide);
+
+function slide(e) {
+    const currentCounter = e.currentTarget.classList.contains(carouselInstructions.previousBtnClass) ? --carouselInstructions.counter : ++carouselInstructions.counter;
+        // console.log(carouselInstructions.increaseCounter());
+    console.log(44, carouselInstructions.counter);
+    carouselInstructions.counter = currentCounter < 0 ? parseInt(carouselInstructions.carouselPageNumber) - 1 : parseInt(carouselInstructions.counter) % parseInt(carouselInstructions.carouselPageNumber);
+    carouselArea.style.transform = `translateX(-${parseInt(carouselInstructions.counter) * 100}%)`;
+}

@@ -32,9 +32,9 @@ const records = new Records('[data-input="username"]', 'button[data-type="add-pl
 const addPlayerButton = document.querySelector(records.addPlayerButtonSelector);
 const userNameInput = document.querySelector(records.userNameInputDataType);
 records.recover();
-addPlayerButton.addEventListener('click', addPlayer);
+addPlayerButton.addEventListener('click', addPlayer); // this needs to be moved to the game
 
-function addPlayer() {
+export function addPlayer() {
     const username = userNameInput.value;
     records.initialSave(username);
 }
