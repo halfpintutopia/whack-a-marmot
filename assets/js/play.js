@@ -12,7 +12,6 @@ import {closeModal} from "./modal.js";
 import {startGame} from "./game.js";
 import {changeGridLayout, showHideExitBtn} from "./board.js";
 
-const timerContainer = document.querySelector('.timer-container__countdown');
 const start = document.querySelector('[data-type="add-player"]');
 
 start.addEventListener('click', function (e) {

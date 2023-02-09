@@ -26,4 +26,4 @@ export const generateNumberBetweenMinAndMax = (min, max) => {
 // https://www.freecodecamp.org/news/javascript-capitalize-first-letter-of-word/
 export const capitaliseFirstLetter = (word) => {
     return `${word.charAt(0).toUpperCase()}${word.substring(1)}`;
-}
+};

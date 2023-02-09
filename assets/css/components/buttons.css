@@ -85,17 +85,11 @@ input[data-type="toggle"] + label::after {
 
 input[data-type="toggle"]:checked + label::after {
     left: 1.95em;
-    /*transform: translateX(100%);*/
-    /*background-color: black;*/
 }
 
 .settings-buttons label > span {
     margin-left: auto;
 }
-
-/*input[data-type="toggle"]:checked + label {*/
-/*    color: darkslategrey;*/
-/*}*/
 
 #music-button, #exit-btn {
     background-color: rgba(255, 255, 255, .1);

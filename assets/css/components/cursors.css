@@ -3,21 +3,12 @@
 /* https://codepen.io/kevinpowell/pen/XQEPvB */
 .active .hammer {
     height: 100px;
-    aspect-ratio: 1;
+    aspect-ratio: 1 / 1;
     position: absolute;
-    /*transform: translate(-50%, -50%);*/
     transition-duration: 200ms;
     transition-timing-function: ease-out;
     background: center / contain no-repeat url("../../media/images/svg/hammer.svg");
-    /*transform: translateY(20%) translateX(-40%) rotateZ(-54deg);*/
-/*    animation: hammer-hit 3s cubic-bezier(.8, .01, .2, 1) infinite;*/
-    /*transform-origin: 50%;*/
 }
-
-/*.hammer.hit {*/
-/*animation: hammer-hit 550ms infinite alternate;*/
-/*  animation: hammer-hit 550ms;*/
-/*}*/
 
 @keyframes hammer-hit {
     0%, 60% {
