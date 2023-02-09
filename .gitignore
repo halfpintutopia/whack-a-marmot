@@ -11,3 +11,4 @@ cloudinary_python.txt
 node_modules
 public
 docs/responsive-images/node_modules
+package.json
