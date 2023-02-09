@@ -19,7 +19,7 @@ export class Game {
         this.timerContainerClass = '.timer-container__countdown';
         this.marmotPopTimerId = null;
         this.countdownTimerId = null;
-        this.timerInterval = 1000;
+        this.timerInterval = 2000;
         this.countDownTimerInterval = 1000;
         this.currentTime = 30;
         this.currentScore = 0;
@@ -90,4 +90,14 @@ export function startGame() {
     gameBoard.classList.add('active');
     game.currentTime = 30;
     moveMarmot();
+}
+
+export function updateSpeedSetting(level) {
+    console.log(level);
+    if (level === 'hard') {
+        game.timerInterval = 500;
+    } else {
+        game.timerInterval = 1000;
+    }
+
 }

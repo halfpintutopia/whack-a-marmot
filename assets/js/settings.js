@@ -7,6 +7,8 @@
  white: true
  */
 
+import {updateSpeedSetting} from "./game.js";
+
 class Settings {
     constructor(buttonContainerClass) {
         this.buttonContainerClass = buttonContainerClass;
@@ -55,6 +57,7 @@ checkboxes.forEach(input => {
 });
 
 function switchAndSetLocalStorage(e) {
+    console.log(e);
     const spans = e.currentTarget.nextElementSibling.querySelectorAll('span');
     spans.forEach(span => {
         span.classList.remove('off');
@@ -68,4 +71,25 @@ function switchAndSetLocalStorage(e) {
         spans[1].classList.add('off');
         localStorage.setItem(e.currentTarget.dataset.input, spans[0].getAttribute(`data-${e.currentTarget.dataset.input}`));
     }
+
+    initChanges(e.currentTarget.dataset.input);
 }
+
+function initChanges(inputType) {
+    console.log(inputType);
+    if (inputType === 'display') {
+        if (document.body.classList.contains('dark')) {
+            document.body.classList.remove('dark');
+        } else {
+            document.body.classList.add('dark');
+        }
+    }
+
+    if (inputType === 'difficulty') {
+        updateSpeedSetting(localStorage.getItem('difficulty'));
+    }
+}
+
+
+
+
