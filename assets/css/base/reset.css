@@ -63,5 +63,5 @@ textarea:focus-visible {
  input:focus,
  textarea:focus,
  select:focus {
-     outline: none;
+     /*outline: transparent;*/
  }
