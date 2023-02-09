@@ -10,11 +10,10 @@
 class Settings {
     constructor(buttonContainerClass) {
         this.buttonContainerClass = buttonContainerClass;
-        this.checkboxes = '';
         this.display = 'display';
-        this.playMode = 'difficulty';
+        this.difficulty = 'difficulty';
         this.displayDefault = 'light';
-        this.playModeDefault = 'easy';
+        this.difficultyDefault = 'easy';
         this.switchOffClass = 'off';
         this.difficulty = '';
         this.selectedDisplay = '';
@@ -22,9 +21,8 @@ class Settings {
     }
 
     initLocalStorage() {
-        console.log(this.display, this.playMode);
         localStorage.getItem(this.display) ? this.setDisplay(this.display, this.displayDefault) : localStorage.setItem(this.display, this.displayDefault);
-        localStorage.getItem(this.playMode) ? this.setDisplay(this.playMode, this.playModeDefault) : localStorage.setItem(this.playMode, this.playModeDefault);
+        localStorage.getItem(this.difficulty) ? this.setDisplay(this.difficulty, this.difficultyDefault) : localStorage.setItem(this.difficulty, this.difficultyDefault);
     }
 
     getDisplay() {
@@ -37,12 +35,12 @@ class Settings {
 
     setDisplay(settingType, defaultValue) {
         const input = document.querySelector(`[data-input="${settingType}"]`);
-        console.log(input);
         const labelSpans = input.nextElementSibling.querySelectorAll(`[data-${settingType}]`);
 
         input.checked = localStorage.getItem(`${settingType}`) !== defaultValue;
         labelSpans.forEach(span => {
-            span.dataset.display === localStorage.getItem(settingType) || span.dataset.playMode === localStorage.getItem(settingType) ? span.classList.remove(this.switchOffClass) : span.classList.add(this.switchOffClass);
+            span.dataset.display === localStorage.getItem(settingType) || span.dataset.difficulty === localStorage.getItem(settingType) ? span.classList.remove(this.switchOffClass) : span.classList.add(this.switchOffClass);
+            console.log(46, span.dataset.display);
         });
     }
 }
@@ -66,7 +64,6 @@ function switchAndSetLocalStorage(e) {
 
     if (e.currentTarget.checked) {
         spans[0].classList.add('off');
-        console.log(e.currentTarget.dataset.input, spans[1].getAttribute(`data-${e.currentTarget.dataset.input}`));
         localStorage.setItem(e.currentTarget.dataset.input, spans[1].getAttribute(`data-${e.currentTarget.dataset.input}`));
 
     } else {
