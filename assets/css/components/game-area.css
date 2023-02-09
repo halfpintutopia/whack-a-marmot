@@ -5,6 +5,8 @@
     position: relative;
     background: var(--sky-linear-gradient);
     transition: all .4s ease-in-out;
+    background: url("../../media/images/svg/background.svg") center / cover no-repeat,
+    var(--sky-linear-gradient);
 }
 
 #game-area.active {

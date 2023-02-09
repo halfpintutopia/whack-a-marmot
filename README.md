@@ -55,34 +55,28 @@ The idea of the website was inspired by a friend, Hermina Oláh Vass. She and he
 
 ## Intended Audience
 
-* Parents with children
-* Families
-* Schools
-
+* Adults
+* Children
 
 * ## User stories
 
 * Client Goals
-    * Provide content that is child appropriate
-    * Provide content for adults or parents with children
-    * Provide easy access to routes
-        * Show trail distances
-        * Show approximate times to hike
-        * Show difficulty level
-    * Provide a booking form
-        * For people to book family passes in advance
-        * To also ask questions about the trail
+    * Provide an online that test and improve:
+      * motor skills
+      * accuracy
+      * concentration
+      * hand and eye coordination
 * First Time Visitor Goals
-    * Find information about the trails
-    * Find out how to get to the start of the trails
-    * Find information about the distance of the trails
-    * Find variations of the trial
-    * Find the difficulty and suitability of the trails
-    * See images of various trails
+    * Choose the settings
+      * dark or light mode
+      * easy or hard play mode
+    * Read the game instructions
+    * Play the game
+    * Beat your previous score
 * Return Visitor Goals
-    * Try alternative routes
+    * Improve scores
 * Frequent Visitor Goals
-    * Refer their friends, families and associates about the hiking trail.
+    * Compete with other players
 
 
 # Design
@@ -885,7 +879,7 @@ The trail is an actual, locally well-known tourist attraction. The trail locatio
 ## Media
 
 <details>
-<summary>Homepage</summary>
+<summary>Game</summary>
 
 * [Green Trees on Brown Soil](https://www.pexels.com/photo/green-trees-on-brown-soil-3670681/)
 * [Footprint](https://pixabay.com/vectors/shoe-print-boot-mark-traces-36730/) by <a href="https://pixabay.com/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=155457">OpenClipart-Vectors</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=155457">Pixabay</a>
@@ -898,48 +892,14 @@ The footprints were created by using GIMP to manipulate the Image, and then the 
 </details>
 
 <details>
-<summary>Gallery</summary>
+<summary>404 Page</summary>
 
-* [Man, woman, and child walking together along dirt road](https://unsplash.com/photos/REKXJ7JhwiI) by <a href="https://unsplash.com/@acasetta?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alberto Casetta</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-* [Child looking at map photo](https://unsplash.com/photos/kZO9xqmO_TA) by <a href="https://unsplash.com/@anniespratt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Annie Spratt</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-* [Two boys hiking through tall trees in forest](https://unsplash.com/photos/e3PQpLM_SGo) by <a href="https://unsplash.com/@greg_rosenke?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Greg Rosenke</a> on <a href="https://unsplash.com/s/photos/kids-hiking-adventure?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-* [Man carrying child](https://unsplash.com/photos/nzUHrjz4wu4) by <a href="https://unsplash.com/@katiemoum?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Katie Moum</a> on <a href="https://unsplash.com/s/photos/kids-hiking-adventure?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-* [Girl with turquois backpack, walking with family and friends](https://unsplash.com/photos/jd4_-NCdLE4) by <a href="https://unsplash.com/@greg_rosenke?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Greg Rosenke</a> on <a href="https://unsplash.com/@greg_rosenke?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  
-</details>
-
-<details>
-<summary>Trail list and Trail Pages</summary>
-
-* [White-Red-White Hiking flag painted on rock](https://unsplash.com/photos/ZIFccT5-36Y) by <a href="https://unsplash.com/@giger_00?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Curdin Giger</a> on <a href="https://unsplash.com/s/photos/hiking-switzerland?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-* [View of the View with the mountain as the backdrop](https://unsplash.com/photos/FNaFLvbLFuk) by <a href="https://unsplash.com/@chris_regg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Christian Regg</a> on <a href="https://unsplash.com/s/photos/hiking-switzerland?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-* [View from the path that leads to the lake](https://unsplash.com/photos/guc520jc0lk) by <a href="https://unsplash.com/@mamuej?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marc</a> on <a href="https://unsplash.com/s/photos/hiking-switzerland?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-* [View of mountain and valley below](https://unsplash.com/photos/NaEIPJ51EHE) by <a href="https://unsplash.com/@bladeoftree?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marco Meyer</a> on <a href="https://unsplash.com/s/photos/hiking-switzerland?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-* [View from the top of the mountain](https://unsplash.com/photos/NaEIPJ51EHE) by <a href="https://unsplash.com/@msafwat?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Mohammed Abdullatif</a> on <a href="https://unsplash.com/s/photos/hiking-switzerland?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-* [Swiss Alps in the middle of summer on a sunny day](https://unsplash.com/photos/fZsIcej_bQA) by <a href="https://unsplash.com/@allphotobangkok?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Paul Szewczyk</a> on <a href="https://unsplash.com/s/photos/hiking-switzerland?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-
-</details>
-
-<details>
-<summary>Storybook</summary>
-
-* [Children and adults hiking on a trail in the photo of the mountains from Unsplash](https://unsplash.com/photos/FSdsaiuRNfc) by <a href="https://unsplash.com/@greg_rosenke?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Greg Rosenke</a> on <a href="https://unsplash.com/s/photos/free-hiking-family-mountains?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-* [Girl journalling on a rocky surface](https://unsplash.com/photos/q-motCAvPBM) by <a href="https://unsplash.com/@nixcreative?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tyler Nix</a> on <a href="https://unsplash.com/s/photos/hiking-family-mountains?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-* [Family and dog going down the mountain](https://unsplash.com/photos/7MrXw_o7Eo4) by <a href="https://unsplash.com/@souvenirpixels?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">James Wheeler</a> on <a href="https://unsplash.com/s/photos/hiking-family-mountains?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-* [Boy climbing up rocky steps](https://unsplash.com/photos/t9VI_OSaErI) by <a href="https://unsplash.com/@mael_balland?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Mael BALLAND</a> on <a href="https://unsplash.com/s/photos/family-hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-* [Sun rays beating down on mother and daughter walking in the forest](https://unsplash.com/photos/RRZM3cwS1DU) by <a href="https://unsplash.com/@souvenirpixels?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">James Wheeler</a> on <a href="https://unsplash.com/s/photos/hiking-family-mountains?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-* [Boy walking up alpine hiking trail path](https://unsplash.com/photos/DgSRu6944ZQ) by <a href="https://unsplash.com/@morganddl?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Morgan David de Lossy</a> on <a href="https://unsplash.com/s/photos/children-hiking?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-* [Small child with pink teepee tent](https://www.pexels.com/photo/pink-teepee-tent-3038343/) Photo by Caleb Oquendo from Pexels
-
+* [Soil](https://stock.adobe.com/uk/images/soil/92059694) By [Nik_Merkulov](https://stock.adobe.com/uk/contributor/202316842/nik-merkulov?load_type=author&prev_url=detail) on [Adobe Stock](https://stock.adobe.com)
 
 </details>
 
 ## Acknowledgements
-A big thank you goes to all the incredible people who supported me during this process. Acknowledgements go to those who took the time to provide great insights and advice
+This part of the journey was a tough one, and I would like to give a big thanks to my partner, Stefan Tschudi for rallying me, keeping me going with endless cups of tea. Acknowledgements also go to those who took the time to provide great insights and advice
 * Rahul Lakhanpal - for keeping me focussed.
-* Stefan Tschudi - for repeatedly testing my site on his computer and mobile. Being continually supportive and keeping me on track.
-* Hermina Oláh Vass - for providing beautiful illustrations and allowing me the privilege to use your images on my website.
-
+* Class Slack Channel, with special thanks to Ger Tobin. 
 <br>
-
-Also, a huge thank you for the support on Code Institute's Slack Channels, especially Ger Tobin, who suggested using Leaflet and Szilvia Csernus, for reviewing my project and taking the time to give me constructive feedback, which I was able to report as bugs. 
