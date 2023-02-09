@@ -20,12 +20,14 @@ class Carousel {
 
     decreaseCounter() {
         this.counter--;
-        return this.counter;
     }
 
     increaseCounter() {
         this.counter++;
-        return this.counter;
+    }
+
+    updatePageNumber(pageNumber) {
+        this.carouselPageNumber = pageNumber;
     }
 }
 
@@ -35,15 +37,12 @@ const carouselArea = carouselContainer.querySelector(`.${carouselInstructions.ca
 const carouselPages = carouselContainer.querySelectorAll(`.${carouselInstructions.carouselPageClass}`);
 const previousBtn = carouselContainer.querySelector(`.${carouselInstructions.previousBtnClass}`);
 const nextBtn = carouselContainer.querySelector(`.${carouselInstructions.nextBtnClass}`);
-const carouselPageNumber = carouselPages.length;
-
+carouselInstructions.updatePageNumber(carouselPages.length);
 previousBtn.addEventListener('click', slide);
 nextBtn.addEventListener('click', slide);
 
 function slide(e) {
-    const currentCounter = e.currentTarget.classList.contains(carouselInstructions.previousBtnClass) ? --carouselInstructions.counter : ++carouselInstructions.counter;
-        // console.log(carouselInstructions.increaseCounter());
-    console.log(44, carouselInstructions.counter);
+    const currentCounter = e.currentTarget.classList.contains(carouselInstructions.previousBtnClass) ? carouselInstructions.decreaseCounter() : carouselInstructions.increaseCounter();
     carouselInstructions.counter = currentCounter < 0 ? parseInt(carouselInstructions.carouselPageNumber) - 1 : parseInt(carouselInstructions.counter) % parseInt(carouselInstructions.carouselPageNumber);
     carouselArea.style.transform = `translateX(-${parseInt(carouselInstructions.counter) * 100}%)`;
 }
