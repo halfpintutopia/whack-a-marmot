@@ -25,7 +25,7 @@ export const openModal = (e) => {
     window.addEventListener('keydown', keyPressExit);
 };
 
-const closeModal = (e) => {
+export const closeModal = (e) => {
     const modal = e.target.closest('.modal');
     modal.classList.add('hidden');
     modalOverlay.classList.add('hidden');
