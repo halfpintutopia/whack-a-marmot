@@ -9,7 +9,6 @@
 
 import {capitaliseFirstLetter} from "./helpers.js";
 import {openModal} from "./modal.js";
-import {getRecords} from "./records.js";
 
 class GameButton {
     constructor(
@@ -66,28 +65,5 @@ export function endGameDisplay(score) {
     const gameOverDiv = document.createElement('div');
     gameOverDiv.innerHTML = `<h4>Game over! You scored <span class="marmot-hit__total">${score}</span></h4>`;
 
-    // const tableHeader = document.createElement('div');
-    // tableHeader.innerHTML = `<h4>Leaderboard <i class="fa-solid fa-star"></i> Top 5</h4>`;
-    //
-    // const tableHeaderScoreDiv = document.createElement('div');
-    // const leaderboard = getRecords();
-    // console.log(74, leaderboard);
-    //
-    // leaderboard.forEach((person) => {
-    //     for (let key in person) {
-    //         let personContainer = document.createElement('div');
-    //         let nameSpan = document.createElement('span');
-    //         let scoreSpan = document.createElement('span');
-    //
-    //         nameSpan.classList.add('leaderboard__name');
-    //         scoreSpan.classList.add('leaderboard__score');
-    //         nameSpan.innerHTML = key;
-    //         scoreSpan.innerHTML = person[key];
-    //
-    //         personContainer.append(nameSpan, scoreSpan);
-    //     }
-    // });
-
     gameButtonContainer.append(gameOverDiv);
-
 }
