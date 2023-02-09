@@ -11,6 +11,7 @@ class Records {
     constructor(userNameInputDataType, addPlayerButton) {
         this.userNameInputDataType = userNameInputDataType;
         this.addPlayerButtonSelector = addPlayerButton;
+        this.currentPlayer = '';
         this.leaderboard = {};
     }
 
@@ -18,8 +19,8 @@ class Records {
         return localStorage.getItem('leaderboard') ? JSON.parse(localStorage.getItem('leaderboard')) : {};
     }
 
-    initialSave(username) {
-        this.leaderboard[username] = '0';
+    initialSave() {
+        this.leaderboard[this.currentPlayer] = '0';
     }
 
     update() {
@@ -35,8 +36,9 @@ records.recover();
 addPlayerButton.addEventListener('click', addPlayer); // this needs to be moved to the game
 
 export function addPlayer() {
-    const username = userNameInput.value;
-    records.initialSave(username);
+    records.currentPlayer = userNameInput.value;
+    records.initialSave();
+    console.log(records.leaderboard);
 }
 
 export function updateRecords () {

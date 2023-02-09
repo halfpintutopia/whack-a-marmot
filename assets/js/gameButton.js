@@ -10,7 +10,7 @@
 import {capitaliseFirstLetter} from "./helpers.js";
 import {openModal} from "./modal.js";
 
-class GameButtonOverview {
+class GameButton {
     constructor(
         gameAreaId,
         gameButtonsClass
@@ -18,17 +18,20 @@ class GameButtonOverview {
         this.gameAreaId = gameAreaId;
         this.gameButtonsClass = gameButtonsClass;
         this.gameButtonTypes = ['play', 'instructions', 'settings'];
+        this.timerHtml = `<h4><span class="timer-container">Timer: <span class="timer-container__countdown">0</span></span></h4>`;
+        this.marmotNumberHtml = `<h4>Hits: <span class="marmot-hit__total">0</span></h4><h4 class="marmot-hit__left">Missed: <span class="marmot-hit__miss">0</span></h4>`;
+
     }
 }
 
-const gameButtonOverview = new GameButtonOverview('game-area', '.game-buttons');
-const gameArea = document.getElementById(gameButtonOverview.gameAreaId);
-const gameButtonContainer = gameArea.querySelector(gameButtonOverview.gameButtonsClass);
+const gameButton = new GameButton('game-area', '.game-buttons');
+const gameArea = document.getElementById(gameButton.gameAreaId);
+const gameButtonContainer = gameArea.querySelector(gameButton.gameButtonsClass);
 
-function createGameButtons() {
+export function createGameButtons() {
     gameButtonContainer.innerHTML = '';
 
-    gameButtonOverview.gameButtonTypes.map((type, index) => {
+    gameButton.gameButtonTypes.map((type, index) => {
         let button = document.createElement('button');
         button.id = `${type}-btn`;
         button.classList.add('button');
@@ -47,11 +50,11 @@ export function createGameBoard() {
     gameButtonContainer.innerHTML = '';
 
     const timerDiv = document.createElement('div');
-    timerDiv.innerHTML = `<h4><span class="timer-container">Timer: <span class="timer-container__countdown">0</span></span></h4>`;
+    timerDiv.innerHTML = gameButton.timerHtml;
 
     const numberOfMarmotsDiv = document.createElement('div');
     numberOfMarmotsDiv.classList.add('marmot-hit');
-    numberOfMarmotsDiv.innerHTML = `<h4>Hits: <span class="marmot-hit__total">0</span></h4><h4 class="marmot-hit__left">Missed: <span class="marmot-hit__miss">0</span></h4>`;
+    numberOfMarmotsDiv.innerHTML = gameButton.marmotNumberHtml;
 
     gameButtonContainer.append(timerDiv, numberOfMarmotsDiv);
 }
