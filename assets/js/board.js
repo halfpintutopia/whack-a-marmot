@@ -10,10 +10,8 @@ import {createGameButtons} from "./gameButton.js";
 import {debounce} from "./helpers.js";
 
 export class Board {
-    constructor(gameId, gameButtonsClass) {
+    constructor(gameId) {
         this.gameId = gameId;
-        this.gameButtonsClass = gameButtonsClass;
-        this.playBtnId = 'play-btn';
         this.exitBtnId = 'exit-btn';
         this.screenSize = '';
         this.gameResponsiveMinWidth = 768;
@@ -33,7 +31,6 @@ export class Board {
         this.marmotImageSrc = 'assets/media/images/marmot.svg';
         this.marmotImageAlt = 'Marmot';
     }
-
 
     removeGridLayout() {
         const holesContainer = document.querySelector('.holes-container');
@@ -68,24 +65,15 @@ export class Board {
                 holesContainer.append(hole);
             }
         }
-
-        this.marmots = document.querySelectorAll(`.${this.marmotImageClass}`);
-        // this.moveMarmot();
-    }
-
-    revealGameArea() {
-        this.showHideExitBtn();
     }
 }
 
 const board = new Board('game-area', '.game-buttons');
 const game = document.getElementById(board.gameId);
 const holesContainer = document.querySelector('.holes-container');
-const gameButtonContainer = document.querySelector(board.gameButtonsClass);
 const exitButton = document.getElementById(board.exitBtnId);
 
 export function changeGridLayout() {
-    console.log(holesContainer);
     holesContainer.innerHTML = '';
 
     if (window.innerWidth > board.gameResponsiveMinWidth) {

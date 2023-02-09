@@ -13,21 +13,9 @@ export class Hammer {
         this.gameContainer = '';
         this.cursor = '';
         this.playBtnId = 'play-btn';
-
-        if (document.querySelector(this.gameContainerId)) {
-            this.gameContainer = document.querySelector(this.gameContainerId);
-            this.initHTMLElements();
-            this.initEvents();
-        }
     }
 
     initHTMLElements() {
-        this.cursor = document.querySelector(this.cursorClass);
-        this.playBtn = document.getElementById(this.playBtnId)
-        this.playBtn.addEventListener('mousedown', function () {
-            // document.querySelector('.hammer').classList.add('active')
-            this.style.animation = 'shake 150ms 2 linear';
-        });
         document.getElementById(this.playBtnId).addEventListener('mouseup', function () {
 
             this.style.animation = '';
@@ -64,3 +52,23 @@ export class Hammer {
     }
 }
 
+const hammer = new Hammer('game-area', '.hammer');
+const gameContainer = document.getElementById(hammer.gameContainerId);
+const cursor = document.querySelector(hammer.cursorClass);
+const playBtn = document.getElementById(hammer.playBtnId)
+
+export function addShakeAnimation(e) {
+    e.currentTarget.style.animation = 'shake 150ms 2 linear';
+}
+
+
+
+
+ // document.getElementById(this.playBtnId).addEventListener('mouseup', function () {
+ //
+ //            this.style.animation = '';
+ //        });
+ //        document.getElementById(this.playBtnId).addEventListener('mouseleave', function () {
+ //            // document.querySelector('.hammer').classList.add('active')
+ //            this.style.animation = '';
+ //        });

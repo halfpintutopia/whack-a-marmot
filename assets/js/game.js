@@ -7,7 +7,8 @@
  regexp: true, sloppy: true, vars: false,
  white: true
  */
-import {changeGridLayout} from "./board.js";
+
+import {addShakeAnimation} from "./hammer.js";
 
 export class Game {
     constructor(gameId) {
@@ -16,9 +17,9 @@ export class Game {
         this.timerContainerClass = '.timer-container__countdown';
         this.marmotPopTimerId = null;
         this.countdownTimerId = null;
-        this.timerInterval = 500;
+        this.timerInterval = 1000;
         this.countDownTimerInterval = 1000;
-        this.currentTime = 60;
+        this.currentTime = 10;
         this.currentScore = 0;
     }
 
@@ -42,11 +43,13 @@ function pickRandomHole() {
     marmots.forEach(marmot => {
         marmot.classList.remove('pop');
         marmot.removeEventListener('click', hitMarmot);
+        marmot.removeEventListener('click', addShakeAnimation);
     });
 
     const marmot = marmots[Math.floor(Math.random() * marmots.length)];
     marmot.classList.add('pop');
     marmot.addEventListener('click', hitMarmot);
+    marmot.addEventListener('click', addShakeAnimation);
 }
 
 function moveMarmot() {
@@ -60,17 +63,22 @@ function countdown() {
     if (game.currentTime === 0) {
         clearInterval(game.marmotPopTimerId);
         clearInterval(game.countdownTimerId);
+        removeAllListeners();
     } else {
         --game.currentTime;
     }
 }
 
+function removeAllListeners() {
+    const marmots = document.querySelectorAll(game.marmotClass);
+
+      marmots.forEach(marmot => {
+        marmot.removeEventListener('click', hitMarmot);
+        marmot.removeEventListener('click', addShakeAnimation);
+    });
+}
+
 export function startGame() {
     gameBoard.classList.add('active');
     moveMarmot();
-}
-
-export function exitGame() {
-    gameBoard.classList.remove('active');
-    // this.removeGridLayout();
 }
