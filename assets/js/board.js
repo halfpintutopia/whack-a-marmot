@@ -36,37 +36,6 @@ export class Board {
         const holesContainer = document.querySelector('.holes-container');
         holesContainer.innerHTML = '';
     }
-
-    createMarmotHoles() {
-        let start = this.screenSize === 'desktop' ? 2 : 1;
-
-        for (let i = start; i <= this.gameGridRow; i++) {
-            for (let j = 1; j <= this.gameGridColumn; j++) {
-                const holesContainer = document.querySelector('.holes-container');
-                const hole = document.createElement('div');
-                hole.classList.add(this.holeClass);
-
-                hole.style.gridArea = `${i} / ${j} / ${i + 1} / ${j + 1}`;
-
-                const marmotContainer = document.createElement('div');
-                marmotContainer.classList.add(this.marmotContainerClass);
-
-                const holeContainer = document.createElement('div');
-                holeContainer.classList.add(this.holeContainerClass);
-
-                const marmotImage = document.createElement('img');
-                marmotImage.classList.add(this.marmotImageClass);
-                marmotImage.setAttribute('draggable', false);
-                marmotImage.setAttribute('src', this.marmotImageSrc);
-                marmotImage.setAttribute('alt', this.marmotImageAlt);
-
-                marmotContainer.append(holeContainer, marmotImage);
-
-                hole.append(marmotContainer);
-                holesContainer.append(hole);
-            }
-        }
-    }
 }
 
 const board = new Board('game-area', '.game-buttons');
@@ -92,8 +61,6 @@ export function changeGridLayout() {
         board.gameGridColumn = board.gameGridColumnMobile;
         board.gameGridRow = board.gameGridRowMobile;
     }
-
-    board.createMarmotHoles();
 }
 
 export function initExitGame() {
@@ -116,3 +83,34 @@ export function showHideExitBtn() {
 }
 
 window.addEventListener('resize', debounce(changeGridLayout, 500));
+
+export function createMarmotHoles() {
+    let start = board.screenSize === 'desktop' ? 2 : 1;
+
+    for (let i = start; i <= board.gameGridRow; i++) {
+        for (let j = 1; j <= board.gameGridColumn; j++) {
+            const holesContainer = document.querySelector('.holes-container');
+            const hole = document.createElement('div');
+            hole.classList.add(board.holeClass);
+
+            hole.style.gridArea = `${i} / ${j} / ${i + 1} / ${j + 1}`;
+
+            const marmotContainer = document.createElement('div');
+            marmotContainer.classList.add(board.marmotContainerClass);
+
+            const holeContainer = document.createElement('div');
+            holeContainer.classList.add(board.holeContainerClass);
+
+            const marmotImage = document.createElement('img');
+            marmotImage.classList.add(board.marmotImageClass);
+            marmotImage.setAttribute('draggable', false);
+            marmotImage.setAttribute('src', board.marmotImageSrc);
+            marmotImage.setAttribute('alt', board.marmotImageAlt);
+
+            marmotContainer.append(holeContainer, marmotImage);
+
+            hole.append(marmotContainer);
+            holesContainer.append(hole);
+        }
+    }
+}

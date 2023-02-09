@@ -11,6 +11,7 @@
 import {addShakeAnimation} from "./hammer.js";
 import {updateRecords} from "./records.js";
 import {endGameDisplay} from "./gameButton.js";
+import {createMarmotHoles} from "./board.js";
 
 export class Game {
     constructor(gameId) {
@@ -88,6 +89,7 @@ function saveScore() {
 
 export function startGame() {
     gameBoard.classList.add('active');
+    createMarmotHoles();
     game.currentTime = 30;
     moveMarmot();
 }
