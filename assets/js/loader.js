@@ -26,12 +26,13 @@
     const initEvents = () => {
         window.addEventListener(EVENT.LOAD, () => {
             let pageElements = document.querySelectorAll('body > *:not(div.loader):not(script)');
+            setTimeout(function () {
+                pageElements.forEach((el) => {
+                    el.style.visibility = 'visible';
+                });
 
-            pageElements.forEach((el) => {
-                el.style.visibility = 'visible';
-            });
-
-            htmlElementMap.loader.style.display = 'none';
+                htmlElementMap.loader.style.display = 'none';
+            }, 2500);
         });
     };
 
