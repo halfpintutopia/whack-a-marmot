@@ -15,7 +15,6 @@ class Settings {
         this.displayDefault = 'light';
         this.difficultyDefault = 'easy';
         this.switchOffClass = 'off';
-        this.difficulty = '';
         this.selectedDisplay = '';
         this.selectedDifficulty = '';
     }
@@ -40,7 +39,6 @@ class Settings {
         input.checked = localStorage.getItem(`${settingType}`) !== defaultValue;
         labelSpans.forEach(span => {
             span.dataset.display === localStorage.getItem(settingType) || span.dataset.difficulty === localStorage.getItem(settingType) ? span.classList.remove(this.switchOffClass) : span.classList.add(this.switchOffClass);
-            console.log(46, span.dataset.display);
         });
     }
 }
