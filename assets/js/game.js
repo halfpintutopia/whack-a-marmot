@@ -13,23 +13,13 @@ export class Game {
     constructor(gameId) {
         this.gameId = gameId;
         this.marmotClass = '.marmot__img';
-        this.timerDiv = '';
+        this.timerContainerClass = '.timer-container__countdown';
         this.marmotPopTimerId = null;
         this.countdownTimerId = null;
         this.timerInterval = 500;
         this.countDownTimerInterval = 1000;
         this.currentTime = 60;
         this.currentScore = 0;
-    }
-
-    countdown() {
-        this.timerDiv.innerHTML = this.currentTime;
-        if (this.currentTime === 0) {
-            clearInterval(this.marmotPopTimerId);
-            clearInterval(this.countdownTimerId);
-        } else {
-            --this.currentTime;
-        }
     }
 
     updateScore() {
@@ -39,6 +29,7 @@ export class Game {
 
 const game = new Game('game-area');
 const gameBoard = document.getElementById(game.gameId);
+
 
 function hitMarmot() {
     const score = document.querySelector('.marmot-hit__total');
@@ -60,7 +51,18 @@ function pickRandomHole() {
 
 function moveMarmot() {
     game.marmotPopTimerId = setInterval(pickRandomHole, game.timerInterval);
-    game.countdownTimerId = setInterval(game.countdown, game.countDownTimerInterval);
+    game.countdownTimerId = setInterval(countdown, game.countDownTimerInterval);
+}
+
+function countdown() {
+    const timerContainer = document.querySelector(game.timerContainerClass);
+    timerContainer.innerHTML = game.currentTime;
+    if (game.currentTime === 0) {
+        clearInterval(game.marmotPopTimerId);
+        clearInterval(game.countdownTimerId);
+    } else {
+        --game.currentTime;
+    }
 }
 
 export function startGame() {
