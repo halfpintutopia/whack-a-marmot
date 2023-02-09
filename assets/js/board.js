@@ -56,6 +56,7 @@ export class Board {
 
                 const marmotImage = document.createElement('img');
                 marmotImage.classList.add(this.marmotImageClass);
+                marmotImage.setAttribute('draggable', false);
                 marmotImage.setAttribute('src', this.marmotImageSrc);
                 marmotImage.setAttribute('alt', this.marmotImageAlt);
 
