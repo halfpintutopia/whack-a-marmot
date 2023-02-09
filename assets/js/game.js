@@ -21,7 +21,7 @@ export class Game {
         this.countdownTimerId = null;
         this.timerInterval = 1000;
         this.countDownTimerInterval = 1000;
-        this.currentTime = 10;
+        this.currentTime = 30;
         this.currentScore = 0;
     }
 
@@ -88,5 +88,6 @@ function saveScore() {
 
 export function startGame() {
     gameBoard.classList.add('active');
+    game.currentTime = 30;
     moveMarmot();
 }
