@@ -47,8 +47,9 @@
     /* https://css-irl.info/drop-shadow-the-underrated-css-filter/ */
     --drop-shadow: drop-shadow(0.35rem 0.35rem 0.4rem hsla(0, 0%, 0%, 0.5));
 
-    --z-index-behind-neg-100: -100;
-    --z-index-behind-100: 100;
+    --z-index-negative-100: -100;
+    --z-index-100: 100;
+    --z-index-200: 200;
 
     --bullseye-cursor: url("/assets/media/images/fa-bullseye.png") 16 16, crosshair;
 

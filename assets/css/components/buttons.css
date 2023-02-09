@@ -21,7 +21,8 @@ span, span i {
 button.modal__button--close,
 button.carousel__next,
 button.carousel__previous {
-    color: var(--pistachio);
+    cursor: pointer;
+    color: var(--deep-forest-green);
     font-size: clamp(3.13rem, calc(2.65rem + 2.39vw), 4.50rem);
 }
 
@@ -40,7 +41,7 @@ button.modal__button--close {
     position: absolute;
     top: 0;
     right: 5%;
-    z-index: var(--z-index-behind-100);
+    z-index: var(--z-index-100);
 }
 
 /* Toggle buttons https://codepen.io/vineethtrv/pen/QbqMXE */
@@ -101,3 +102,8 @@ input[data-type="toggle"]:checked + label::after {
     backdrop-filter: blur(10px);
 }
 
+button[data-type="add-player"] {
+    cursor: pointer;
+    font-family: var(--font-family-heading);
+    font-size: clamp(3.13rem, calc(2.65rem + 2.39vw), 4.50rem);
+}

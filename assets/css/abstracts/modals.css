@@ -54,11 +54,11 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(3px);
-    z-index: 1;
+    z-index: var(--z-index-100);
 }
 
 .modal {
-    z-index: 2;
+    z-index: var(--z-index-200);
 }
 
 .hidden {
@@ -70,4 +70,10 @@
     object-fit: contain;
 }
 
-
+.modal-play input {
+    width: 100%;
+    font-size: 48px;
+    border-color: green;
+    outline-color: green;
+    color: green;
+}

@@ -50,7 +50,12 @@
         </div>
     </section>
 
-    <section id="modal-instructions" class="modal modal-settings container border border-thick hidden">
+    <section id="modal-play" class="modal modal-play container border border-thick hidden">
+        <h2>Enter your name:</h2>
+        <input type="text" data-input="username">
+        <button data-type="add-player">Continue</button>
+    </section>
+    <section id="modal-instructions" class="modal modal-instructions container border border-thick hidden">
         <button class="modal__button--close"><i class="fa-solid fa-xmark"></i></button>
         <div id="carousel-instructions" class="carousel">
             <h2>How to Play</h2>
@@ -104,29 +109,27 @@
     </section>
     <section id="modal-settings" class="modal modal-settings container border border-thick hidden">
         <button class="modal__button--close"><i class="fa-solid fa-xmark"></i></button>
-        <div id="carousel-settings" class="carousel">
-            <h2>Settings</h2>
-            <div class="carousel__area">
-                <div class="carousel__page">
-                    <div class="settings-buttons button-container container">
-                        <strong>Light or dark mode</strong>
-                        <input type="checkbox" id="settings-buttons__mode"
-                               class="toggle settings-buttons__mode--toggle" data-input="display" data-type="toggle">
-                        <label for="settings-buttons__mode" class="container-narrow"><span class="settings__mode--light"
-                                                                                           data-display="light"><i
-                                class="fa-regular fa-lightbulb"></i>&nbsp;&nbsp;Light</span><span
-                                class="settings__mode--dark off" data-display="dark"><i
-                                class="fa-solid fa-lightbulb"></i>&nbsp;&nbsp;Dark</span></label>
+        <h2>Settings</h2>
+        <div class="carousel__area">
+            <div class="carousel__page">
+                <div class="settings-buttons button-container container">
+                    <strong>Light or dark mode</strong>
+                    <input type="checkbox" id="settings-buttons__mode"
+                           class="toggle settings-buttons__mode--toggle" data-input="display" data-type="toggle">
+                    <label for="settings-buttons__mode" class="container-narrow"><span class="settings__mode--light"
+                                                                                       data-display="light"><i
+                            class="fa-regular fa-lightbulb"></i>&nbsp;&nbsp;Light</span><span
+                            class="settings__mode--dark off" data-display="dark"><i
+                            class="fa-solid fa-lightbulb"></i>&nbsp;&nbsp;Dark</span></label>
 
-                        <strong>3 lives or relaxed mode</strong>
-                        <input type="checkbox" id="settings-buttons__play"
-                               class="toggle settings-buttons__play--toggle" data-input="play-mode" data-type="toggle">
-                        <label for="settings-buttons__play" class="container-narrow"><span
-                                class="settings__mode--limited" data-play-mode="limited"><i
-                                class="fa-solid fa-heart-crack"></i>&nbsp;&nbsp;Limited</span><span
-                                class="settings__mode--relaxed off" data-play-mode="relaxed"><i
-                                class="fa-solid fa-couch"></i>&nbsp;&nbsp;Relaxed</span></label>
-                    </div>
+                    <strong>3 lives or relaxed mode</strong>
+                    <input type="checkbox" id="settings-buttons__play"
+                           class="toggle settings-buttons__play--toggle" data-input="play-mode" data-type="toggle">
+                    <label for="settings-buttons__play" class="container-narrow"><span
+                            class="settings__mode--limited" data-play-mode="limited"><i
+                            class="fa-solid fa-heart-crack"></i>&nbsp;&nbsp;Limited</span><span
+                            class="settings__mode--relaxed off" data-play-mode="relaxed"><i
+                            class="fa-solid fa-couch"></i>&nbsp;&nbsp;Relaxed</span></label>
                 </div>
             </div>
         </div>
@@ -136,7 +139,10 @@
 </main>
 
 <script src="https://kit.fontawesome.com/28847961b6.js" rel="preconnect" crossorigin="anonymous"></script>
+<script type="module" src="assets/js/audio.js"></script>
+<script type="module" src="assets/js/gameButtonOverview.js"></script>
+
 <script src="assets/js/loader.js"></script>
-<script type="module" src="assets/js/main.js"></script>
+<script type="module" src="assets/js/script.js"></script>
 </body>
 </html>

@@ -66,6 +66,10 @@ export class Game {
         // Fix events with bind https://stackoverflow.com/a/22870717/8614652
         this.initStartListener = this.initStartGame.bind(this);
         this.hitMarmotListener = this.hitMarmot.bind(this);
+        this.initExitGameListener = this.initExitGame.bind(this);
+        this.changeGridLayoutListener = this.changeGridLayout.bind(this);
+        this.countdownListener = this.countdown.bind(this);
+        this.pickRandomHoleListener = this.pickRandomHole.bind(this);
 
         if (this.game && this.gameButtonContainer) {
             this.createButtons();
@@ -84,17 +88,19 @@ export class Game {
             button.setAttribute('type', 'button');
             button.setAttribute('data-type', type);
             button.innerHTML = `${capitaliseFirstLetter(type)}`;
-            switch (type) {
-                case 'play':
-                    button.addEventListener(this.clickEvent, this.initStartListener);
-                    break;
-                case 'settings':
-                    button.addEventListener(this.clickEvent, openModal);
-                    break;
-                case 'instructions':
-                    button.addEventListener(this.clickEvent, openModal);
-                    break;
-            }
+            button.addEventListener(this.clickEvent, openModal);
+            // switch (type) {
+            //     case 'play':
+            //         button.addEventListener(this.clickEvent, openModal);
+            //         // button.addEventListener(this.clickEvent, this.initStartListener);
+            //         break;
+            //     case 'settings':
+            //         button.addEventListener(this.clickEvent, openModal);
+            //         break;
+            //     case 'instructions':
+            //         button.addEventListener(this.clickEvent, openModal);
+            //         break;
+            // }
 
             this.gameButtonContainer.appendChild(button);
         });
@@ -123,16 +129,15 @@ export class Game {
         this.gameButtonContainer.append(timerDiv, numberOfMarmotsDiv);
 
         this.timerDiv = document.querySelector('.timer-container__countdown');
-
     }
 
 
     showHideExitBtn() {
         if (this.exitBtn.classList.contains(this.hiddenClass)) {
             this.exitBtn.classList.remove(this.hiddenClass);
-            this.exitBtn.addEventListener(this.clickEvent, e => this.initExitGame(e));
+            this.exitBtn.addEventListener(this.clickEvent, this.initExitGameListener);
         } else {
-            this.exitBtn.removeEventListener(this.clickEvent, e => this.initExitGame(e));
+            this.exitBtn.removeEventListener(this.clickEvent,this.initExitGameListener);
             this.exitBtn.classList.add(this.hiddenClass);
         }
     }
@@ -207,14 +212,12 @@ export class Game {
     }
 
     moveMarmot() {
-        this.marmotPopTimerId = setInterval(this.pickRandomHole.bind(this), this.timerInterval);
-        this.countdownTimerId = setInterval(this.countdown.bind(this), this.countDownTimerInterval);
+        this.marmotPopTimerId = setInterval(this.pickRandomHoleListener, this.timerInterval);
+        this.countdownTimerId = setInterval(this.countdownListener, this.countDownTimerInterval);
     }
 
     pickRandomHole() {
-        console.log(this.hitMarmotListener);
         this.marmots.forEach(marmot => {
-            console.log(marmot);
             marmot.classList.remove('pop');
             marmot.removeEventListener(this.clickEvent, this.hitMarmotListener);
         });
@@ -225,10 +228,12 @@ export class Game {
     }
 
     countdown() {
-        this.timerDiv.innerHTML = --this.currentTime;
+        this.timerDiv.innerHTML = this.currentTime;
         if (this.currentTime === 0) {
             clearInterval(this.marmotPopTimerId);
             clearInterval(this.countdownTimerId);
+        } else {
+            --this.currentTime;
         }
         //TODO add leaderboard
     }
@@ -243,7 +248,7 @@ export class Game {
         window.dispatchEvent(gameEvent);
 
         // Issue with on resizing losing this https://stackoverflow.com/questions/47017093/es6-class-variable-gets-undefined
-        window.addEventListener(this.resizeEvent, debounce(this.changeGridLayout.bind(this), 500));
+        window.addEventListener(this.resizeEvent, debounce(this.changeGridLayoutListener, 500));
     }
 
     initStartGame() {

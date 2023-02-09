@@ -15,7 +15,9 @@ export const openModal = (e) => {
     modal.classList.remove('hidden');
     modalOverlay.classList.remove('hidden');
 
-    btnClose.addEventListener('click', closeModal);
+    if (btnClose) {
+        btnClose.addEventListener('click', closeModal);
+    }
 };
 
 const closeModal = (e) => {

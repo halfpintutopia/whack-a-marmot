@@ -57,7 +57,7 @@
     position: relative;
     left: 1em;
     bottom: -6em;
-    z-index: 2;
+    z-index: var(--z-index-200);
     transform: scale(2);
     transition: transform var(--transform);
 }
