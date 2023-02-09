@@ -9,6 +9,8 @@
  */
 
 import {addShakeAnimation} from "./hammer.js";
+import {updateRecords} from "./records.js";
+import {endGameDisplay} from "./gameButton.js";
 
 export class Game {
     constructor(gameId) {
@@ -64,6 +66,8 @@ function countdown() {
         clearInterval(game.marmotPopTimerId);
         clearInterval(game.countdownTimerId);
         removeAllListeners();
+        saveScore();
+        endGameDisplay(game.currentScore);
     } else {
         --game.currentTime;
     }
@@ -76,6 +80,10 @@ function removeAllListeners() {
         marmot.removeEventListener('click', hitMarmot);
         marmot.removeEventListener('click', addShakeAnimation);
     });
+}
+
+function saveScore() {
+    updateRecords(document.querySelector('.marmot-hit__total').innerHTML);
 }
 
 export function startGame() {

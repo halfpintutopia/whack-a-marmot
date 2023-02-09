@@ -11,21 +11,32 @@ class Records {
     constructor(userNameInputDataType, addPlayerButton) {
         this.userNameInputDataType = userNameInputDataType;
         this.addPlayerButtonSelector = addPlayerButton;
+        this.player = {};
+        this.currentScore = 0;
         this.currentPlayer = '';
-        this.leaderboard = {};
+        this.leaderboard = [];
+        this.records = [];
     }
 
     recover() {
-        return localStorage.getItem('leaderboard') ? JSON.parse(localStorage.getItem('leaderboard')) : {};
+        const leaderboard = localStorage.getItem('leaderboard') ? localStorage.getItem('leaderboard').split(',') : [];
+        // const records = [];
+        leaderboard.forEach((person) => {
+            console.log(JSON.parse(person));
+            this.records.push(JSON.parse(person));
+        });
+        return this.records;
     }
 
-    initialSave() {
-        this.leaderboard[this.currentPlayer] = '0';
+    save() {
+        this.player[this.currentPlayer] = this.currentScore;
+        // this.leaderboard[this.currentPlayer] = this.currentScore;
     }
 
     update() {
         // Update after the game has finished
-        localStorage.setItem('leaderboard', JSON.stringify(this.leaderboard));
+        this.leaderboard.push(JSON.stringify(this.player));
+        localStorage.setItem('leaderboard', this.leaderboard.toString());
     }
 }
 
@@ -37,10 +48,16 @@ addPlayerButton.addEventListener('click', addPlayer); // this needs to be moved 
 
 export function addPlayer() {
     records.currentPlayer = userNameInput.value;
-    records.initialSave();
+    records.save();
     console.log(records.leaderboard);
 }
 
-export function updateRecords () {
-    // On click - Update after the game has finished
+export function updateRecords(score) {
+    records.currentScore = parseInt(score);
+    records.save();
+    records.update();
+}
+
+export function getRecords() {
+    return records.recover();
 }
