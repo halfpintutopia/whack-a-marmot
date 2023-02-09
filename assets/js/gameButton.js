@@ -46,7 +46,7 @@ export function createGameButtons() {
 
 createGameButtons();
 
-export function createGameBoard() {
+export function createGameDisplay() {
     gameButtonContainer.innerHTML = '';
 
     const timerDiv = document.createElement('div');

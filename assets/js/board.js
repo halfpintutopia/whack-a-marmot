@@ -7,6 +7,7 @@
  */
 
 import {createGameButtons} from "./gameButton.js";
+import {debounce} from "./helpers.js";
 
 export class Board {
     constructor(gameId, gameButtonsClass) {
@@ -33,25 +34,6 @@ export class Board {
         this.marmotImageAlt = 'Marmot';
     }
 
-    changeGridLayout() {
-        if (window.innerWidth > this.gameResponsiveMinWidth) {
-            document.body.classList.add(this.desktopClass);
-            document.body.classList.remove(this.mobileClass);
-            this.screenSize = 'desktop';
-            this.numberOfHoles = 12;
-            this.gameGridColumn = this.gameGridColumnDesktop;
-            this.gameGridRow = this.gameGridRowDesktop;
-        } else {
-            document.body.classList.add(this.mobileClass);
-            document.body.classList.remove(this.desktopClass);
-            this.screenSize = 'mobile';
-            this.numberOfHoles = 6;
-            this.gameGridColumn = this.gameGridColumnMobile;
-            this.gameGridRow = this.gameGridRowMobile;
-        }
-
-        // this.createMarmotHoles();
-    }
 
     removeGridLayout() {
         const holesContainer = document.querySelector('.holes-container');
@@ -59,8 +41,7 @@ export class Board {
     }
 
     createMarmotHoles() {
-        let numberOfMarmots,
-            start = this.screenSize === 'desktop' ? 2 : 1;
+        let start = this.screenSize === 'desktop' ? 2 : 1;
 
         for (let i = start; i <= this.gameGridRow; i++) {
             for (let j = 1; j <= this.gameGridColumn; j++) {
@@ -89,7 +70,7 @@ export class Board {
         }
 
         this.marmots = document.querySelectorAll(`.${this.marmotImageClass}`);
-        this.moveMarmot();
+        // this.moveMarmot();
     }
 
     revealGameArea() {
@@ -99,18 +80,37 @@ export class Board {
 
 const board = new Board('game-area', '.game-buttons');
 const game = document.getElementById(board.gameId);
+const holesContainer = document.querySelector('.holes-container');
 const gameButtonContainer = document.querySelector(board.gameButtonsClass);
 const exitButton = document.getElementById(board.exitBtnId);
 
-export function hideGameArea() {
-    // .createGameButtons();
-    showHideExitBtn();
+export function changeGridLayout() {
+    console.log(holesContainer);
+    holesContainer.innerHTML = '';
+
+    if (window.innerWidth > board.gameResponsiveMinWidth) {
+        document.body.classList.add(board.desktopClass);
+        document.body.classList.remove(board.mobileClass);
+        board.screenSize = 'desktop';
+        board.numberOfHoles = 12;
+        board.gameGridColumn = board.gameGridColumnDesktop;
+        board.gameGridRow = board.gameGridRowDesktop;
+    } else {
+        document.body.classList.add(board.mobileClass);
+        document.body.classList.remove(board.desktopClass);
+        board.screenSize = 'mobile';
+        board.numberOfHoles = 6;
+        board.gameGridColumn = board.gameGridColumnMobile;
+        board.gameGridRow = board.gameGridRowMobile;
+    }
+
+    board.createMarmotHoles();
 }
 
 export function initExitGame() {
     game.classList.remove('active');
     board.removeGridLayout();
-    hideGameArea();
+    showHideExitBtn();
     createGameButtons();
 }
 
@@ -125,3 +125,5 @@ export function showHideExitBtn() {
         exitButton.classList.add('hidden');
     }
 }
+
+window.addEventListener('resize', debounce(changeGridLayout, 500));

@@ -7,10 +7,12 @@
  regexp: true, sloppy: true, vars: false,
  white: true
  */
+import {changeGridLayout} from "./board.js";
+
 export class Game {
     constructor(gameId) {
         this.gameId = gameId;
-        this.marmots = '';
+        this.marmotClass = '.marmot__img';
         this.timerDiv = '';
         this.marmotPopTimerId = null;
         this.countdownTimerId = null;
@@ -18,31 +20,6 @@ export class Game {
         this.countDownTimerInterval = 1000;
         this.currentTime = 60;
         this.currentScore = 0;
-    }
-
-    startGame() {
-        this.moveMarmot();
-    }
-
-    hitMarmot() {
-        const score = document.querySelector('.marmot-hit__total');
-        score.innerHTML = ++this.currentScore;
-    }
-
-    moveMarmot() {
-        this.marmotPopTimerId = setInterval(this.pickRandomHoleListener, this.timerInterval);
-        this.countdownTimerId = setInterval(this.countdownListener, this.countDownTimerInterval);
-    }
-
-    pickRandomHole() {
-        this.marmots.forEach(marmot => {
-            marmot.classList.remove('pop');
-            marmot.removeEventListener(this.clickEvent, this.hitMarmotListener);
-        });
-
-        const marmot = this.marmots[Math.floor(Math.random() * this.marmots.length)];
-        marmot.classList.add('pop');
-        marmot.addEventListener(this.clickEvent, this.hitMarmotListener);
     }
 
     countdown() {
@@ -53,25 +30,45 @@ export class Game {
         } else {
             --this.currentTime;
         }
-        //TODO add leaderboard
     }
 
-
+    updateScore() {
+        return this.currentScore++;
+    }
 }
 
 const game = new Game('game-area');
 const gameBoard = document.getElementById(game.gameId);
 
+function hitMarmot() {
+    const score = document.querySelector('.marmot-hit__total');
+    score.innerHTML = game.updateScore();
+}
+
+function pickRandomHole() {
+    const marmots = document.querySelectorAll(game.marmotClass);
+
+    marmots.forEach(marmot => {
+        marmot.classList.remove('pop');
+        marmot.removeEventListener('click', hitMarmot);
+    });
+
+    const marmot = marmots[Math.floor(Math.random() * marmots.length)];
+    marmot.classList.add('pop');
+    marmot.addEventListener('click', hitMarmot);
+}
+
+function moveMarmot() {
+    game.marmotPopTimerId = setInterval(pickRandomHole, game.timerInterval);
+    game.countdownTimerId = setInterval(game.countdown, game.countDownTimerInterval);
+}
+
 export function startGame() {
     gameBoard.classList.add('active');
-    // this.revealGameArea();
-    // this.changeGridLayout();
-    // this.startGame();
+    moveMarmot();
 }
 
 export function exitGame() {
     gameBoard.classList.remove('active');
-    // this.hideGameArea();
     // this.removeGridLayout();
 }
-
