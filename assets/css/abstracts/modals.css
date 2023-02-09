@@ -73,7 +73,7 @@
 .modal-play input {
     width: 100%;
     font-size: 48px;
-    border-color: green;
-    outline-color: green;
-    color: green;
+    border-color: var(--deep-forest-green);
+    outline-color: var(--deep-forest-green);
+    color: var(--deep-forest-green);
 }
