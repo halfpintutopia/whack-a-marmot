@@ -17,7 +17,6 @@ export class Hammer {
 const hammer = new Hammer('game-area', '.hammer');
 const gameContainer = document.getElementById(hammer.gameContainerId);
 const cursor = document.querySelector(hammer.cursorClass);
-const playBtn = document.getElementById(hammer.playBtnId)
 
 gameContainer.addEventListener('mousemove', initCursor);
 gameContainer.addEventListener('mousedown', e => addAnimationCursor(e));

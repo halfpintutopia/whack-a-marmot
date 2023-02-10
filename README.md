@@ -550,7 +550,7 @@ A list of references used for the site:
     
 ## Content
 
-The content succinct and created by myself. 
+The content was short and to the point, and was created by myself. 
 
 ## Media
 
@@ -578,7 +578,7 @@ The content succinct and created by myself.
 </details>
 
 ## Acknowledgements
-This part of the journey was a tough one, and I would like to give a big thanks to my partner, Stefan Tschudi for rallying me, keeping me going with endless cups of tea. Acknowledgements also go to those who took the time to provide great insights and advice
+This part of the journey was a tough but immensely rewarding one, and I would like to give a big thanks to my partner, Stefan Tschudi for rallying me, keeping me going with endless cups of tea. Acknowledgements also go to those who took the time to provide great insights and advice
 * Rahul Lakhanpal - for keeping me focussed.
 * Class Slack Channel, with special thanks to Ger Tobin. 
 <br>
