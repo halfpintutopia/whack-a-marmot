@@ -18,7 +18,7 @@
     --conifer: hsl(79, 68%, 54%);
     --deep-forest-green: hsl(102, 66%, 13%);
     --sun: hsl(43, 95%, 53%);
-    --sun-opacity: hsla(43, 96%, 53%, 0.8);
+    --sun-opacity: hsla(43, 96%, 53%, 0.1);
     --iceberg: hsl(164, 57%, 88%);
 
     --font-family-bangers: 'Bangers', cursive;

@@ -130,7 +130,7 @@ The website consists of the following:
 * A 404 page
 * Instructions modal
 * Settings modal
-* Leaderboard
+* Scoreboard
 
 ## Colour Scheme
 
@@ -300,11 +300,12 @@ The second version is seen on the storybook page. The layout is exactly the same
 ## Future Implementations
 
 1. Add random username generator
-2. Add leaderboard
+2. Change the scoreboard to a leaderboard
 3. Vary speeds with more settings variables
 4. Implement more animation
 5. Be more precise, differentiate between double click and first clicks
 6. Use SVG hills for marmots to pop up from behind
+7. Add missed hits
 
 ## Accessibility
 
@@ -432,20 +433,20 @@ Testing implemented from [User stories](#user-stories)
 | Choose the settings        |          Settings available for to choose between dark and light, easy and difficult           |  Yes   |    Yes     |
 | Read the game instructions |                               Instructions provided in a modal.                                |  Yes   |    Yes     |
 | Play the game              | Start game play, by clicking button. Also users can exit with the exit button on the top right |  Yes   |    Yes     |
-| Beat previous score        |                                Check leaderboard to beat score.                                |  Yes   |    Yes     |
+| Beat previous score        |                                Check scoreboard to beat score.                                 |  Yes   |    Yes     |
 
 ### Return Visitor Goals
 
-| Return Visitor Goals |                            Implementation                            | Tested | Successful |
-|----------------------|:--------------------------------------------------------------------:|:------:|:----------:|
-| Improve scores       | Return to game to see the leaderboard again (stored in localStorage) |  Yes   |    Yes     |
+| Return Visitor Goals |                           Implementation                            | Tested | Successful |
+|----------------------|:-------------------------------------------------------------------:|:------:|:----------:|
+| Improve scores       | Return to game to see the scoreboard again (stored in localStorage) |  Yes   |    Yes     |
 
 
 ### Frequent Visitor Goals
 
-| Frequent Visitor Goals           |        Implementation         | Tested | Successful |
-|----------------------------------|:-----------------------------:|:------:|:----------:|
-| Other players can add a username | Compare scores in leaderboard |  Yes   |    Yes     |
+| Frequent Visitor Goals           |        Implementation        | Tested | Successful |
+|----------------------------------|:----------------------------:|:------:|:----------:|
+| Other players can add a username | Compare scores in scoreboard |  Yes   |    Yes     |
 
 ### Bugs and fixes
 

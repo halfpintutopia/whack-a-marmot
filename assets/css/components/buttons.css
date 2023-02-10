@@ -99,12 +99,19 @@ input[data-type="toggle"]:checked + label::after {
 }
 
 #music-button, #exit-btn {
+    margin-top: 1em;
     background-color: var(--sun);
     backdrop-filter: blur(10px);
+    box-shadow: var(--dark-box-shadow);
+    border-radius: 0 10px 10px 0;
+}
+
+#music-button .fa-2x, #exit-btn .fa-2x {
+    font-size: clamp(1.25em, calc(0.99em + 1.30vw), 2.00em);
 }
 
 #music-button .silent.active {
-color: var(--deep-forest-green);
+    color: var(--deep-forest-green);
 }
 
 button[data-type="add-player"] {

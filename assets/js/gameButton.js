@@ -57,6 +57,8 @@ export function createGameDisplay() {
 export function endGameDisplay(score) {
     gameButtonContainer.innerHTML = '';
 
+    let maxResults = 5;
+
     const gameOverDiv = document.createElement('div');
     gameOverDiv.innerHTML = `<h4>Game over! You scored <span class="marmot-hit__total">${score}</span></h4>`;
     const scoreboardDiv = document.createElement('div');
@@ -64,7 +66,7 @@ export function endGameDisplay(score) {
     const scoreboard = getRecords();
     scoreboardDiv.innerHTML += '<h4>Scoreboard</h4>';
 
-    for (let i = 0; i < scoreboard.length; i++) {
+    for (let i = 0; i < maxResults; i++) {
         scoreboardDiv.innerHTML += "<div><div class='scoreboard__name'>" + scoreboard[i].name + "</div><div class='scoreboard__score'>" + scoreboard[i].score + "</div></div>";
     }
 

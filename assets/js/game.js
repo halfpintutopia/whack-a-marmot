@@ -41,7 +41,7 @@ export class Game {
 
 const game = new Game('game-area');
 const gameBoard = document.getElementById(game.gameId);
-
+const holesContainer = document.querySelector('.holes-container');
 
 function hitMarmot(e) {
     const score = document.querySelector('.marmot-hit__total');
@@ -82,6 +82,7 @@ function countdown() {
         clearInterval(game.countdownTimerId);
         removeAllListeners();
         saveScore();
+        holesContainer.innerHTML = '';
         endGameDisplay(game.currentScore);
     } else {
         --game.currentTime;
