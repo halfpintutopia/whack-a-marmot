@@ -10,8 +10,6 @@ export class Hammer {
     constructor(gameContainerId, cursorClass) {
         this.gameContainerId = gameContainerId;
         this.cursorClass = cursorClass;
-        this.gameContainer = '';
-        this.cursor = '';
         this.playBtnId = 'play-btn';
     }
 }
@@ -26,8 +24,6 @@ gameContainer.addEventListener('mousedown', e => addAnimationCursor(e));
 
 function initCursor(e) {
     const {clientWidth, clientHeight} = cursor;
-    // this.cursor.style.top = (e.pageY - (clientHeight / 2)) + 'px'; // perfect setting
-    // this.cursor.style.left = (e.pageX - (clientWidth / 2)) + 'px'; // perfect setting
     cursor.style.top = `${e.pageY - (clientHeight * 1.25)}px`;
     cursor.style.left = `${e.pageX + (clientWidth * 0.1)}px`;
 }
@@ -39,12 +35,9 @@ export function addShakeAnimation(e) {
 
 export function addAnimationCursor(e) {
     e.target.addEventListener('mouseup', removeAnimationCursor);
-    // e.target.addEventListener('mouseleave', e => this.removeAnimationCursor(e));
-    // this.cursor.classList.add('hit')
     cursor.style.animation = `hammer-hit 550ms`;
 }
 
 export function removeAnimationCursor(e) {
-    // this.cursor.classList.add('hit')
     cursor.style.animation = '';
 }
