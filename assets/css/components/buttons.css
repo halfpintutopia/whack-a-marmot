@@ -99,8 +99,12 @@ input[data-type="toggle"]:checked + label::after {
 }
 
 #music-button, #exit-btn {
-    background-color: rgba(255, 255, 255, .1);
+    background-color: var(--sun);
     backdrop-filter: blur(10px);
+}
+
+#music-button .silent.active {
+color: var(--deep-forest-green);
 }
 
 button[data-type="add-player"] {

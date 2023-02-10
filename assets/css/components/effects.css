@@ -14,8 +14,6 @@
 
 @media only screen and (width >= 768px) {
     .holes-container {
-        grid-template-columns: repeat(var(--game-grid-columns), 1fr);
-        grid-template-rows: repeat(var(--game-grid-row), 1fr);
         margin-bottom: 3em;
     }
 }
