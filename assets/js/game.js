@@ -29,6 +29,14 @@ export class Game {
     updateScore() {
         return this.currentScore++;
     }
+
+    updateDifficulty(level) {
+        if (level === 'hard') {
+            game.timerInterval = 500;
+        } else {
+            game.timerInterval = 1000;
+        }
+    }
 }
 
 const game = new Game('game-area');
@@ -77,7 +85,7 @@ function countdown() {
 function removeAllListeners() {
     const marmots = document.querySelectorAll(game.marmotClass);
 
-      marmots.forEach(marmot => {
+    marmots.forEach(marmot => {
         marmot.removeEventListener('click', hitMarmot);
         marmot.removeEventListener('click', addShakeAnimation);
     });
@@ -95,11 +103,5 @@ export function startGame() {
 }
 
 export function updateSpeedSetting(level) {
-    console.log(level);
-    if (level === 'hard') {
-        game.timerInterval = 500;
-    } else {
-        game.timerInterval = 1000;
-    }
-
+    game.updateDifficulty(level);
 }
