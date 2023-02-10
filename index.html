@@ -20,7 +20,7 @@
                controls autoplay loop></audio>
         <span class="fa-stack fa-2x">
             <i class="fa-solid fa-music fa-stack-1x fa-inverse music"></i>
-            <i class="fa-solid fa-slash fa-stack-1x silent active" style="color:Tomato"></i>
+            <i class="fa-solid fa-slash fa-stack-1x silent active"></i>
         </span>
     </div>
 
@@ -47,8 +47,15 @@
 
     <section id="modal-play" class="modal modal-play container border border-thick hidden" data-type="regular">
         <h2>Enter your name:</h2>
-        <input type="text" data-input="username">
-        <button data-type="add-player">Continue</button>
+        <form>
+            <label for="player-name">
+                <input id="player-name" title="Username must be at least 4 characters, without spaces" type="text"
+                       data-input="username"
+                       pattern="[a-zA-Z0-9]+" minlength="4" required="required">
+                <span class="hidden">Username must be at least 4 characters, without spaces</span>
+            </label>
+        </form>
+        <button type="submit" data-type="add-player">Continue</button>
     </section>
     <section id="modal-instructions" class="modal modal-instructions container border border-thick hidden"
              data-type="regular">
@@ -112,8 +119,8 @@
                     <strong>Light or dark mode</strong>
                     <input type="checkbox" id="settings-buttons__mode"
                            class="toggle settings-buttons__mode--toggle" data-input="display" data-type="toggle">
-                    <label for="settings-buttons__mode" class="container-narrow"><span class="settings__mode--light"
-                                                                                       data-display="light"><i
+                    <label for="settings-buttons__mode"><span class="settings__mode--light"
+                                                              data-display="light"><i
                             class="fa-regular fa-lightbulb"></i>&nbsp;&nbsp;Light</span><span
                             class="settings__mode--dark off" data-display="dark"><i
                             class="fa-solid fa-lightbulb"></i>&nbsp;&nbsp;Dark</span></label>
@@ -121,7 +128,7 @@
                     <strong>How fast can you manage?</strong>
                     <input type="checkbox" id="settings-buttons__play"
                            class="toggle settings-buttons__play--toggle" data-input="difficulty" data-type="toggle">
-                    <label for="settings-buttons__play" class="container-narrow"><span
+                    <label for="settings-buttons__play"><span
                             class="settings__mode--easy" data-difficulty="easy"><i
                             class="fa-solid fa-couch"></i>&nbsp;&nbsp;Easy</span><span
                             class="settings__mode--hard off" data-difficulty="hard"><i
@@ -144,6 +151,7 @@
 <script type="module" src="assets/js/carousel.js"></script>
 <script type="module" src="assets/js/settings.js"></script>
 <script type="module" src="assets/js/play.js"></script>
+<script type="module" src="assets/js/hammer.js"></script>
 
 </body>
 </html>

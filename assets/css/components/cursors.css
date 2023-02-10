@@ -8,6 +8,7 @@
     transition-duration: 200ms;
     transition-timing-function: ease-out;
     background: center / contain no-repeat url("../../media/images/svg/hammer.svg");
+    z-index: var(--z-index-200);
 }
 
 @keyframes hammer-hit {
