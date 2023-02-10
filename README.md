@@ -4,7 +4,9 @@
 
 [View the live project here.](https://github.com/halfpintutopia/whack-a-marmot)
 
-[//]: # (TODO Description)
+The application was a great exercise in organising my files and keeping different concerns separate. The use of modules, allowed me to set variables and strings in the constructor. 
+
+The reasoning behind this was to prevent string errors, and keep code DRY.
 
 ![GitHub forks](https://img.shields.io/github/forks/halfpintutopia/whack-a-marmot?style=social)
 ![W3C Validation](https://img.shields.io/w3c-validation/html?style=social&targetUrl=https%3A%2F%2Fhalfpintutopia.github.io%2Fwhack-a-marmot%2F)
@@ -50,7 +52,7 @@
 
 The site was designed and developed mobile first. 
 
-Marmots in the spring up in the Swiss Alps were the inspiration for this game. The idea was to provide a colourful, visually appealing and stimulating game The colours were chosen to represent spring. 
+Marmots in the spring up in the Swiss Alps were the inspiration for this game. The idea was to provide a colourful, visually appealing and stimulating game The colours were chosen to represent spring.
 
 ## Intended Audience
 
