@@ -32,11 +32,6 @@
     align-items: end;
     border-radius: 0 0 100vw 100vw;
     overflow: hidden;
-    /*transition: transform var(--transform);*/
-}
-
-.marmot__container:hover {
-    /*transform: scale(1.1);*/
 }
 
 .hole__container {

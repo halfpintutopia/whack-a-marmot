@@ -118,4 +118,5 @@ button[data-type="add-player"] {
     cursor: pointer;
     font-family: var(--font-family-heading);
     font-size: clamp(3.13rem, calc(2.65rem + 2.39vw), 4.50rem);
+    color: var(--font-color-heading);
 }

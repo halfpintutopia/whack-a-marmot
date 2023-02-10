@@ -78,7 +78,7 @@ a {
 a:hover,
 a:focus,
 a:active {
-    /*color: var(--chestnut);*/
+    color: var(--revolver);
 }
 
 strong {
