@@ -46,6 +46,8 @@ h5 {
     letter-spacing: var(--letter-spacing-heading);
 }
 
+.scoreboard__name,
+.scoreboard__score,
 h6 {
     font-family: var(--font-family-heading);
     font-size: clamp(1.31rem, calc(1.12rem + 0.98vw), 1.88rem);

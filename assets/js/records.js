@@ -11,32 +11,23 @@ class Records {
     constructor(userNameInputDataType, addPlayerButton) {
         this.userNameInputDataType = userNameInputDataType;
         this.addPlayerButtonSelector = addPlayerButton;
-        this.player = {};
+        this.currentPlayer = {};
         this.currentScore = 0;
-        this.currentPlayer = '';
-        this.leaderboard = [];
-        this.records = [];
+        this.scoreboard = [];
     }
 
     recover() {
-        const leaderboard = localStorage.getItem('leaderboard') ? localStorage.getItem('leaderboard').split(',') : [];
-        // const records = [];
-        leaderboard.forEach((person) => {
-            console.log(JSON.parse(person));
-            this.records.push(JSON.parse(person));
-        });
-        return this.records;
+        this.scoreboard = localStorage.getItem('scoreboard') ? JSON.parse(localStorage.getItem('scoreboard')) : [];
+        return this.scoreboard;
     }
 
     save() {
-        this.player[this.currentPlayer] = this.currentScore;
-        // this.leaderboard[this.currentPlayer] = this.currentScore;
+        this.currentPlayer.score = this.currentScore;
+        this.scoreboard.push(this.currentPlayer);
     }
 
     update() {
-        // Update after the game has finished
-        this.leaderboard.push(JSON.stringify(this.player));
-        localStorage.setItem('leaderboard', this.leaderboard.toString());
+        localStorage.setItem('scoreboard', JSON.stringify(this.scoreboard));
     }
 }
 
@@ -44,12 +35,10 @@ const records = new Records('[data-input="username"]', 'button[data-type="add-pl
 const addPlayerButton = document.querySelector(records.addPlayerButtonSelector);
 const userNameInput = document.querySelector(records.userNameInputDataType);
 records.recover();
-addPlayerButton.addEventListener('click', addPlayer); // this needs to be moved to the game
+addPlayerButton.addEventListener('click', addPlayer);
 
 export function addPlayer() {
-    records.currentPlayer = userNameInput.value;
-    records.save();
-    console.log(records.leaderboard);
+    records.currentPlayer.name = userNameInput.value !== '' ? userNameInput.value : "NoName";
 }
 
 export function updateRecords(score) {

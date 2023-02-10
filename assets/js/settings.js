@@ -57,7 +57,7 @@ checkboxes.forEach(input => {
 });
 
 function switchAndSetLocalStorage(e) {
-    console.log(e);
+    let choice;
     const spans = e.currentTarget.nextElementSibling.querySelectorAll('span');
     spans.forEach(span => {
         span.classList.remove('off');
@@ -65,23 +65,23 @@ function switchAndSetLocalStorage(e) {
 
     if (e.currentTarget.checked) {
         spans[0].classList.add('off');
-        localStorage.setItem(e.currentTarget.dataset.input, spans[1].getAttribute(`data-${e.currentTarget.dataset.input}`));
-
+        choice = spans[1].getAttribute(`data-${e.currentTarget.dataset.input}`);
+        localStorage.setItem(e.currentTarget.dataset.input, choice);
     } else {
         spans[1].classList.add('off');
-        localStorage.setItem(e.currentTarget.dataset.input, spans[0].getAttribute(`data-${e.currentTarget.dataset.input}`));
+        choice = spans[0].getAttribute(`data-${e.currentTarget.dataset.input}`);
+        localStorage.setItem(e.currentTarget.dataset.input, choice);
     }
 
-    initChanges(e.currentTarget.dataset.input);
+    initChanges(e.currentTarget.dataset.input, choice);
 }
 
-function initChanges(inputType) {
-    console.log(inputType);
+function initChanges(inputType, option) {
     if (inputType === 'display') {
-        if (document.body.classList.contains('dark')) {
-            document.body.classList.remove('dark');
-        } else {
+        if (option === 'dark') {
             document.body.classList.add('dark');
+        } else {
+            document.body.classList.remove('dark');
         }
     }
 

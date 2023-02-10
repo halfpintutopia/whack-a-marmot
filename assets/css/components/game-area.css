@@ -54,3 +54,13 @@
 #game-area.active .game-buttons .marmot-hit__left {
     margin-top: 0;
 }
+
+.scoreboard > div {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.scoreboard > div > div {
+    margin-top: 0;
+}

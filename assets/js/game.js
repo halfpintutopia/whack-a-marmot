@@ -43,9 +43,11 @@ const game = new Game('game-area');
 const gameBoard = document.getElementById(game.gameId);
 
 
-function hitMarmot() {
+function hitMarmot(e) {
     const score = document.querySelector('.marmot-hit__total');
     score.innerHTML = game.updateScore();
+    e.currentTarget.removeEventListener('mousedown', hitMarmot);
+    e.currentTarget.removeEventListener('touchstart', hitMarmot);
 }
 
 function pickRandomHole() {
@@ -53,14 +55,18 @@ function pickRandomHole() {
 
     marmots.forEach(marmot => {
         marmot.classList.remove('pop');
-        marmot.removeEventListener('click', hitMarmot);
-        marmot.removeEventListener('click', addShakeAnimation);
+        marmot.removeEventListener('mousedown', hitMarmot);
+        marmot.removeEventListener('touchstart', hitMarmot);
+        marmot.removeEventListener('mousedown', addShakeAnimation);
+        marmot.removeEventListener('touchstart', addShakeAnimation);
     });
 
     const marmot = marmots[Math.floor(Math.random() * marmots.length)];
     marmot.classList.add('pop');
-    marmot.addEventListener('click', hitMarmot);
-    marmot.addEventListener('click', addShakeAnimation);
+    marmot.addEventListener('mousedown', hitMarmot);
+    marmot.addEventListener('touchstart', hitMarmot);
+    marmot.addEventListener('mousedown', addShakeAnimation);
+    marmot.addEventListener('touchstart', addShakeAnimation);
 }
 
 function moveMarmot() {
@@ -86,8 +92,10 @@ function removeAllListeners() {
     const marmots = document.querySelectorAll(game.marmotClass);
 
     marmots.forEach(marmot => {
-        marmot.removeEventListener('click', hitMarmot);
-        marmot.removeEventListener('click', addShakeAnimation);
+        marmot.removeEventListener('mousedown', hitMarmot);
+        marmot.removeEventListener('touchstart', hitMarmot);
+        marmot.removeEventListener('mousedown', addShakeAnimation);
+        marmot.removeEventListener('touchstart', addShakeAnimation);
     });
 }
 
