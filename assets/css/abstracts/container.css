@@ -1,14 +1,4 @@
 .container {
-  width: min(100% - 2rem, 60rem);
-  margin-inline: auto;
-}
-
-.container-narrow {
-  width: min(100% - 8rem, 40rem);
-  margin-inline: auto;
-}
-
-.container {
     width: min(100% - var(--container-padding), var(--container-max-width));
     margin-inline: auto;
 }
