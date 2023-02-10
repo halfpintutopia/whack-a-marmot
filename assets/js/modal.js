@@ -9,7 +9,6 @@ const modals = document.querySelectorAll('.modal');
 const modalOverlay = document.querySelector('.modal__overlay');
 const closeButtons = document.querySelectorAll('.modal__button--close');
 
-/* https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/ */
 export const openModal = (e) => {
     const modal = document.querySelector(`#modal-${e.target.dataset.type}`);
     const btnClose = modal.querySelector('.modal__button--close');

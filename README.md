@@ -224,47 +224,30 @@ The website consists of the following features:
 
 ---
 
-[Game page](https://halfpintutopia.github.io/magic-forest-trail/index.html)
+[Start page](https://halfpintutopia.github.io/whack-a-marmot/)
 
-The home page consists of 5 sections. 
-* Full height and width image with:
-    * text overlay
-    * button to scroll down to hiking trail cards
-* Image, title and text
-* Trail cards
-* Image, title and text (reversed order)
-* Gallery
-* Floating booking button
+The start page consists of the following sections. 
+* Title
+* Three buttons
+  * Play
+  * Instructions
+  * Settings
 
 --- 
 
-[Storybook](https://halfpintutopia.github.io/magic-forest-trail//storybook.html)
+Play page
 
-The storybook page consists of the following:
+The play page consists of the following:
 * Image banner at the top of the page
 * Multiple images, title and text, alternatively reversing the order
 
 ---
 
-[Individual trail page](https://halfpintutopia.github.io/magic-forest-trail/trails/full-trail.html)
+Modals for Instructions & Settings
 
-Individual trail pages are accessed via the home page. A link around each card directs visitors to see more about the trail.
-
-The hiking trail page consists of the following:
-* Image banner at the top of the page
-* Statistics are divided into 3 "boxes."
-* A back-to-trail list link, which redirects visitors back to the home page to the Trail Cards
-* A table of the stages, trails are divided into easy-to-walk stages
-* A map with markers of the locations indicated in the stages
-
----
-
-[Form](https://halfpintutopia.github.io/magic-forest-trail/contact-us.html)
-
-The form page consists of the following:
-* A table to clearly present the tickets and prices
-* Form to add first name, last name, email address, number of adults and children and additional comments.
-* A map with the location of the main station
+The instructions modal differs slightly from the settings modal, as it contains:
+* A carousel
+  * Slider for each page of the instructions
 
 ---
 

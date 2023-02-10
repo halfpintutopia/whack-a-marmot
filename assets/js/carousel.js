@@ -6,7 +6,6 @@
  white: true
  */
 
-/* https://stackoverflow.com/questions/15338054/horizontal-slideshow-with-divs */
 class Carousel {
     constructor(carouselId) {
         this.carouselId = carouselId;
