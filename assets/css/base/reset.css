@@ -7,8 +7,6 @@
     padding: 0;
     margin: 0;
     font: inherit;
-    /* CSS debugging hack below - kept in so can easily turn on and off https://www.youtube.com/shorts/ii-lSK2_Nu4 */
-    /* background: rgb(0 100 0 / .1) !important;*/
 }
 
 /* Kevin Powell's explanation of "lobotomised owl" - https://youtu.be/cuEHx9DoWI4?t=342 */
@@ -17,7 +15,6 @@
 }
 
 html {
-    /*color-scheme: dark light;*/
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
     height: 100%;
@@ -63,5 +60,5 @@ textarea:focus-visible {
  input:focus,
  textarea:focus,
  select:focus {
-     /*outline: transparent;*/
+     outline: transparent;
  }
