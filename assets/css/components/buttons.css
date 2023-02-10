@@ -56,6 +56,13 @@ input[data-type="toggle"] {
 input[data-type="toggle"] + label {
     display: flex;
     position: relative;
+    width: 100%;
+}
+
+@media only screen and (width >= 768px) {
+    input[data-type="toggle"] + label {
+        width: 50%;
+    }
 }
 
 input[data-type="toggle"]:focus + label::before {
