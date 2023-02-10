@@ -22,7 +22,7 @@
   * [Imagery](#imagery)
 
 * [Features](#features)
-  * [General Features on Each Page](#general-features-on-each-page)
+  * [Features of the game ](#features-of-the-game)
   * [Future Implementations](#future-implementations)
   * [Accessibility](#accessibility)
 
@@ -101,7 +101,7 @@ Wireframes were created for the site with [Figma](https://www.figma.com).
 <summary>Instructions modal for mobile and desktop</summary>
 <br>
 
-![Figma Wireframe of trail list for mobile and desktop](./docs/media/images/wireframe/how_to_play.png)
+![Figma Wireframe of instructions modal for mobile and desktop](./docs/media/images/wireframe/how_to_play.png)
 
 *Instructions modal - mobile and desktop*
 </details>
@@ -111,7 +111,7 @@ Wireframes were created for the site with [Figma](https://www.figma.com).
 <summary>Settings modal for mobile and desktop</summary>
 <br>
 
-![Figma Wireframe of trail page for mobile and desktop](./docs/media/images/wireframe/settings.png)
+![Figma Wireframe of settings modal for mobile and desktop](./docs/media/images/wireframe/settings.png)
 
 *Settings modal - mobile and desktop*
 </details>
@@ -119,7 +119,11 @@ Wireframes were created for the site with [Figma](https://www.figma.com).
 
 To see the full wireframe, view it [here](https://www.figma.com/file/uxe1pvEmLdY4evLEZttrqL/Whack-A-Marmot-(Copy)?t=gLTwq7qkJGoX6F3p-1).
 
-An additional note regarding the original images for the wireframe. The initial plan was to use SVG hills, and calculate percentage of the length to get the `x` and `y` coordinates, and calculating the slope for the angle of each marmot. This is to be added as a future implementation. 
+An additional note regarding the original images for the wireframe. 
+
+The initial plan was to use SVG hills. The SVG paths were calculated, a percentage of the length was taken to get the `x` and `y` coordinates. Calculation of slope was considered for each marmot angle. This was not feasible at this time, due to SVG paths not resizing to viewport. 
+
+This is to be added as a future implementation. 
 
 ---
 
@@ -134,7 +138,7 @@ The website consists of the following:
 
 ## Colour Scheme
 
-[//]: # (TODO Description why color palette was chosen)
+The colour scheme was created using Adobe Color, creating a theme from an image. The colours should emphasise the outdoors and the freshness of spring, which is when the marmots in Switzerland come out of hibernation.
 
 Created colour palette using:
 * [Adobe Color](https://color.adobe.com/create/image) 
@@ -209,11 +213,9 @@ Icons were used for social links and buttons. The icons used on the site were ta
 
 * [Font Awesome](https://fontawesome.com/)
 
-<br>
-
 # Features
 
-Details of each feature are listed under [General Features on Each Page](#general-features-on-each-page).
+Details of each feature are listed under [General Features on Each Page](#features-of-the-game).
 
 The website consists of the following features:
 * Game page
@@ -251,51 +253,73 @@ The instructions modal differs slightly from the settings modal, as it contains:
 
 ---
 
-Every page except the 404 page, success page and form page has a CTA Button, which is a button to take visitors to the booking form.
 
-## General Features on Each Page 
+## Features of the game 
 
-### Specific features
+### Game
 
-#### Trail List
+![Screenshot of the game play view](./docs/media/images/features/mobile/game_view_mobile.png)
 
-![Screenshot of the trail (lists) feature](./docs/media/images/features/trail-list/trail_list_mobile.png)
-
-*Screenshot of the trail (lists) feature for mobile*
+*Screenshot of the game view for mobile*
 
 <br>
 
-![Screenshot of the trail (lists) feature](./docs/media/images/features/trail-list/trail_list_desktop.png)
+![Screenshot of the game play view](./docs/media/images/features/desktop/game_view_desktop.png)
 
-*Screenshot of the trail (lists) feature for desktop*
-
-<br>
-
-The trail cards displayed contain text descriptions. The height of each card depends on the size of the device. A class was added to shorten the text so that the card heights were manageable on mobile devices. 
-
-#### Gallery
-
-![Screenshot of the gallery feature for mobile](./docs/media/images/features/gallery/gallery_mobile.png)
-
-*Screenshot of the gallery feature for mobile*
+*Screenshot of the game view for desktop*
 
 <br>
 
-![Screenshot of the gallery feature for desktop](./docs/media/images/features/gallery/gallery_desktop.png)
+The game size and the number of marmot holes are dependent on the device size. The game is not suitable to be played on a mobile device in landscape. 
 
-*Screenshot of the gallery feature for desktop*
+### Instructions Modal
+
+![Screenshot of the modal for instructions for mobile](./docs/media/images/features/mobile/instructions_mobile.png)
+
+*Screenshot of the instructions modal for mobile*
 
 <br>
 
-The gallery is in a grid layout masonry style. The gallery was to suit and demonstrate images that are meant to be viewed in portrait or landscape.
+![Screenshot of the  modal for instructions  for desktop](./docs/media/images/features/desktop/instuctions_desktop.png)
+
+*Screenshot of the instructions modal for desktop*
 
 <br>
 
-There are two versions of the text-image feature. 
+The idea was to make the instructions modal not too wordy. I wanted to emphasise the fun of the game, keeping everything simple.
 
-The first one can be found on the home page. This is a simple layout of a single image and text. When multiple image text sections are on the same page, they are set to be alternative sides. The text remains in a container, and the Image stretches to either the left or right side, dependent on which side of the text it is positioned. This effect was to fill empty space on wider devices and to add colour.
+### Settings Modal
 
-The second version is seen on the storybook page. The layout is exactly the same. The content is slightly different, as, under each text, there is a link which enables the visitor to quickly go to the trail page if they are interested in visiting the place mentioned in the story. 
+![Screenshot of the modal for settings for mobile](./docs/media/images/features/mobile/settings_mobile.png)
+
+*Screenshot of the settings modal for mobile*
+
+<br>
+
+![Screenshot of the  modal for settings  for desktop](./docs/media/images/features/desktop/settings_desktop.png)
+
+*Screenshot of the settings modal for desktop*
+
+<br>
+
+To continue with the theme of fun and simple, the settings also had to echo this.
+
+### Scoreboard
+
+![Screenshot of the scoreboard for mobile](./docs/media/images/features/mobile/scoreboard_mobile.png)
+
+*Screenshot of the scoreboard for mobile*
+
+<br>
+
+![Screenshot of the  scoreboard  for desktop](./docs/media/images/features/desktop/scoreboard_desktop.png)
+
+*Screenshot of the scoreboard for desktop*
+
+<br>
+
+The list could be longer, but wanted the keep only 5 results on the board, as this would ensure that the user would not need to scroll. A note has been added to the [Future Implementation](#future-implementations), as if the list were to remain short, it should show the top five scores. 
+
 
 ## Future Implementations
 
