@@ -2,12 +2,12 @@
 
 ![Screenshot of the site on the Am I Responsive site](./docs/media/images/am_i_responsive.png)
 
-[View the live project here.](https://halfpintutopia.github.io/magic-forest-trail/)
+[View the live project here.](https://github.com/halfpintutopia/whack-a-marmot)
 
 [//]: # (TODO Description)
 
-![GitHub forks](https://img.shields.io/github/forks/halfpintutopia/magic-forest-trail?style=social)
-![W3C Validation](https://img.shields.io/w3c-validation/html?style=social&targetUrl=https%3A%2F%2Fhalfpintutopia.github.io%2Fmagic-forest-trail%2F)
+![GitHub forks](https://img.shields.io/github/forks/halfpintutopia/whack-a-marmot?style=social)
+![W3C Validation](https://img.shields.io/w3c-validation/html?style=social&targetUrl=https%3A%2F%2Fhalfpintutopia.github.io%2Fwhack-a-marmot%2F)
 ---
 
 ## Table of contents
