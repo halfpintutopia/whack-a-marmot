@@ -18,10 +18,8 @@
     --conifer: hsl(79, 68%, 54%);
     --deep-forest-green: hsl(102, 66%, 13%);
     --sun: hsl(43, 95%, 53%);
+    --sun-opacity: hsla(43, 96%, 53%, 0.8);
     --iceberg: hsl(164, 57%, 88%);
-
-    /*--sky-gradient-day: linear-gradient(to bottom, hsl(200, 62%, 47%) 0%, hsl(212, 65%, 34%) 100%);*/
-    /*--sky-gradient-night: linear-gradient(to bottom, hsl(256, 20%, 11%) 85%, hsl(244, 89%, 4%) 100%);*/
 
     --font-family-bangers: 'Bangers', cursive;
     --font-family-oswald-extra-light: 'Oswald Extra Light', sans-serif;
@@ -41,11 +39,11 @@
     --standard-margin: 1rem;
     --standard-gap: 1rem;
 
+        /* https://css-irl.info/drop-shadow-the-underrated-css-filter/ */
+    --drop-shadow: drop-shadow(0.35rem 0.35rem 0.4rem hsla(0, 0%, 0%, 0.5));
     --light-box-shadow: hsla(210, 8%, 62%, 0.2) 0px 8px 24px;
     --dark-box-shadow: hsla(0, 0%, 0%, 0.35) 0px 5px 15px;
     --modal-box-shadow: 0 3px 7px hsla(0, 0%, 0%, 0.3);
-    /* https://css-irl.info/drop-shadow-the-underrated-css-filter/ */
-    --drop-shadow: drop-shadow(0.35rem 0.35rem 0.4rem hsla(0, 0%, 0%, 0.5));
 
     --z-index-negative-100: -100;
     --z-index-100: 100;
@@ -90,7 +88,6 @@
     --game-grid-columns: 4;
     --game-grid-row: 4;
 }
-
 
 /* @see https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/style.css#L112 */
 .visually-hidden {

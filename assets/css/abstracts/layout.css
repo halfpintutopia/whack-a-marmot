@@ -10,5 +10,5 @@
 }
 
 .layered-content > .layered-content__media {
-    z-index: var(--z-index-behind);
+    z-index: var(--z-index-negative-100);
 }
