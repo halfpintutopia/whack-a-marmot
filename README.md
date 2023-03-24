@@ -4,7 +4,8 @@
 
 [View the live project here.](https://github.com/halfpintutopia/whack-a-marmot)
 
-The application was a great exercise in organising my files and keeping different concerns separate. The use of modules, allowed me to set variables and strings in the constructor. 
+The application was a great exercise in organising my files and keeping different concerns separate. The use of modules,
+allowed me to set variables and strings in the constructor.
 
 The reasoning behind this was to prevent string errors, and keep code DRY.
 
@@ -13,46 +14,48 @@ The reasoning behind this was to prevent string errors, and keep code DRY.
 ---
 
 ## Table of contents
+
 * [User Experience](#user-experience--ux-)
-  * [Intended Audience](#intended-audience)
-  * [User Stories](#user-stories)
+    * [Intended Audience](#intended-audience)
+    * [User Stories](#user-stories)
 
 * [Design](#design)
-  * [Wireframes](#wireframes)
-  * [Colour Scheme](#colour-scheme)
-  * [Typography](#typography)
-  * [Imagery](#imagery)
+    * [Wireframes](#wireframes)
+    * [Colour Scheme](#colour-scheme)
+    * [Typography](#typography)
+    * [Imagery](#imagery)
 
 * [Features](#features)
-  * [Features of the game ](#features-of-the-game)
-  * [Future Implementations](#future-implementations)
-  * [Accessibility](#accessibility)
+    * [Features of the game ](#features-of-the-game)
+    * [Future Implementations](#future-implementations)
+    * [Accessibility](#accessibility)
 
 * [Technologies Used](#technologies-used)
-  * [Languages Used](#languages-used)
-  * [Frameworks, Libraries & Programs Used](#frameworks-libraries-and-programs-used)
+    * [Languages Used](#languages-used)
+    * [Frameworks, Libraries & Programs Used](#frameworks-libraries-and-programs-used)
 
 * [Remote & Local Development](#remote-and-local-deployment)
-  * [Remote Deployment](#remote-deployment)
-  * [Local Deployment](#local-deployment)
-    * [How to Fork](#how-to-fork)
-    * [How to Clone](#how-to-clone)
+    * [Remote Deployment](#remote-deployment)
+    * [Local Deployment](#local-deployment)
+        * [How to Fork](#how-to-fork)
+        * [How to Clone](#how-to-clone)
 
 * [Testing](#testing)
 
 * [Credits](#credits)
-  * [Code Used](#code-used)
-  * [Content](#content)
-  * [Media](#media)
-  * [Acknowledgments](#acknowledgements)
+    * [Code Used](#code-used)
+    * [Content](#content)
+    * [Media](#media)
+    * [Acknowledgments](#acknowledgements)
 
 ---
 
 # User Experience (UX)
 
-The site was designed and developed mobile first. 
+The site was designed and developed mobile first.
 
-Marmots in the spring up in the Swiss Alps were the inspiration for this game. The idea was to provide a colourful, visually appealing and stimulating game The colours were chosen to represent spring.
+Marmots in the spring up in the Swiss Alps were the inspiration for this game. The idea was to provide a colourful,
+visually appealing and stimulating game The colours were chosen to represent spring.
 
 ## Intended Audience
 
@@ -63,14 +66,14 @@ Marmots in the spring up in the Swiss Alps were the inspiration for this game. T
 
 * Client Goals
     * Provide an online that test and improve:
-      * motor skills
-      * accuracy
-      * concentration
-      * hand and eye coordination
+        * motor skills
+        * accuracy
+        * concentration
+        * hand and eye coordination
 * First Time Visitor Goals
     * Choose the settings
-      * dark or light mode
-      * easy or hard play mode
+        * dark or light mode
+        * easy or hard play mode
     * Read the game instructions
     * Play the game
     * Beat your previous score
@@ -79,10 +82,10 @@ Marmots in the spring up in the Swiss Alps were the inspiration for this game. T
 * Frequent Visitor Goals
     * Compete with other players
 
-
 # Design
 
 ## Wireframes
+
 Wireframes were created for the site with [Figma](https://www.figma.com).
 
 ![Figma Wireframe for mobile and desktop](./docs/media/images/wireframe/game_page.png)
@@ -119,13 +122,16 @@ Wireframes were created for the site with [Figma](https://www.figma.com).
 </details>
 <br>
 
-To see the full wireframe, view it [here](https://www.figma.com/file/uxe1pvEmLdY4evLEZttrqL/Whack-A-Marmot-(Copy)?t=gLTwq7qkJGoX6F3p-1).
+To see the full wireframe, view
+it [here](https://www.figma.com/file/uxe1pvEmLdY4evLEZttrqL/Whack-A-Marmot-(Copy)?t=gLTwq7qkJGoX6F3p-1).
 
-An additional note regarding the original images for the wireframe. 
+An additional note regarding the original images for the wireframe.
 
-The initial plan was to use SVG hills. The SVG paths were calculated, a percentage of the length was taken to get the `x` and `y` coordinates. Calculation of slope was considered for each marmot angle. This was not feasible at this time, due to SVG paths not resizing to viewport. 
+The initial plan was to use SVG hills. The SVG paths were calculated, a percentage of the length was taken to get
+the `x` and `y` coordinates. Calculation of slope was considered for each marmot angle. This was not feasible at this
+time, due to SVG paths not resizing to viewport.
 
-This is to be added as a future implementation. 
+This is to be added as a future implementation.
 
 ---
 
@@ -140,10 +146,12 @@ The website consists of the following:
 
 ## Colour Scheme
 
-The colour scheme was created using Adobe Color, creating a theme from an image. The colours should emphasise the outdoors and the freshness of spring, which is when the marmots in Switzerland come out of hibernation.
+The colour scheme was created using Adobe Color, creating a theme from an image. The colours should emphasise the
+outdoors and the freshness of spring, which is when the marmots in Switzerland come out of hibernation.
 
 Created colour palette using:
-* [Adobe Color](https://color.adobe.com/create/image) 
+
+* [Adobe Color](https://color.adobe.com/create/image)
 
 ![Colour palette for the website](./docs/media/images/design/color-palette/theme_from_image.png)
 
@@ -165,11 +173,13 @@ Results and contrast improvements suggestions:
 </details>
 <br>
 
-Feedback from lighthouse testing raised an issue with accessibility and colour contrast. As a result, the red colour was changed on the button with white font. 
+Feedback from lighthouse testing raised an issue with accessibility and colour contrast. As a result, the red colour was
+changed on the button with white font.
 
 ## Typography
 
-Bangers and Oswald Fonts were chosen from [Google Fonts](https://fonts.google.com). Fonts were selected to represent fun, playful, clear and easy to read.
+Bangers and Oswald Fonts were chosen from [Google Fonts](https://fonts.google.com). Fonts were selected to represent
+fun, playful, clear and easy to read.
 
 ![Bangers 400](./docs/media/images/typography/bangers-400.png)
 
@@ -183,9 +193,11 @@ Bangers and Oswald Fonts were chosen from [Google Fonts](https://fonts.google.co
 
 ### References for typography:
 
-When thinking about typography, the type had to suit responsively as well. The fonts had to be also readable on mobile View.
+When thinking about typography, the type had to suit responsively as well. The fonts had to be also readable on mobile
+View.
 
-Using Utopia, clamps for fonts and spaces were created. This minimised errors, stopping the fonts from getting bigger at a certain view width and height, or too small, dependent on device view ports.
+Using Utopia, clamps for fonts and spaces were created. This minimised errors, stopping the fonts from getting bigger at
+a certain view width and height, or too small, dependent on device view ports.
 
 * [min(), max(), and clamp(): three logical CSS functions to use today](https://web.dev/min-max-clamp/)
 * [Modern Fluid Typography Using CSS Clamp](https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/)
@@ -194,7 +206,8 @@ Using Utopia, clamps for fonts and spaces were created. This minimised errors, s
 
 ## Imagery
 
-Images are located on all pages. At the top of the page, under the navigation, is the header image. All pages have the same thematic layout, and the layout should be consistent on all pages, including the home page. 
+Images are located on all pages. At the top of the page, under the navigation, is the header image. All pages have the
+same thematic layout, and the layout should be consistent on all pages, including the home page.
 
 All images used were downloaded from:
 
@@ -202,14 +215,15 @@ All images used were downloaded from:
 
 Images match the theme of spring and outdoorsy.
 
-To increase the speed of the website., all images were compressed. Also, I added the ```lazy-loading``` attribute to images showing below the fold.
+To increase the speed of the website., all images were compressed. Also, I added the ```lazy-loading``` attribute to
+images showing below the fold.
 
 ### References for images
 
 * [An image format for the Web](https://developers.google.com/speed/webp)
 * [A Guide to Responsive Images with Ready-to-Use Templates](https://medium.com/free-code-camp/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433)
-  * A copy of the files to create .webp extension images are to be found [here](docs/responsive-images).
-<br>
+    * A copy of the files to create .webp extension images are to be found [here](docs/responsive-images).
+      <br>
 
 Icons were used for social links and buttons. The icons used on the site were taken from:
 
@@ -220,6 +234,7 @@ Icons were used for social links and buttons. The icons used on the site were ta
 Details of each feature are listed under [General Features on Each Page](#features-of-the-game).
 
 The website consists of the following features:
+
 * Game page
 * Play page
 * A 404 page
@@ -230,18 +245,20 @@ The website consists of the following features:
 
 [Start page](https://halfpintutopia.github.io/whack-a-marmot/)
 
-The start page consists of the following sections. 
+The start page consists of the following sections.
+
 * Title
 * Three buttons
-  * Play
-  * Instructions
-  * Settings
+    * Play
+    * Instructions
+    * Settings
 
 --- 
 
 Play page
 
 The play page consists of the following:
+
 * Image banner at the top of the page
 * Multiple images, title and text, alternatively reversing the order
 
@@ -250,13 +267,13 @@ The play page consists of the following:
 Modals for Instructions & Settings
 
 The instructions modal differs slightly from the settings modal, as it contains:
+
 * A carousel
-  * Slider for each page of the instructions
+    * Slider for each page of the instructions
 
 ---
 
-
-## Features of the game 
+## Features of the game
 
 ### Game
 
@@ -272,7 +289,8 @@ The instructions modal differs slightly from the settings modal, as it contains:
 
 <br>
 
-The game size and the number of marmot holes are dependent on the device size. The game is not suitable to be played on a mobile device in landscape. 
+The game size and the number of marmot holes are dependent on the device size. The game is not suitable to be played on
+a mobile device in landscape.
 
 ### Instructions Modal
 
@@ -288,7 +306,8 @@ The game size and the number of marmot holes are dependent on the device size. T
 
 <br>
 
-The idea was to make the instructions modal not too wordy. I wanted to emphasise the fun of the game, keeping everything simple.
+The idea was to make the instructions modal not too wordy. I wanted to emphasise the fun of the game, keeping everything
+simple.
 
 ### Settings Modal
 
@@ -320,8 +339,9 @@ To continue with the theme of fun and simple, the settings also had to echo this
 
 <br>
 
-The list could be longer, but wanted the keep only 5 results on the board, as this would ensure that the user would not need to scroll. A note has been added to the [Future Implementation](#future-implementations), as if the list were to remain short, it should show the top five scores. 
-
+The list could be longer, but wanted the keep only 5 results on the board, as this would ensure that the user would not
+need to scroll. A note has been added to the [Future Implementation](#future-implementations), as if the list were to
+remain short, it should show the top five scores.
 
 ## Future Implementations
 
@@ -372,10 +392,12 @@ The list could be longer, but wanted the keep only 5 results on the board, as th
 
 # Remote and Local Deployment
 
-Git was used for version control. Version control was done locally and remotely. For remote version control, GitHub was used. Regular commits were made after each file change.
+Git was used for version control. Version control was done locally and remotely. For remote version control, GitHub was
+used. Regular commits were made after each file change.
 
 ## Remote deployment
-GitHub Pages was used to deploy the site remotely. 
+
+GitHub Pages was used to deploy the site remotely.
 
 https://user-images.githubusercontent.com/30613818/205482822-4c33545b-8b52-4a2b-9212-0e119214ff22.mov
 
@@ -386,26 +408,26 @@ https://user-images.githubusercontent.com/30613818/205482822-4c33545b-8b52-4a2b-
 1. Go to the repository
 2. Click the Settings tab
 3. Click on Pages in the left-hand menu, under code and automation
-![Click Pages](./docs/media/images/deployment/deployment_pages.png)
+   ![Click Pages](./docs/media/images/deployment/deployment_pages.png)
    *Screenshot of how to get the Pages section*
 
-4. Under Build and deployment > Source, ensure Deploy from a branch is selected 
-![Choose Source](./docs/media/images/deployment/deployment_pages_source.png)
+4. Under Build and deployment > Source, ensure Deploy from a branch is selected
+   ![Choose Source](./docs/media/images/deployment/deployment_pages_source.png)
    *Screenshot of source option*
 
-5. Under Build and deployment > Branch, select the main branch 
-![Choose Branch](./docs/media/images/deployment/deployment_pages_branch.png)
+5. Under Build and deployment > Branch, select the main branch
+   ![Choose Branch](./docs/media/images/deployment/deployment_pages_branch.png)
    *Screenshot of branch option*
 
 6. Click save
-7. It may take more than a few minutes, but when the page has been created, you will see the following success message 
-![Successful deployed](./docs/media/images/deployment/successful_page.png)
+7. It may take more than a few minutes, but when the page has been created, you will see the following success message
+   ![Successful deployed](./docs/media/images/deployment/successful_page.png)
    *Screenshot of success message*
-
 
 ## Local Deployment
 
 To contribute or check the code yourself, you can:
+
 * fork the repository
 * clone the repository
 
@@ -413,18 +435,18 @@ To contribute or check the code yourself, you can:
 
 1. To fork, go the repository
 2. Click on the Fork button in the top left corner of the page. ![Click Fork](./docs/media/images/fork/fork_button.png)
-3. Fill in the form with either keep the name or create a new name for the repository 
-![Create Fork](./docs/media/images/fork/fork.png)
+3. Fill in the form with either keep the name or create a new name for the repository
+   ![Create Fork](./docs/media/images/fork/fork.png)
 
 ### How to Clone
 
-1. To clone on the repository 
-2. Click on the Code button above the repository files. 
-3. A drop-down will appear and choose either 
-![Click Code](./docs/media/images/deployment/clone.png): 
+1. To clone on the repository
+2. Click on the Code button above the repository files.
+3. A drop-down will appear and choose either
+   ![Click Code](./docs/media/images/deployment/clone.png):
     * HTTP
     * SSH
-    * GitHub CLI 
+    * GitHub CLI
 4. Go to your terminal and decide where you want to clone the files.
 5. Use the copy/paste button and copy it into your terminal
 6. You also have the option to download a ZIP file of the code
@@ -432,6 +454,7 @@ To contribute or check the code yourself, you can:
 # Testing
 
 The devices selected were:
+
 * Ubuntu
     * Firefox 108 on Ubuntu 22.04.1 LTS
     * Chromium Version 109.0.5414.119 on Ubuntu 22.04.1 LTS
@@ -467,7 +490,6 @@ Testing implemented from [User stories](#user-stories)
 |----------------------|:-------------------------------------------------------------------:|:------:|:----------:|
 | Improve scores       | Return to game to see the scoreboard again (stored in localStorage) |  Yes   |    Yes     |
 
-
 ### Frequent Visitor Goals
 
 | Frequent Visitor Goals           |        Implementation        | Tested | Successful |
@@ -501,7 +523,20 @@ Testing implemented from [User stories](#user-stories)
 
 #### Not solved
 
-All unsolved bugs are fixes are noted as issues on the repository. Issues are to be found [here](https://github.com/halfpintutopia/whack-a-marmot/issues).
+All unsolved bugs are fixes are noted as issues on the repository. Issues are to be
+found [here](https://github.com/halfpintutopia/whack-a-marmot/issues).
+
+Additional notes from initial submission of project:
+
+| Criterion | Remarks                                                                                         | Fixed | Solution |
+|:---------:|-------------------------------------------------------------------------------------------------|:-----:|----------|
+|  LO1 1.8  | Difficulty in performing user actions ideally because of inconsistent JS Code                   |       |          |
+|  LO6 6.2  | User is able to enter invalid or empty data in forms; lack of defensive design                  |       |          |
+|  LO6 6.3  | Website is not fully functional and doesn't match expected project requirements from the README |       |          |
+|  LO6 6.4  | Console error present                                                                           |       |          |
+| Merit 1.1 | Error when timer runs out.                                                                      |       |          |
+| Merit 1.3 | Console error on timer                                                                          |       |          |
+| Merit 6.1 | Error when timer runs out.                                                                      |       |          |
 
 ### Lighthouse
 
@@ -519,13 +554,16 @@ All unsolved bugs are fixes are noted as issues on the repository. Issues are to
 * Use [W3C Markup Validation Service](https://validator.w3.org) to validate all HTML pages
 * Use [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) to validate all stylesheets
     * Error found in the assets/css/abstracts/container.css file:
-      * Value Error: with invalid type (```width: min(100% - var(--container-padding), var(--container-max-width));```) caused from related to the following issue:
-      * [Please add support for CSS variables ("custom properties"), a widely supported and crucial feature](https://github.com/w3c/css-validator/issues/111)
+        * Value Error: with invalid
+          type (```width: min(100% - var(--container-padding), var(--container-max-width));```) caused from related to
+          the following issue:
+        * [Please add support for CSS variables ("custom properties"), a widely supported and crucial feature](https://github.com/w3c/css-validator/issues/111)
 * Use [JSHint Version 2.13.6](https://jshint.com/)
 
 # Credits
 
 ## Code Used
+
 All code is also referenced as a comment in stylesheets.
 
 * [How to build a modal with JavaScript](https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/)
@@ -537,20 +575,21 @@ All code is also referenced as a comment in stylesheets.
 * [Image with text overlay](https://www.youtube.com/shorts/oy2iUDT0mf8)
 
 ### References & Resources
+
 A list of references used for the site:
 
 * [JavaScript Modules](https://www.freecodecamp.org/news/javascript-modules-a-beginner-s-guide-783f7d7a5fcc/)
 * [From "Learn JavaScript by Building 7 Games - Full Course" ](https://www.youtube.com/watch?v=ec8vSKJuZTk&t=3877s)
-  * [Code-a-long-sample](https://github.com/halfpintutopia/whack-a-mole)
+    * [Code-a-long-sample](https://github.com/halfpintutopia/whack-a-mole)
 * [Code with Ania Kubów](https://www.youtube.com/@AniaKubow)
 * [Free Code Camp](https://www.youtube.com/@freecodecamp)
 * [Eloquent Javascript](https://eloquentjavascript.net/)
 * [Web Dev Simplified](https://www.youtube.com/@WebDevSimplified)
 * [Wes Bos](https://www.youtube.com/@WesBos)
-    
+
 ## Content
 
-The content was short and to the point, and was created by myself. 
+The content was short and to the point, and was created by myself.
 
 ## Media
 
@@ -573,12 +612,18 @@ The content was short and to the point, and was created by myself.
 <details>
 <summary>404 Page</summary>
 
-* [Soil](https://stock.adobe.com/uk/images/soil/92059694) By [Nik_Merkulov](https://stock.adobe.com/uk/contributor/202316842/nik-merkulov?load_type=author&prev_url=detail) on [Adobe Stock](https://stock.adobe.com)
+* [Soil](https://stock.adobe.com/uk/images/soil/92059694)
+  By [Nik_Merkulov](https://stock.adobe.com/uk/contributor/202316842/nik-merkulov?load_type=author&prev_url=detail)
+  on [Adobe Stock](https://stock.adobe.com)
 
 </details>
 
 ## Acknowledgements
-This part of the journey was a tough but immensely rewarding one, and I would like to give a big thanks to my partner, Stefan Tschudi for rallying me, keeping me going with endless cups of tea. Acknowledgements also go to those who took the time to provide great insights and advice
+
+This part of the journey was a tough but immensely rewarding one, and I would like to give a big thanks to my partner,
+Stefan Tschudi for rallying me, keeping me going with endless cups of tea. Acknowledgements also go to those who took
+the time to provide great insights and advice
+
 * Rahul Lakhanpal - for keeping me focussed.
-* Class Slack Channel, with special thanks to Ger Tobin. 
-<br>
+* Class Slack Channel, with special thanks to Ger Tobin.
+  <br>
