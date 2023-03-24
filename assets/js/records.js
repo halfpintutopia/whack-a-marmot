@@ -20,24 +20,13 @@ class Records {
   update() {
     localStorage.setItem('scoreboard', JSON.stringify(this.scoreboard));
   }
-}
 
-const records = new Records('[data-input="username"]', 'button[data-type="add-player"]');
-const addPlayerButton = document.querySelector(records.addPlayerButtonSelector);
-const userNameInput = document.querySelector(records.userNameInputDataType);
-records.recover();
-addPlayerButton.addEventListener('click', addPlayer);
+  addPlayer() {
+    const userNameInput = document.querySelector(this.userNameInputDataType);
+    this.currentPlayer.name = userNameInput.value !== '' ? userNameInput.value : "NoName";
+  }
 
-export function addPlayer() {
-  records.currentPlayer.name = userNameInput.value !== '' ? userNameInput.value : "NoName";
-}
-
-export function updateRecords(score) {
-  records.currentScore = parseInt(score);
-  records.save();
-  records.update();
-}
-
-export function getRecords() {
-  return records.recover();
+  getRecords() {
+    return this.recover();
+  }
 }

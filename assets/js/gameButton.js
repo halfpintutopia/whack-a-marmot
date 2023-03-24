@@ -1,6 +1,5 @@
 import {capitaliseFirstLetter} from "./helpers.js";
 import {openModal} from "./modal.js";
-import {getRecords} from "./records.js";
 
 class GameButton {
   constructor(
@@ -17,6 +16,17 @@ class GameButton {
 const gameButton = new GameButton('game-area', '.game-buttons');
 const gameArea = document.getElementById(gameButton.gameAreaId);
 const gameButtonContainer = gameArea.querySelector(gameButton.gameButtonsClass);
+
+const records = new Records('[data-input="username"]', 'button[data-type="add-player"]');
+const addPlayerButton = document.querySelector(records.addPlayerButtonSelector);
+
+addPlayerButton.addEventListener('click', records.addPlayer);
+
+export function updateRecords(score) {
+  records.currentScore = parseInt(score);
+  records.save();
+  records.update();
+}
 
 export function createGameButtons() {
   gameButtonContainer.innerHTML = '';
@@ -46,6 +56,9 @@ export function createGameDisplay() {
 }
 
 export function endGameDisplay(score) {
+  const scoreBoardNameCls = 'scoreboard__name';
+  const scoreBoardScoreCls = 'scoreboard__score';
+
   gameButtonContainer.innerHTML = '';
 
   let maxResults = 5;
@@ -54,11 +67,11 @@ export function endGameDisplay(score) {
   gameOverDiv.innerHTML = `<h4>Game over! You scored <span class="marmot-hit__total">${score}</span></h4>`;
   const scoreboardDiv = document.createElement('div');
   scoreboardDiv.classList.add('scoreboard');
-  const scoreboard = getRecords();
+  const scoreboard = records.getRecords();
   scoreboardDiv.innerHTML += '<h4>Scoreboard</h4>';
 
   for (let i = 0; i < maxResults; i++) {
-    scoreboardDiv.innerHTML += "<div><div class='scoreboard__name'>" + scoreboard[i].name + "</div><div class='scoreboard__score'>" + scoreboard[i].score + "</div></div>";
+    scoreboardDiv.innerHTML += `<div><div class=${scoreBoardNameCls}>${scoreboard[i].name}</div><div class=${scoreBoardScoreCls}>${scoreboard[i].score}</div></div>`;
   }
 
   gameButtonContainer.append(gameOverDiv, scoreboardDiv);
