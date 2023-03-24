@@ -2,7 +2,7 @@
 
 ![Screenshot of the site on the Am I Responsive site](./docs/media/images/am_i_responsive.png)
 
-[View the live project here.](https://github.com/halfpintutopia/whack-a-marmot)
+[View the live project here.](https://halfpintutopia.github.io/whack-a-marmot/)
 
 The application was a great exercise in organising my files and keeping different concerns separate. The use of modules,
 allowed me to set variables and strings in the constructor.
