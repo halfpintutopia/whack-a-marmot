@@ -1,34 +1,40 @@
 class Audio {
-  constructor(
-    buttonContainer,
-    musicButtonAudioClass,
-    silentClass
-  ) {
-    this.buttonContainerSelector = buttonContainer;
-    this.musicButtonAudioSelector = musicButtonAudioClass;
-    this.silentSelector = silentClass;
+  constructor() {
+    this.buttonContainerId = '#music-button';
+    this.buttonAudioCls = 'button__music--audio';
+    this.silentCls = 'silent';
+    this.activeCls = 'active';
+    this.clickEvent = 'click';
+    this.buttonContainer = '';
+    this.audioElement = '';
+    this.slashIcon = '';
+
+    this.initHtmlElements();
+    this.initEvents();
+  }
+
+  initHtmlElements() {
+    this.buttonContainer = document.querySelector(this.buttonContainerId);
+    this.audioElement = this.buttonContainer.querySelector(`.${this.buttonAudioCls}`);
+    this.slashIcon = this.buttonContainer.querySelector(`.${this.silentCls}`);
+  }
+
+  initEvents() {
+    this.buttonContainer.addEventListener(this.clickEvent, this.play);
+
+  }
+
+  async play() {
+    if (this.audioElement.paused) {
+      await this.audioElement.play();
+    } else {
+      this.audioElement.pause();
+    }
+
+    if (this.slashIcon.classList.contains(this.activeCls)) {
+      this.slashIcon.classList.remove(this.activeCls);
+    } else {
+      this.slashIcon.classList.add(this.activeCls);
+    }
   }
 }
-
-const audio = new Audio('#music-button', 'button__music--audio', 'silent');
-
-const buttonContainer = document.querySelector(audio.buttonContainerSelector);
-const audioElement = buttonContainer.querySelector(`.${audio.musicButtonAudioSelector}`);
-const slashIcon = buttonContainer.querySelector(`.${audio.silentSelector}`);
-
-
-async function play() {
-  if (audioElement.paused) {
-    await audioElement.play();
-  } else {
-    audioElement.pause();
-  }
-
-  if (slashIcon.classList.contains('active')) {
-    slashIcon.classList.remove('active');
-  } else {
-    slashIcon.classList.add('active');
-  }
-}
-
-buttonContainer.addEventListener('click', play);
