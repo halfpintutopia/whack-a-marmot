@@ -2,27 +2,40 @@
  * Plays the background sound for the game on and off
  */
 class BackgroundAudio {
+  constructor() {
+    if (this.audioButton && this.silentSymbol) {
+      this.audioButtonContainer.addEventListener('click', this.playAudio.bind(this));
+    }
+  }
+
+  get audioButtonContainer() {
+    return document.querySelector('#music-button');
+  }
+
+  get audioButton() {
+    return document.querySelector('#music-button .button__music--audio');
+  }
+
+  get silentSymbol() {
+    return document.querySelector('#music-button .silent');
+  }
+
   /**
    * Activates and deactivates the audio
    * Adds the class to hides and shows the slash over the icon, when audio activated and deactivated
    * @returns {Promise<void>}
    */
   async playAudio() {
-    const buttonContainer = document.getElementById('music-button');
-
-    const audioElement = buttonContainer.querySelector('.button__music--audio');
-    const slashIcon = buttonContainer.querySelector('.silent');
-
-    if (audioElement.paused) {
-      await audioElement.play();
+    if (this.audioButton.paused) {
+      await this.audioButton.play();
     } else {
-      audioElement.pause();
+      this.audioButton.pause();
     }
 
-    if (slashIcon.classList.contains('active')) {
-      slashIcon.classList.remove('active');
+    if (this.silentSymbol.classList.contains('active')) {
+      this.silentSymbol.classList.remove('active');
     } else {
-      slashIcon.classList.add('active');
+      this.silentSymbol.classList.add('active');
     }
   }
 }
