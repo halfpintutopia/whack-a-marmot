@@ -20,3 +20,7 @@
 .border.border-thin {
     border: solid 3px black;
 }
+
+.border.invalid {
+    border-color: red;
+}
