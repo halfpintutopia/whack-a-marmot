@@ -1,78 +1,55 @@
-import {capitaliseFirstLetter} from "./helpers.js";
-import {openModal} from "./modal.js";
 
+/**
+ * Creates the inner content for the buttons container
+ */
 class GameButton {
+  /**
+   * Add the buttons when needed to the buttons container
+   * @param {string} gameAreaId
+   * @param {string} gameButtonsClass
+   */
   constructor(
     gameAreaId,
     gameButtonsClass
   ) {
     this.gameAreaId = gameAreaId;
     this.gameButtonsClass = gameButtonsClass;
-    this.gameButtonTypes = ['play', 'instructions', 'settings'];
-    this.marmotNumberHtml = `<h4><span class="timer-container">Timer: <span class="timer-container__countdown">0</span></span></h4><h4 class="marmot-hit__left">Hits: <span class="marmot-hit__total">0</span></h4>`;
+
+    if (this.gameButtonsContainer) {
+      this.createGameButtons();
+    }
   }
-}
 
-const gameButton = new GameButton('game-area', '.game-buttons');
-const gameArea = document.getElementById(gameButton.gameAreaId);
-const gameButtonContainer = gameArea.querySelector(gameButton.gameButtonsClass);
+  get gameArea() {
+    return document.getElementById(this.gameAreaId);
+  }
 
-const records = new Records('[data-input="username"]', 'button[data-type="add-player"]');
-const addPlayerButton = document.querySelector(records.addPlayerButtonSelector);
+  get gameButtonsContainer() {
+    return this.gameArea.querySelector(this.gameButtonsClass);
+  }
 
-addPlayerButton.addEventListener('click', records.addPlayer);
+  get gameButtonTypes() {
+    return ['play', 'instructions', 'settings'];
+  }
 
-export function updateRecords(score) {
-  records.currentScore = parseInt(score);
-  records.save();
-  records.update();
-}
+  createGameButtons() {
+    this.gameButtonsContainer.innerHTML = '';
 
-export function createGameButtons() {
-  gameButtonContainer.innerHTML = '';
+    this.gameButtonTypes.map((type) => {
+      let button = this.createButton(type);
 
-  gameButton.gameButtonTypes.map((type) => {
+      this.gameButtonsContainer.appendChild(button);
+    });
+  }
+
+  createButton(type) {
     let button = document.createElement('button');
     button.id = `${type}-btn`;
     button.classList.add('button');
     button.setAttribute('type', 'button');
     button.setAttribute('data-type', type);
-    button.innerHTML = `${capitaliseFirstLetter(type)}`;
-    button.addEventListener('click', openModal);
+    button.innerHTML = type;
 
-    gameButtonContainer.appendChild(button);
-  });
-}
-
-createGameButtons();
-
-export function createGameDisplay() {
-  gameButtonContainer.innerHTML = '';
-  const numberOfMarmotsDiv = document.createElement('div');
-  numberOfMarmotsDiv.classList.add('marmot-hit');
-  numberOfMarmotsDiv.innerHTML = gameButton.marmotNumberHtml;
-
-  gameButtonContainer.append(numberOfMarmotsDiv);
-}
-
-export function endGameDisplay(score) {
-  const scoreBoardNameCls = 'scoreboard__name';
-  const scoreBoardScoreCls = 'scoreboard__score';
-
-  gameButtonContainer.innerHTML = '';
-
-  let maxResults = 5;
-
-  const gameOverDiv = document.createElement('div');
-  gameOverDiv.innerHTML = `<h4>Game over! You scored <span class="marmot-hit__total">${score}</span></h4>`;
-  const scoreboardDiv = document.createElement('div');
-  scoreboardDiv.classList.add('scoreboard');
-  const scoreboard = records.getRecords();
-  scoreboardDiv.innerHTML += '<h4>Scoreboard</h4>';
-
-  for (let i = 0; i < maxResults; i++) {
-    scoreboardDiv.innerHTML += `<div><div class=${scoreBoardNameCls}>${scoreboard[i].name}</div><div class=${scoreBoardScoreCls}>${scoreboard[i].score}</div></div>`;
+    return button;
   }
-
-  gameButtonContainer.append(gameOverDiv, scoreboardDiv);
 }
