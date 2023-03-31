@@ -5,35 +5,52 @@ class Carousel {
     this.carouselPageClass = 'carousel__page';
     this.previousBtnClass = 'carousel__previous';
     this.nextBtnClass = 'carousel__next';
-    this.carouselPageNumber = 0;
-    this.counter = 0;
+    this.currentCounter = 0;
+
+    if (this.previousBtn && this.nextBtn) {
+      this.previousBtn.addEventListener('click', this.slideHandler.bind(this));
+      this.nextBtn.addEventListener('click', this.slideHandler.bind(this));
+      this.hideShowArrows();
+    }
   }
 
-  decreaseCounter() {
-    this.counter--;
+  get carouselArea() {
+    return document.querySelector(`${this.carouselId} .${this.carouselAreaClass}`);
   }
 
-  increaseCounter() {
-    this.counter++;
+  get carouselPages() {
+    return document.querySelectorAll(`${this.carouselId} .${this.carouselPageClass}`);
   }
 
-  updatePageNumber(pageNumber) {
-    this.carouselPageNumber = pageNumber;
+  get previousBtn() {
+    return document.querySelector(`${this.carouselId} .${this.previousBtnClass}`);
   }
-}
 
-const carouselInstructions = new Carousel('#carousel-instructions');
-const carouselContainer = document.querySelector(carouselInstructions.carouselId);
-const carouselArea = carouselContainer.querySelector(`.${carouselInstructions.carouselAreaClass}`);
-const carouselPages = carouselContainer.querySelectorAll(`.${carouselInstructions.carouselPageClass}`);
-const previousBtn = carouselContainer.querySelector(`.${carouselInstructions.previousBtnClass}`);
-const nextBtn = carouselContainer.querySelector(`.${carouselInstructions.nextBtnClass}`);
-carouselInstructions.updatePageNumber(carouselPages.length);
-previousBtn.addEventListener('click', slide);
-nextBtn.addEventListener('click', slide);
+  get nextBtn() {
+    return document.querySelector(`${this.carouselId} .${this.nextBtnClass}`);
+  }
 
-function slide(e) {
-  const currentCounter = e.currentTarget.classList.contains(carouselInstructions.previousBtnClass) ? carouselInstructions.decreaseCounter() : carouselInstructions.increaseCounter();
-  carouselInstructions.counter = currentCounter < 0 ? parseInt(carouselInstructions.carouselPageNumber) - 1 : parseInt(carouselInstructions.counter) % parseInt(carouselInstructions.carouselPageNumber);
-  carouselArea.style.transform = `translateX(-${parseInt(carouselInstructions.counter) * 100}%)`;
+  slideHandler(slideEvent) {
+    this.currentCounter = slideEvent.target.closest('button').classList.contains(this.previousBtnClass) ? this.currentCounter - 1 : this.currentCounter + 1;
+    this.slide();
+  }
+
+  slide() {
+    this.carouselArea.style.transform = `translateX(-${parseInt(this.currentCounter) * 100}%)`;
+    this.hideShowArrows();
+  }
+
+  hideShowArrows() {
+    if (this.currentCounter >= this.carouselPages.length - 1) {
+      this.nextBtn.style.visibility = 'hidden';
+    } else {
+      this.nextBtn.style.visibility = 'visible';
+    }
+
+    if (this.currentCounter <= 0) {
+      this.previousBtn.style.visibility = 'hidden';
+    } else {
+      this.previousBtn.style.visibility = 'visible';
+    }
+  }
 }
