@@ -47,15 +47,15 @@
 
     <section id="modal-play" class="modal modal-play container border border-thick hidden" data-type="regular">
         <h2>Enter your name:</h2>
-        <form id="player">
-            <label for="player-name">
-                <input id="player-name" class="border border-thin" title="Username must be at least 4 characters, without spaces" type="text"
-                       data-input="username"
-                       pattern="[a-zA-Z0-9]+" minlength="4" required="required">
-            </label>
-            <span id="validation-message" class="hidden-message">Username must be at least 4 characters, without spaces</span>
-            <button type="submit" data-type="add-player">Continue</button>
-        </form>
+        <label for="player-name">
+            <input id="player-name" class="border border-thin"
+                   title="Username must be at least 4 characters, without spaces" type="text"
+                   data-input="username"
+                   pattern="[a-zA-Z0-9]+" minlength="4" required="required">
+        </label>
+        <span id="validation-message"
+              class="hidden-message">Username must be at least 4 characters, without spaces</span>
+        <button type="submit" data-type="add-player">Continue</button>
     </section>
     <section id="modal-instructions" class="modal modal-instructions container border border-thick hidden"
              data-type="regular">
@@ -113,55 +113,40 @@
     <section id="modal-settings" class="modal modal-settings container border border-thick hidden" data-type="regular">
         <button class="modal__button--close"><i class="fa-solid fa-xmark"></i></button>
         <h2>Settings</h2>
-                <div class="settings-buttons button-container container" data-type="regular">
-                <strong>Light or dark mode</strong>
-                <input type="checkbox" id="settings-buttons__mode"
-                       class="toggle settings-buttons__mode--toggle" data-input="display" data-type="toggle">
-                <label for="settings-buttons__mode"><span class="settings__mode--light"
-                                                          data-display="light"><i
-                        class="fa-regular fa-lightbulb"></i>&nbsp;&nbsp;Light</span><span
-                        class="settings__mode--dark off" data-display="dark"><i
-                        class="fa-solid fa-lightbulb"></i>&nbsp;&nbsp;Dark</span></label>
+        <div class="settings-buttons button-container container" data-type="regular">
+            <strong>Light or dark mode</strong>
+            <input type="checkbox" id="settings-buttons__mode"
+                   class="toggle settings-buttons__mode--toggle" data-input="display" data-type="toggle">
+            <label for="settings-buttons__mode"><span class="settings__mode--light"
+                                                      data-display="light"><i
+                    class="fa-regular fa-lightbulb"></i>&nbsp;&nbsp;Light</span><span
+                    class="settings__mode--dark off" data-display="dark"><i
+                    class="fa-solid fa-lightbulb"></i>&nbsp;&nbsp;Dark</span></label>
 
-                <strong>How fast can you manage?</strong>
-                <input type="checkbox" id="settings-buttons__play"
-                       class="toggle settings-buttons__play--toggle" data-input="difficulty" data-type="toggle">
-                <label for="settings-buttons__play"><span
-                        class="settings__mode--easy" data-difficulty="easy"><i
-                        class="fa-solid fa-couch"></i>&nbsp;&nbsp;Easy</span><span
-                        class="settings__mode--hard off" data-difficulty="hard"><i
-                        class="fa-solid fa-heart-crack"></i>&nbsp;&nbsp;Hard</span></label>
-            </div>
+            <strong>How fast can you manage?</strong>
+            <input type="checkbox" id="settings-buttons__play"
+                   class="toggle settings-buttons__play--toggle" data-input="difficulty" data-type="toggle">
+            <label for="settings-buttons__play"><span
+                    class="settings__mode--easy" data-difficulty="easy"><i
+                    class="fa-solid fa-couch"></i>&nbsp;&nbsp;Easy</span><span
+                    class="settings__mode--hard off" data-difficulty="hard"><i
+                    class="fa-solid fa-heart-crack"></i>&nbsp;&nbsp;Hard</span></label>
+        </div>
     </section>
     <div id="modal-overlay" class="modal__overlay hidden"></div>
     <div class="hammer"></div>
 </main>
-
 <script src="https://kit.fontawesome.com/28847961b6.js" rel="preconnect" crossorigin="anonymous"></script>
 <script src="assets/js/loader.js"></script>
-
+<script src="assets/js/board.js"></script>
+<script src="assets/js/game.js"></script>
 <script src="assets/js/backgroundAudio.js"></script>
 <script src="assets/js/gameButton.js"></script>
 <script src="assets/js/modal.js"></script>
 <script src="assets/js/carousel.js"></script>
 <script src="assets/js/settings.js"></script>
 <script src="assets/js/scoreboard.js"></script>
-<script src="assets/js/board.js"></script>
-<!--<script src="assets/js/play.js"></script>-->
-<!--<script src="assets/js/hammer.js"></script>-->
-
-<!--<script src="assets/js/play.js"></script>-->
+<script src="assets/js/hammer.js"></script>
 <script src="assets/js/index.js"></script>
-
-
-<!--<script>-->
-<!--    window.addEventListener('load', () => {-->
-<!--      window.play.initModule();-->
-<!--      const modal = new Modal();-->
-<!--      console.log(modal.modal)-->
-
-<!--    })-->
-<!--</script>-->
-
 </body>
 </html>
