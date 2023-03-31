@@ -1,3 +1,7 @@
+#modal-settings h2 {
+    margin-top: 0;
+}
+
 .settings-buttons {
     display: grid;
     place-items: center;
