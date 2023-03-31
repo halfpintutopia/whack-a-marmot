@@ -1,46 +1,48 @@
-const modals = document.querySelectorAll('.modal');
-const modalOverlay = document.querySelector('.modal__overlay');
-const closeButtons = document.querySelectorAll('.modal__button--close');
-
-export const openModal = (e) => {
-  const modal = document.querySelector(`#modal-${e.target.dataset.type}`);
-  const btnClose = modal.querySelector('.modal__button--close');
-
-  modal.classList.remove('hidden');
-  modalOverlay.classList.remove('hidden');
-
-  if (btnClose) {
-    btnClose.addEventListener('click', closeModal);
+class Modal {
+  constructor() {
+    if (this.allOpenModalButtons) {
+      [...this.allOpenModalButtons].map(button => {
+        button.addEventListener('click', this.openModalHandler.bind(this));
+      });
+    }
   }
 
-  modalOverlay.addEventListener('click', closeAllModal);
-  window.addEventListener('keydown', keyPressExit);
-};
-
-export const closeModal = (e) => {
-  const modal = e.target.closest('.modal');
-  modal.classList.add('hidden');
-  modalOverlay.classList.add('hidden');
-
-  [...closeButtons].map(button => {
-    button.removeEventListener('click', closeModal);
-  });
-
-  modalOverlay.removeEventListener('click', closeModal);
-};
-
-const keyPressExit = (e) => {
-  if (e.key === 'Escape' || e.key === 'Enter') {
-    closeAllModal();
+  get modalOverlay() {
+    return document.getElementById('modal-overlay');
   }
-  window.removeEventListener('keydown', keyPressExit);
-};
 
-const closeAllModal = () => {
-  [...modals].map(modal => {
+  get allModals() {
+    return document.querySelectorAll('.modal');
+  }
+
+  get allOpenModalButtons() {
+    return document.querySelectorAll('button.button');
+  }
+
+  openModalHandler(openModalEvent) {
+    this.openModal(document.querySelector(`#modal-${openModalEvent.target.dataset.type}`));
+  }
+
+  closeModalHandler(closeModalEvent) {
+    this.closeModal(closeModalEvent.target.closest('.modal'));
+  }
+
+  openModal(modal) {
+    const btnClose = modal.querySelector('.modal__button--close');
+    modal.classList.remove('hidden');
+    this.modalOverlay.classList.remove('hidden');
+
+    if (btnClose) {
+      btnClose.addEventListener('click', this.closeModalHandler.bind(this));
+    }
+  }
+
+  closeModal(modal) {
     modal.classList.add('hidden');
-    modalOverlay.classList.add('hidden');
-  });
+    this.closeModalOverlay();
+  }
 
-  modalOverlay.removeEventListener('click', closeAllModal);
-};
+  closeModalOverlay() {
+    this.modalOverlay.classList.add('hidden');
+  }
+}
