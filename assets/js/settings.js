@@ -1,5 +1,3 @@
-import {updateSpeedSetting} from "./game.js";
-
 class Settings {
   constructor(buttonContainerClass) {
     this.buttonContainerClass = buttonContainerClass;
@@ -8,79 +6,70 @@ class Settings {
     this.displayDefault = 'light';
     this.difficultyDefault = 'easy';
     this.switchOffClass = 'off';
-    this.selectedDisplay = '';
-    this.selectedDifficulty = '';
+
+    if (this.settingOptions) {
+      this.setSettings(this.display);
+      this.setSettings(this.difficulty);
+
+      this.settingOptions.forEach(settingOption => {
+        settingOption.addEventListener('change', this.switchAndSetLocalStorage);
+      });
+    }
   }
 
-  initLocalStorage() {
-    localStorage.getItem(this.display) ? this.setDisplay(this.display, this.displayDefault) : localStorage.setItem(this.display, this.displayDefault);
-    localStorage.getItem(this.difficulty) ? this.setDisplay(this.difficulty, this.difficultyDefault) : localStorage.setItem(this.difficulty, this.difficultyDefault);
+  get settingsContainer() {
+    return document.querySelector(this.buttonContainerClass);
   }
 
-  getDisplay() {
-    this.selectedDisplay = localStorage.getItem('display') ? localStorage.getItem('display') : {};
+  get settingOptions() {
+    return this.settingsContainer.querySelectorAll('input[type="checkbox"].toggle');
   }
 
-  getDifficulty() {
-    this.selectedDifficulty = localStorage.getItem('difficulty') ? localStorage.getItem('difficulty') : {};
+  get displaySetting() {
+    if (localStorage.getItem(this.display) === '') {
+      localStorage.setItem(this.display, this.displayDefault);
+    }
+    return localStorage.getItem(this.display);
   }
 
-  setDisplay(settingType, defaultValue) {
+  get difficultySetting() {
+    if (localStorage.getItem(this.difficulty) === '') {
+      localStorage.setItem(this.difficulty, this.difficultyDefault);
+    }
+    return localStorage.getItem(this.difficulty);
+  }
+
+  setSettings(settingType) {
     const input = document.querySelector(`[data-input="${settingType}"]`);
     const labelSpans = input.nextElementSibling.querySelectorAll(`[data-${settingType}]`);
 
-    input.checked = localStorage.getItem(`${settingType}`) !== defaultValue;
+    if (settingType === 'display') {
+      input.checked = this.displaySetting !== this.displayDefault;
+    }
+    if (settingType === 'difficulty') {
+      input.checked = this.difficultySetting !== this.difficultyDefault;
+    }
+
     labelSpans.forEach(span => {
       span.dataset.display === localStorage.getItem(settingType) || span.dataset.difficulty === localStorage.getItem(settingType) ? span.classList.remove(this.switchOffClass) : span.classList.add(this.switchOffClass);
     });
   }
-}
 
-const settings = new Settings('.button-container');
-const buttonContainer = document.querySelector(settings.buttonContainerClass);
-const checkboxes = buttonContainer.querySelectorAll('input[type="checkbox"].toggle');
-settings.initLocalStorage();
-settings.getDisplay();
-settings.getDifficulty();
+  switchAndSetLocalStorage(switchOptionEvent) {
+    let choice;
+    const spans = switchOptionEvent.target.nextElementSibling.querySelectorAll('span');
+    spans.forEach(span => {
+      span.classList.remove('off');
+    });
 
-checkboxes.forEach(input => {
-  input.addEventListener('change', e => switchAndSetLocalStorage(e));
-});
-
-function switchAndSetLocalStorage(e) {
-  let choice;
-  const spans = e.currentTarget.nextElementSibling.querySelectorAll('span');
-  spans.forEach(span => {
-    span.classList.remove('off');
-  });
-
-  if (e.currentTarget.checked) {
-    spans[0].classList.add('off');
-    choice = spans[1].getAttribute(`data-${e.currentTarget.dataset.input}`);
-    localStorage.setItem(e.currentTarget.dataset.input, choice);
-  } else {
-    spans[1].classList.add('off');
-    choice = spans[0].getAttribute(`data-${e.currentTarget.dataset.input}`);
-    localStorage.setItem(e.currentTarget.dataset.input, choice);
-  }
-
-  initChanges(e.currentTarget.dataset.input, choice);
-}
-
-function initChanges(inputType, option) {
-  if (inputType === 'display') {
-    if (option === 'dark') {
-      document.body.classList.add('dark');
+    if (switchOptionEvent.target.checked) {
+      spans[0].classList.add('off');
+      choice = spans[1].getAttribute(`data-${switchOptionEvent.target.dataset.input}`);
+      localStorage.setItem(switchOptionEvent.target.dataset.input, choice);
     } else {
-      document.body.classList.remove('dark');
+      spans[1].classList.add('off');
+      choice = spans[0].getAttribute(`data-${switchOptionEvent.target.dataset.input}`);
+      localStorage.setItem(switchOptionEvent.target.dataset.input, choice);
     }
   }
-
-  if (inputType === 'difficulty') {
-    updateSpeedSetting(localStorage.getItem('difficulty'));
-  }
 }
-
-
-
-
