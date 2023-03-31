@@ -2,3 +2,7 @@
 .off {
     display: none !important;
 }
+
+.hidden-message {
+    visibility: hidden;
+}
