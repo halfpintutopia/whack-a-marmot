@@ -1,0 +1,12 @@
+.settings-buttons {
+    display: grid;
+    place-items: center;
+}
+
+.settings-buttons strong {
+    align-self: end;
+}
+
+.settings-buttons label {
+    align-self: start;
+}
