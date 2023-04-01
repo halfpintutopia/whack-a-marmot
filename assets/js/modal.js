@@ -1,48 +1,43 @@
 class Modal {
-  constructor() {
-    if (this.allOpenModalButtons) {
-      [...this.allOpenModalButtons].map(button => {
-        button.addEventListener('click', this.openModalHandler.bind(this));
-      });
+  constructor(buttonId, modalId, overlayId) {
+    this.buttonId = buttonId;
+    this.modalId = modalId;
+    this.modalOverlayId = overlayId;
+    this.modalCloseButtonClass = '.modal__button--close';
+    this.hiddenClass = 'hidden';
+
+    if (this.button) {
+      this.button.addEventListener('click', this.openModalHandler.bind(this));
     }
-  }
-
-  get modalOverlay() {
-    return document.getElementById('modal-overlay');
-  }
-
-  get allModals() {
-    return document.querySelectorAll('.modal');
-  }
-
-  get allOpenModalButtons() {
-    return document.querySelectorAll('button.button');
-  }
-
-  openModalHandler(openModalEvent) {
-    this.openModal(document.querySelector(`#modal-${openModalEvent.target.dataset.type}`));
-  }
-
-  closeModalHandler(closeModalEvent) {
-    this.closeModal(closeModalEvent.target.closest('.modal'));
-  }
-
-  openModal(modal) {
-    const btnClose = modal.querySelector('.modal__button--close');
-    modal.classList.remove('hidden');
-    this.modalOverlay.classList.remove('hidden');
-
-    if (btnClose) {
+    if (this.modal && this.modal.querySelector(this.modalCloseButtonClass)) {
+      const btnClose = this.modal.querySelector(this.modalCloseButtonClass);
       btnClose.addEventListener('click', this.closeModalHandler.bind(this));
     }
   }
 
-  closeModal(modal) {
-    modal.classList.add('hidden');
+  get button() {
+    return document.getElementById(this.buttonId);
+  }
+
+  get modalOverlay() {
+    return document.getElementById(this.modalOverlayId);
+  }
+
+  get modal() {
+    return document.getElementById(this.modalId);
+  }
+
+  openModalHandler() {
+    this.modal.classList.remove(this.hiddenClass);
+    this.modalOverlay.classList.remove(this.hiddenClass);
+  }
+
+  closeModalHandler() {
+    this.modal.classList.add(this.hiddenClass);
     this.closeModalOverlay();
   }
 
   closeModalOverlay() {
-    this.modalOverlay.classList.add('hidden');
+    this.modalOverlay.classList.add(this.hiddenClass);
   }
 }
