@@ -174,7 +174,9 @@ class Game extends Board {
     const scoreboardDiv = document.createElement('div');
     scoreboardDiv.classList.add('scoreboard');
     const scoreboard = this.getAllScoresFromLocalStorageRecords();
-    scoreboardDiv.innerHTML += '<h4>Scoreboard</h4>';
+    scoreboard.sort((a, b) => b.score - a.score);
+
+    scoreboardDiv.innerHTML += '<h4>Top 5 Scoreboard</h4>';
 
     for (let i = 0; i < maxResults; i++) {
       if (scoreboard[i]) {
