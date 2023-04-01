@@ -15,9 +15,9 @@ class Game extends Board {
     this.timerContainerClass = '.timer-container__countdown';
     this.marmotPopTimerId = null;
     this.countdownTimerId = null;
-    this.timerInterval = 1000;
-    this.countDownTimerInterval = 500;
-    this.currentTime = 5;
+    this.timerInterval = 2000;
+    this.countDownTimerInterval = 1000;
+    this.currentTime = 30;
     this.currentScore = 0;
     this.gameButtonTypes = ['play', 'instructions', 'settings'];
 
@@ -192,6 +192,7 @@ class Game extends Board {
     this.showHideExitBtn();
     this.changeGridLayout();
     this.createMarmotHoles();
+    this.setGameDifficulty();
     this.currentScore = 0;
     this.currentTime = 30;
     this.moveMarmot();
@@ -201,8 +202,9 @@ class Game extends Board {
     return this.currentScore++;
   }
 
-  updateDifficulty(level) {
-    if (level === 'hard') {
+  setGameDifficulty() {
+    const difficulty = localStorage.getItem('difficulty');
+    if (difficulty === 'hard') {
       this.timerInterval = 500;
     } else {
       this.timerInterval = 1000;
@@ -227,8 +229,6 @@ class Game extends Board {
 
     marmot.addEventListener('mousedown', this.hitMarmotDeclaration);
     marmot.addEventListener('touchstart', this.hitMarmotDeclaration);
-    // marmot.addEventListener('mousedown', this.addShakeAnimation.bind(this));
-    // marmot.addEventListener('touchstart', this.addShakeAnimation.bind(this));
   }
 
   removeAllListeners() {
@@ -237,8 +237,6 @@ class Game extends Board {
     marmots.forEach(marmot => {
       marmot.removeEventListener('mousedown', this.hitMarmotDeclaration);
       marmot.removeEventListener('touchstart', this.hitMarmotDeclaration);
-      // marmot.removeEventListener('mousedown', addShakeAnimation);
-      // marmot.removeEventListener('touchstart', addShakeAnimation);
     });
   }
 
@@ -263,10 +261,6 @@ class Game extends Board {
 
   saveScore() {
     this.update(document.querySelector('.marmot-hit__total').innerHTML);
-  }
-
-  updateSpeedSetting(level) {
-    this.updateDifficulty(level);
   }
 
   initExitGame() {
