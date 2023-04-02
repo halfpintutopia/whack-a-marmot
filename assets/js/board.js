@@ -7,11 +7,8 @@ class Board {
    * @param {string} gameId
    */
   constructor(gameId) {
-    // IDs
     this.gameId = gameId;
     this.exitBtnId = 'exit-btn';
-
-    // Classes
     this.activeCls = 'active';
     this.desktopCls = 'desktop';
     this.mobileCls = 'mobile';
@@ -20,12 +17,8 @@ class Board {
     this.marmotContainerCls = 'marmot__container';
     this.holeContainerCls = 'hole__container';
     this.marmotImageCls = 'marmot__img';
-
-    // Image attributes
     this.marmotImageSrc = 'assets/media/images/marmot.svg';
     this.marmotImageAlt = 'Marmot';
-
-    // Settings:
     this.numHolesForDesktopView = 12;
     this.numHolesForMobileView = 6;
     this.gameGridColumn = 0;
@@ -55,7 +48,6 @@ class Board {
   get holesContainer() {
     return document.querySelector(this.holesContainerCls);
   }
-
 
   /**
    * Reset the game board.
