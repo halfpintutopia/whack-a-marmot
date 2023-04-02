@@ -46,7 +46,7 @@ class Settings {
    * @returns {string}
    */
   get displaySetting() {
-    if (localStorage.getItem(this.display) === '') {
+    if (localStorage.getItem(this.display) === null) {
       localStorage.setItem(this.display, this.displayDefault);
     }
     return localStorage.getItem(this.display);
@@ -57,7 +57,7 @@ class Settings {
    * @returns {string}
    */
   get difficultySetting() {
-    if (localStorage.getItem(this.difficulty) === '') {
+    if (localStorage.getItem(this.difficulty) === null) {
       localStorage.setItem(this.difficulty, this.difficultyDefault);
     }
     return localStorage.getItem(this.difficulty);
@@ -70,7 +70,6 @@ class Settings {
   setSettings(settingType) {
     const input = document.querySelector(`[data-input="${settingType}"]`);
     const labelSpans = input.nextElementSibling.querySelectorAll(`[data-${settingType}]`);
-
     if (settingType === 'display') {
       input.checked = this.displaySetting !== this.displayDefault;
     }
