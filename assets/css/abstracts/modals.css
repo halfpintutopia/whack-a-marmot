@@ -58,8 +58,34 @@
 }
 
 .modal__media {
-    height: 100%;
-    object-fit: contain;
+    width: 10em;
+    height: auto;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+@media only screen and (width >= 576px) {
+    .modal__media {
+        width: 12em;
+    }
+}
+
+@media only screen and (width >= 768px) {
+    .modal__media {
+        width: 13em;
+    }
+}
+
+@media only screen and (width >= 1200px) {
+    .modal__media {
+        width: 20em;
+    }
+}
+
+@media only screen and (width >= 1200px) {
+    .modal__media {
+        width: 17em;
+    }
 }
 
 .modal-play input {
