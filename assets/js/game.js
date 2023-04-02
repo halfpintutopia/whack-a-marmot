@@ -128,7 +128,6 @@ class Game extends Board {
     if (this.validatePlayerName()) {
       this.currentPlayer.name = this.usernameInputField.value;
       this.playModal.closeModal();
-      // this.closeAddPlayerModal();
       this.createGameDisplay();
       this.startGame();
     }
