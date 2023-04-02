@@ -1,14 +1,17 @@
 /* https://codepen.io/icao/pen/ErKqjj */
 /* https://codepen.io/developeraspire5/pen/GRMBxWN */
 /* https://codepen.io/kevinpowell/pen/XQEPvB */
-.active .hammer {
-    height: 100px;
-    aspect-ratio: 1 / 1;
-    position: absolute;
-    transition-duration: 200ms;
-    transition-timing-function: ease-out;
-    background: center / contain no-repeat url("../../media/images/svg/hammer.svg");
-    z-index: var(--z-index-200);
+
+@media only screen and (width >=768px) {
+    .active .hammer {
+        height: 100px;
+        aspect-ratio: 1 / 1;
+        position: absolute;
+        transition-duration: 200ms;
+        transition-timing-function: ease-out;
+        background: center / contain no-repeat url("../../media/images/svg/hammer.svg");
+        z-index: var(--z-index-200);
+    }
 }
 
 @keyframes hammer-hit {
