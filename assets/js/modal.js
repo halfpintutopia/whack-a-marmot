@@ -22,16 +22,30 @@ class Modal {
       const btnClose = this.modal.querySelector(this.modalCloseButtonClass);
       btnClose.addEventListener('click', this.closeModal.bind(this));
     }
+
+    this.modalOverlay.addEventListener('click', this.closeModal.bind(this));
   }
 
+  /**
+   * Gets the button element to open the modal
+   * @returns {HTMLElement}
+   */
   get button() {
     return document.getElementById(this.buttonId);
   }
 
+  /**
+   * Gets the modal overlay element
+   * @returns {HTMLElement}
+   */
   get modalOverlay() {
     return document.getElementById(this.modalOverlayId);
   }
 
+  /**
+   * Gets the modal element
+   * @returns {HTMLElement}
+   */
   get modal() {
     return document.getElementById(this.modalId);
   }
