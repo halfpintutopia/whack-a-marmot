@@ -528,15 +528,15 @@ found [here](https://github.com/halfpintutopia/whack-a-marmot/issues).
 
 Additional notes from initial submission of project:
 
-| Criterion | Remarks                                                                                         | Fixed | Solution |
-|:---------:|-------------------------------------------------------------------------------------------------|:-----:|----------|
-|  LO1 1.8  | Difficulty in performing user actions ideally because of inconsistent JS Code                   |       |          |
-|  LO6 6.2  | User is able to enter invalid or empty data in forms; lack of defensive design                  |       |          |
-|  LO6 6.3  | Website is not fully functional and doesn't match expected project requirements from the README |       |          |
-|  LO6 6.4  | Console error present                                                                           |       |          |
-| Merit 1.1 | Error when timer runs out.                                                                      |       |          |
-| Merit 1.3 | Console error on timer                                                                          |       |          |
-| Merit 6.1 | Error when timer runs out.                                                                      |       |          |
+| Criterion | Remarks                                                                                         | Fixed | Solution                                                                                                      |
+|:---------:|-------------------------------------------------------------------------------------------------|:-----:|---------------------------------------------------------------------------------------------------------------|
+|  LO1 1.8  | Difficulty in performing user actions ideally because of inconsistent JS Code                   |  Yes  | Tidy Classes. Move the instantiation of classes in playGame.js file. Check logic in classes and fixed issues. |
+|  LO6 6.2  | User is able to enter invalid or empty data in forms; lack of defensive design                  |  Yes  | Add validation message when user enters a name that is less than 4 characters long.                           |
+|  LO6 6.3  | Website is not fully functional and doesn't match expected project requirements from the README |  Yes  | Cleaned the files. Tidied up the classes files. Checked logic in each file. Validated in JSHint.              |
+|  LO6 6.4  | Console error present                                                                           |  Yes  | Corrected bad mapping to image file for bullseye. Add clearInterval when exited game during game play.        |
+| Merit 1.1 | Error when timer runs out.                                                                      |  Yes  | Corrected bad mapping to image file for bullseye. Add clearInterval when exited game during game play.        |
+| Merit 1.3 | Console error on timer                                                                          |  Yes  | Corrected bad mapping to image file for bullseye. Add clearInterval when exited game during game play.        |
+| Merit 6.1 | Error when timer runs out.                                                                      |  Yes  | Corrected bad mapping to image file for bullseye. Add clearInterval when exited game during game play.        |
 
 ### Lighthouse
 
