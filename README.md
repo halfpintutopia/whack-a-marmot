@@ -617,5 +617,6 @@ Stefan Tschudi for rallying me, keeping me going with endless cups of tea. Ackno
 the time to provide great insights and advice
 
 * Rahul Lakhanpal - for keeping me focussed.
+* Rohit Sharma for his feedback and his advice regarding Classes. 
 * Class Slack Channel, with special thanks to Ger Tobin.
   <br>
