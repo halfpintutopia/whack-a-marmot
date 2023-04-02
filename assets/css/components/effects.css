@@ -24,10 +24,12 @@
     max-width: 15rem;
     margin-inline: auto;
     transition: .4s ease;
+    width: 50%;
+    margin-top: 0;
 }
 
 .marmot__container {
-    aspect-ratio: 1 / 1.5;
+    aspect-ratio: 1 / 1;
     display: grid;
     align-items: end;
     border-radius: 0 0 100vw 100vw;
@@ -41,20 +43,46 @@
     aspect-ratio: 2 / 1;
     border-radius: 50%;
     margin-inline: auto;
-    object-fit: cover;
-    background-color: brown;
-    border: 2px solid black;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    bottom: -5%;
 }
 
 .marmot__img {
     position: relative;
-    left: 1em;
-    bottom: -6em;
+    left: 0.5em;
+    bottom: -5em;
     z-index: var(--z-index-200);
     transform: scale(2);
     transition: transform var(--transform);
 }
 
 .marmot__container .marmot__img.pop {
-    transform: scale(2) translateY(-1rem);
+    transform: scale(1.5) translateY(-3rem);
 }
+
+@media only screen and (width >= 576px) {
+    .marmot__img {
+        left: 1em;
+        bottom: -6em;
+        transform: scale(1.5);
+    }
+
+    .marmot__container .marmot__img.pop {
+        transform: scale(1.5) translateY(-3rem);
+    }
+}
+
+@media only screen and (width >= 811px) {
+    .marmot__img {
+        left: 2.3em;
+        bottom: -6em;
+        transform: scale(2);
+    }
+
+    .marmot__container .marmot__img.pop {
+        transform: scale(2) translateY(-2.2rem);
+    }
+}
+
