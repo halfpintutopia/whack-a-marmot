@@ -49,7 +49,7 @@
     --z-index-100: 100;
     --z-index-200: 200;
 
-    --bullseye-cursor: url("/assets/media/images/fa-bullseye.png") 16 16, crosshair;
+    --bullseye-cursor: url("../../media/images/fa-bullseye.png") 16 16, crosshair;
 
     /*svg colours*/
     --light-cyan: hsl(167, 100%, 94%);
