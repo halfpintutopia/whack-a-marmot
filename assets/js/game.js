@@ -149,7 +149,9 @@ class Game extends Board {
    * @returns {boolean}
    */
   validatePlayerName() {
-    if (this.usernameInputField.value === '' || this.usernameInputField.value.length < 4) {
+    const username = this.usernameInputField.value;
+
+    if (this.usernameInputField.value === '' || username.includes(' ') || this.usernameInputField.value.length < 4) {
       this.usernameInputField.classList.add('invalid');
       this.validationMessage.classList.remove('hidden-message');
       return false;
