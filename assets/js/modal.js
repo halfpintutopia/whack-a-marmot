@@ -1,53 +1,82 @@
-/*jshint esversion: 6, expr: true */
-/*jslint       browser: true, continue: true,
- devel: true, indent: 2, maxerr: 50,
- newcap: true, nomen: true, plusplus: true,
- regexp: true, sloppy: true, vars: false,
- white: true
+/**
+ * Creates a modal if a button and modal has been created in the HTML
  */
-const modals = document.querySelectorAll('.modal');
-const modalOverlay = document.querySelector('.modal__overlay');
-const closeButtons = document.querySelectorAll('.modal__button--close');
+class Modal {
+  /**
+   * Initiates the modal when button, modal and overlay are available
+   * @param {string} buttonId
+   * @param {string} modalId
+   * @param {string} overlayId
+   */
+  constructor(buttonId, modalId, overlayId) {
+    this.buttonId = buttonId;
+    this.modalId = modalId;
+    this.modalOverlayId = overlayId;
+    this.modalCloseButtonClass = '.modal__button--close';
+    this.hiddenClass = 'hidden';
 
-export const openModal = (e) => {
-    const modal = document.querySelector(`#modal-${e.target.dataset.type}`);
-    const btnClose = modal.querySelector('.modal__button--close');
-
-    modal.classList.remove('hidden');
-    modalOverlay.classList.remove('hidden');
-
-    if (btnClose) {
-        btnClose.addEventListener('click', closeModal);
+    if (this.button) {
+      this.button.addEventListener('click', this.openModal.bind(this));
+    }
+    if (this.modal && this.modal.querySelector(this.modalCloseButtonClass)) {
+      const btnClose = this.modal.querySelector(this.modalCloseButtonClass);
+      btnClose.addEventListener('click', this.closeModal.bind(this));
     }
 
-    modalOverlay.addEventListener('click', closeAllModal);
-    window.addEventListener('keydown', keyPressExit);
-};
+    this.modalOverlay.addEventListener('click', this.closeModal.bind(this));
+  }
 
-export const closeModal = (e) => {
-    const modal = e.target.closest('.modal');
-    modal.classList.add('hidden');
-    modalOverlay.classList.add('hidden');
+  /**
+   * Gets the button element to open the modal
+   * @returns {HTMLElement}
+   */
+  get button() {
+    return document.getElementById(this.buttonId);
+  }
 
-    [...closeButtons].map(button => {
-        button.removeEventListener('click', closeModal);
-    });
+  /**
+   * Gets the modal overlay element
+   * @returns {HTMLElement}
+   */
+  get modalOverlay() {
+    return document.getElementById(this.modalOverlayId);
+  }
 
-    modalOverlay.removeEventListener('click', closeModal);
-};
+  /**
+   * Gets the modal element
+   * @returns {HTMLElement}
+   */
+  get modal() {
+    return document.getElementById(this.modalId);
+  }
 
-const keyPressExit = (e) => {
-    if (e.key === 'Escape' || e.key === 'Enter') {
-        closeAllModal();
-    }
-    window.removeEventListener('keydown', keyPressExit);
-};
+  /**
+   * Opens the modal when the button is clicked
+   */
+  openModal() {
+    this.modal.classList.remove(this.hiddenClass);
+    this.showModalOverlay();
+  }
 
-const closeAllModal = () => {
-    [...modals].map(modal => {
-        modal.classList.add('hidden');
-        modalOverlay.classList.add('hidden');
-    });
+  /**
+   * Closes the button when the close button is clicked
+   */
+  closeModal() {
+    this.modal.classList.add(this.hiddenClass);
+    this.hideModalOverlay();
+  }
 
-    modalOverlay.removeEventListener('click', closeAllModal);
-};
+  /**
+   * The modal overlay is visible when the modal has been opened
+   */
+  showModalOverlay() {
+    this.modalOverlay.classList.remove(this.hiddenClass);
+  }
+
+  /**
+   * The overlay is hidden when the modal has been closed
+   */
+  hideModalOverlay() {
+    this.modalOverlay.classList.add(this.hiddenClass);
+  }
+}

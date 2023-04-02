@@ -1,42 +1,39 @@
-/*jshint esversion: 6, expr: true */
+class Hammer {
+  constructor(gameContainerId, cursorClass) {
+    this.gameContainerId = gameContainerId;
+    this.cursorClass = cursorClass;
+    this.playBtnId = 'play-btn';
 
-/*jslint       browser: true, continue: true,
- devel: true, indent: 2, maxerr: 50,
- newcap: true, nomen: true, plusplus: true,
- regexp: true, sloppy: true, vars: false,
- white: true
- */
-export class Hammer {
-    constructor(gameContainerId, cursorClass) {
-        this.gameContainerId = gameContainerId;
-        this.cursorClass = cursorClass;
-        this.playBtnId = 'play-btn';
+    if (this.gameContainer) {
+      this.gameContainer.addEventListener('mousemove', this.initCursor.bind(this));
+      this.gameContainer.addEventListener('mousedown', this.addAnimationCursor.bind(this));
     }
-}
+  }
 
-const hammer = new Hammer('game-area', '.hammer');
-const gameContainer = document.getElementById(hammer.gameContainerId);
-const cursor = document.querySelector(hammer.cursorClass);
+  get gameContainer() {
+    return document.querySelector(this.gameContainerId);
+  }
 
-gameContainer.addEventListener('mousemove', initCursor);
-gameContainer.addEventListener('mousedown', e => addAnimationCursor(e));
+  get customCursor() {
+    return document.querySelector(this.cursorClass);
+  }
 
-function initCursor(e) {
-    const {clientWidth, clientHeight} = cursor;
-    cursor.style.top = `${e.pageY - (clientHeight * 1.25)}px`;
-    cursor.style.left = `${e.pageX + (clientWidth * 0.1)}px`;
-}
+  initCursor(cursorEvent) {
+    const {clientWidth, clientHeight} = this.customCursor;
+    this.customCursor.style.top = `${cursorEvent.pageY - (clientHeight * 1.25)}px`;
+    this.customCursor.style.left = `${cursorEvent.pageX + (clientWidth * 0.1)}px`;
+  }
 
-
-export function addShakeAnimation(e) {
+  addShakeAnimation(e) {
     e.currentTarget.style.animation = 'shake 150ms 2 linear';
-}
+  }
 
-export function addAnimationCursor(e) {
-    e.target.addEventListener('mouseup', removeAnimationCursor);
-    cursor.style.animation = `hammer-hit 550ms`;
-}
+  addAnimationCursor(animationEvent) {
+    animationEvent.target.addEventListener('mouseup', this.removeAnimationCursor.bind(this));
+    this.customCursor.style.animation = `hammer-hit 550ms`;
+  }
 
-export function removeAnimationCursor(e) {
-    cursor.style.animation = '';
+  removeAnimationCursor() {
+    this.customCursor.style.animation = '';
+  }
 }

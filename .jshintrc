@@ -1,0 +1,12 @@
+{
+  "browser": true,
+  "devel": true,
+  "esversion": 8,
+  "expr": true,
+  "indent": 2,
+  "maxerr": 50,
+  "newcap": true,
+  "nomen": true,
+  "plusplus": false,
+  "white": true
+}

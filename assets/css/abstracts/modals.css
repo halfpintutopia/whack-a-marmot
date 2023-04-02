@@ -74,6 +74,37 @@
     display: none;
 }
 
+#modal-settings h2 {
+    margin-top: 0;
+}
+
+.settings-buttons {
+    display: grid;
+    place-items: center;
+}
+
+.settings-buttons strong {
+    align-self: end;
+}
+
+.settings-buttons label {
+    align-self: start;
+}
+
+#modal-play {
+    display: grid;
+}
+
+#modal-play #validation-message {
+    margin-top: .5em;
+    text-align: center;
+}
+
+#modal-play button {
+    margin-top: 0;
+}
+
+
 @media only screen and (width >= 768px) {
     .modal-instructions h3 {
         display: block;

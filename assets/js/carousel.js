@@ -1,47 +1,75 @@
-/*jshint esversion: 6, expr: true */
-/*jslint       browser: true, continue: true,
- devel: true, indent: 2, maxerr: 50,
- newcap: true, nomen: true, plusplus: true,
- regexp: true, sloppy: true, vars: false,
- white: true
+/**
+ * Creates a vertical carousel, slides forwards and back one page
  */
-
 class Carousel {
-    constructor(carouselId) {
-        this.carouselId = carouselId;
-        this.carouselAreaClass = 'carousel__area';
-        this.carouselPageClass = 'carousel__page';
-        this.previousBtnClass = 'carousel__previous';
-        this.nextBtnClass = 'carousel__next';
-        this.carouselPageNumber = 0;
-        this.counter = 0;
+  /**
+   * @param {string} carouselId
+   */
+  constructor(carouselId) {
+    this.carouselId = carouselId;
+    this.carouselAreaClass = 'carousel__area';
+    this.carouselPageClass = 'carousel__page';
+    this.previousBtnClass = 'carousel__previous';
+    this.nextBtnClass = 'carousel__next';
+    this.currentCounter = 0;
+    this.visibleClass = 'visible';
+    this.hiddenClass = 'hidden';
+
+    if (this.previousBtn && this.nextBtn) {
+      this.previousBtn.addEventListener('click', this.slideHandler.bind(this));
+      this.nextBtn.addEventListener('click', this.slideHandler.bind(this));
+      this.hideShowArrows();
+    }
+  }
+
+  get carouselArea() {
+    return document.querySelector(`${this.carouselId} .${this.carouselAreaClass}`);
+  }
+
+  get carouselPages() {
+    return document.querySelectorAll(`${this.carouselId} .${this.carouselPageClass}`);
+  }
+
+  get previousBtn() {
+    return document.querySelector(`${this.carouselId} .${this.previousBtnClass}`);
+  }
+
+  get nextBtn() {
+    return document.querySelector(`${this.carouselId} .${this.nextBtnClass}`);
+  }
+
+  /**
+   * Handles the next and previous button click event
+   * Changes the counter to determine which page the carousel should slide to
+   * @param slideEvent
+   */
+  slideHandler(slideEvent) {
+    this.currentCounter = slideEvent.target.closest('button').classList.contains(this.previousBtnClass) ? this.currentCounter - 1 : this.currentCounter + 1;
+    this.slide();
+  }
+
+  /**
+   * Slides the horizontal carousel to the left or right
+   */
+  slide() {
+    this.carouselArea.style.transform = `translateX(-${parseInt(this.currentCounter) * 100}%)`;
+    this.hideShowArrows();
+  }
+
+  /**
+   * When the counter exceeds or is below 0 then the arrows are hidden
+   */
+  hideShowArrows() {
+    if (this.currentCounter >= this.carouselPages.length - 1) {
+      this.nextBtn.style.visibility = this.hiddenClass;
+    } else {
+      this.nextBtn.style.visibility = this.visibleClass;
     }
 
-    decreaseCounter() {
-        this.counter--;
+    if (this.currentCounter <= 0) {
+      this.previousBtn.style.visibility = this.hiddenClass;
+    } else {
+      this.previousBtn.style.visibility = this.visibleClass;
     }
-
-    increaseCounter() {
-        this.counter++;
-    }
-
-    updatePageNumber(pageNumber) {
-        this.carouselPageNumber = pageNumber;
-    }
-}
-
-const carouselInstructions = new Carousel('#carousel-instructions');
-const carouselContainer = document.querySelector(carouselInstructions.carouselId);
-const carouselArea = carouselContainer.querySelector(`.${carouselInstructions.carouselAreaClass}`);
-const carouselPages = carouselContainer.querySelectorAll(`.${carouselInstructions.carouselPageClass}`);
-const previousBtn = carouselContainer.querySelector(`.${carouselInstructions.previousBtnClass}`);
-const nextBtn = carouselContainer.querySelector(`.${carouselInstructions.nextBtnClass}`);
-carouselInstructions.updatePageNumber(carouselPages.length);
-previousBtn.addEventListener('click', slide);
-nextBtn.addEventListener('click', slide);
-
-function slide(e) {
-    const currentCounter = e.currentTarget.classList.contains(carouselInstructions.previousBtnClass) ? carouselInstructions.decreaseCounter() : carouselInstructions.increaseCounter();
-    carouselInstructions.counter = currentCounter < 0 ? parseInt(carouselInstructions.carouselPageNumber) - 1 : parseInt(carouselInstructions.counter) % parseInt(carouselInstructions.carouselPageNumber);
-    carouselArea.style.transform = `translateX(-${parseInt(carouselInstructions.counter) * 100}%)`;
+  }
 }

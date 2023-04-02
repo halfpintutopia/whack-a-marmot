@@ -25,16 +25,3 @@
     width: 100%;
     text-align: center;
 }
-
-.carousel__page .settings-buttons {
-    display: grid;
-    place-items: center;
-}
-
-.carousel__page .settings-buttons strong {
-    align-self: end;
-}
-
-.carousel__page .settings-buttons label {
-    align-self: start;
-}
