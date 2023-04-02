@@ -21,6 +21,10 @@ class Game extends Board {
     this.currentScore = 0;
     this.gameButtonTypes = ['play', 'instructions', 'settings'];
 
+    this.playModal = new Modal('play-btn', 'modal-play', 'modal-overlay');
+    this.instructionsModal = new Modal('instructions-btn', 'modal-instructions', 'modal-overlay');
+    this.settingsModal = new Modal('settings-btn', 'modal-settings', 'modal-overlay');
+
     this.userNameInputDataType = '[data-input="username"]';
     this.addPlayerButtonSelector = 'button[data-type="add-player"]';
     this.currentPlayer = {};
@@ -40,10 +44,6 @@ class Game extends Board {
 
   get gameBoard() {
     return document.getElementById(this.gameId);
-  }
-
-  get marmotHolesContainer() {
-    return document.querySelector('.holes-container');
   }
 
   get gameButtonsContainer() {
@@ -70,6 +70,25 @@ class Game extends Board {
     return document.querySelector('#validation-message');
   }
 
+  get score() {
+    return document.querySelector('.marmot-hit__total').innerHTML;
+  }
+
+  /**
+   * Starts the game
+   * Initiates all the functionality to get the game started
+   */
+  startGame() {
+    this.gameBoard.classList.add('active');
+    this.showHideExitBtn();
+    this.changeGridLayout();
+    this.createMarmotHoles();
+    this.setGameDifficulty();
+    this.currentScore = 0;
+    this.currentTime = 30;
+    this.moveMarmot();
+  }
+
   /**
    * Creates the inner HTML for the button container
    */
@@ -82,9 +101,9 @@ class Game extends Board {
       this.gameButtonsContainer.appendChild(button);
     });
 
-    const playModal = new Modal('play-btn', 'modal-play', 'modal-overlay');
-    const instructionsModal = new Modal('instructions-btn', 'modal-instructions', 'modal-overlay');
-    const settingsModal = new Modal('settings-btn', 'modal-settings', 'modal-overlay');
+    this.playModal = new Modal('play-btn', 'modal-play', 'modal-overlay');
+    this.instructionsModal = new Modal('instructions-btn', 'modal-instructions', 'modal-overlay');
+    this.settingsModal = new Modal('settings-btn', 'modal-settings', 'modal-overlay');
   }
 
   /**
@@ -102,15 +121,23 @@ class Game extends Board {
     return button;
   }
 
+  /**
+   * Adds player
+   */
   addPlayerHandler() {
     if (this.validatePlayerName()) {
       this.currentPlayer.name = this.usernameInputField.value;
-      this.closeAddPlayerModal();
+      this.playModal.closeModal();
+      // this.closeAddPlayerModal();
       this.createGameDisplay();
       this.startGame();
     }
   }
 
+  /**
+   * Validates the username and adds classes to show the validation message
+   * @returns {boolean}
+   */
   validatePlayerName() {
     if (this.usernameInputField.value === '' || this.usernameInputField.value.length < 4) {
       this.usernameInputField.classList.add('invalid');
@@ -122,39 +149,33 @@ class Game extends Board {
     return true;
   }
 
-  closeAddPlayerModal() {
-    const modal = document.querySelector('#modal-play');
-    const modalOverlay = document.querySelector('#modal-overlay');
-    modal.classList.add('hidden');
-    modalOverlay.classList.add('hidden');
-  }
-
+  /**
+   * Gets the scores saved in local storage
+   * @returns {[]}
+   */
   recoverLocalStorageScores() {
     this.scoreboard = localStorage.getItem('scoreboard') ? JSON.parse(localStorage.getItem('scoreboard')) : [];
     return this.scoreboard;
   }
 
+  /**
+   * Saves the current player's score
+   */
   saveCurrentPlayerScores() {
     this.currentPlayer.score = this.currentScore;
     this.scoreboard.push(this.currentPlayer);
   }
 
+  /**
+   * Updates the scores saved in local storage with the new player's scores
+   */
   updateScoresInLocalStorage() {
     localStorage.setItem('scoreboard', JSON.stringify(this.scoreboard));
   }
 
-
-  getAllScoresFromLocalStorageRecords() {
-    this.scoreboard = localStorage.getItem('scoreboard') ? JSON.parse(localStorage.getItem('scoreboard')) : [];
-    return this.scoreboard;
-  }
-
-  update(score) {
-    this.currentScore = parseInt(score);
-    this.saveCurrentPlayerScores();
-    this.updateScoresInLocalStorage();
-  }
-
+  /**
+   * Create the game's display to show the score and the timer
+   */
   createGameDisplay() {
     this.gameButtonsContainer.innerHTML = '';
     const numberOfMarmotsDiv = document.createElement('div');
@@ -164,6 +185,10 @@ class Game extends Board {
     this.gameButtonsContainer.append(numberOfMarmotsDiv);
   }
 
+  /**
+   * Shows the scoreboard with the top 5 best players
+   * @param score
+   */
   endGameDisplay(score) {
     this.gameButtonsContainer.innerHTML = '';
 
@@ -173,7 +198,7 @@ class Game extends Board {
     gameOverDiv.innerHTML = `<h4>Game over! You scored <span class="marmot-hit__total">${score}</span></h4>`;
     const scoreboardDiv = document.createElement('div');
     scoreboardDiv.classList.add('scoreboard');
-    const scoreboard = this.getAllScoresFromLocalStorageRecords();
+    const scoreboard = this.recoverLocalStorageScores();
     scoreboard.sort((a, b) => b.score - a.score);
 
     scoreboardDiv.innerHTML += '<h4>Top 5 Scoreboard</h4>';
@@ -186,22 +211,17 @@ class Game extends Board {
     this.gameButtonsContainer.append(gameOverDiv, scoreboardDiv);
   }
 
-
-  startGame() {
-    this.gameBoard.classList.add('active');
-    this.showHideExitBtn();
-    this.changeGridLayout();
-    this.createMarmotHoles();
-    this.setGameDifficulty();
-    this.currentScore = 0;
-    this.currentTime = 30;
-    this.moveMarmot();
-  }
-
+  /**
+   * Increments the score
+   * @returns {number}
+   */
   updateScore() {
     return this.currentScore++;
   }
 
+  /**
+   * Set the chosen difficulty level fo the game
+   */
   setGameDifficulty() {
     const difficulty = localStorage.getItem('difficulty');
     if (difficulty === 'hard') {
@@ -211,12 +231,18 @@ class Game extends Board {
     }
   }
 
+  /**
+   * Adds incremented score to the scoreboard
+   */
   hitMarmot() {
     const score = document.querySelector('.marmot-hit__total');
-    score.innerHTML = this.updateScore();
+    score.innerHTML = `${this.updateScore()}`;
     this.removeAllListeners();
   }
 
+  /**
+   * Randomly choose a marmot to pop up from the hole
+   */
   pickRandomHole() {
     const marmots = document.querySelectorAll(this.marmotClass);
     this.removeAllListeners();
@@ -231,6 +257,9 @@ class Game extends Board {
     marmot.addEventListener('touchstart', this.hitMarmotDeclaration);
   }
 
+  /**
+   * Remove the event listener attached to each marmot to prevent duplicate event listeners
+   */
   removeAllListeners() {
     const marmots = document.querySelectorAll(this.marmotClass);
 
@@ -240,14 +269,23 @@ class Game extends Board {
     });
   }
 
+  /**
+   * Initiates the marmot selection and countdown timer
+   */
   moveMarmot() {
-    this.marmotPopTimerId = setInterval(this.pickRandomHole.bind(this), this.timerInterval);
-    this.countdownTimerId = setInterval(this.countdown.bind(this), this.countDownTimerInterval);
+    this.marmotPopTimerId = setInterval(() => {
+      this.pickRandomHole();
+    }, this.timerInterval);
+    this.countdownTimerId = setInterval(() => {
+      this.countdown();
+    }, this.countDownTimerInterval);
   }
 
+  /**
+   * Countdown and when zero stops the action
+   */
   countdown() {
-    const timerContainer = document.querySelector(this.timerContainerClass);
-    timerContainer.innerHTML = this.currentTime;
+    this.timerContainer.innerHTML = this.currentTime;
     if (this.currentTime === 0) {
       clearInterval(this.marmotPopTimerId);
       clearInterval(this.countdownTimerId);
@@ -259,10 +297,18 @@ class Game extends Board {
     }
   }
 
+  /**
+   * Saves the score taken from the content of the HTML element
+   */
   saveScore() {
-    this.update(document.querySelector('.marmot-hit__total').innerHTML);
+    this.currentScore = parseInt(this.score);
+    this.saveCurrentPlayerScores();
+    this.updateScoresInLocalStorage();
   }
 
+  /**
+   * Exits the game
+   */
   initExitGame() {
     this.gameBoard.classList.remove(this.activeCls);
     this.removeGridLayout();
@@ -270,7 +316,9 @@ class Game extends Board {
     this.createGameButtons();
   }
 
-
+  /**
+   * Shows and hides the exit button
+   */
   showHideExitBtn() {
     if (this.exitButton.classList.contains('hidden')) {
       this.exitButton.classList.remove('hidden');
