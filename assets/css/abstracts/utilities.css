@@ -6,3 +6,7 @@
 .hidden-message {
     visibility: hidden;
 }
+
+.center {
+    text-align: center;
+}

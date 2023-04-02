@@ -91,16 +91,16 @@
     align-self: start;
 }
 
-form#player {
+#modal-play {
     display: grid;
 }
 
-form#player #validation-message {
+#modal-play #validation-message {
     margin-top: .5em;
     text-align: center;
 }
 
-form#player button {
+#modal-play button {
     margin-top: 0;
 }
 
