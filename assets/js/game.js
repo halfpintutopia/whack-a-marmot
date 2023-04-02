@@ -321,6 +321,8 @@ class Game extends Board {
    * Exits the game
    */
   initExitGame() {
+    clearInterval(this.marmotPopTimerId);
+    clearInterval(this.countdownTimerId);
     this.gameBoard.classList.remove(this.activeCls);
     this.removeGridLayout();
     this.showHideExitBtn();
@@ -332,11 +334,10 @@ class Game extends Board {
    * Shows and hides the exit button
    */
   showHideExitBtn() {
-    if (this.exitButton.classList.contains('hidden')) {
+    if (this.gameBoard.classList.contains(this.activeCls)) {
       this.exitButton.classList.remove('hidden');
       this.exitButton.addEventListener('click', this.initExitGame.bind(this));
     } else {
-      this.exitButton.removeEventListener('click', this.initExitGame);
       this.exitButton.classList.add('hidden');
     }
   }
