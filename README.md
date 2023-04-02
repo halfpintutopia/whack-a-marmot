@@ -606,15 +606,7 @@ The content was short and to the point, and was created by myself.
 * [Park with forest and trees](https://stock.adobe.com/ch_de/266432466)
 * [Cartoon hammer](https://stock.adobe.com/ch_de/216467906)
 * [Groundhog](https://stock.adobe.com/ch_de/323852646)
-
-</details>
-
-<details>
-<summary>404 Page</summary>
-
-* [Soil](https://stock.adobe.com/uk/images/soil/92059694)
-  By [Nik_Merkulov](https://stock.adobe.com/uk/contributor/202316842/nik-merkulov?load_type=author&prev_url=detail)
-  on [Adobe Stock](https://stock.adobe.com)
+* [Organic soil heap for compost](https://stock.adobe.com/ch_de/566949081)
 
 </details>
 
