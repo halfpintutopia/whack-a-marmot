@@ -534,9 +534,9 @@ Additional notes from initial submission of project:
 |  LO6 6.2  | User is able to enter invalid or empty data in forms; lack of defensive design                  |  Yes  | Add validation message when user enters a name that is less than 4 characters long.                           |
 |  LO6 6.3  | Website is not fully functional and doesn't match expected project requirements from the README |  Yes  | Cleaned the files. Tidied up the classes files. Checked logic in each file. Validated in JSHint.              |
 |  LO6 6.4  | Console error present                                                                           |  Yes  | Corrected bad mapping to image file for bullseye. Add clearInterval when exited game during game play.        |
-| Merit 1.1 | Error when timer runs out.                                                                      |  Yes  | Corrected bad mapping to image file for bullseye. Add clearInterval when exited game during game play.        |
-| Merit 1.3 | Console error on timer                                                                          |  Yes  | Corrected bad mapping to image file for bullseye. Add clearInterval when exited game during game play.        |
-| Merit 6.1 | Error when timer runs out.                                                                      |  Yes  | Corrected bad mapping to image file for bullseye. Add clearInterval when exited game during game play.        |
+| Merit 1.1 | Error when timer runs out.                                                                      |  Yes  | Add clearInterval when exited game during game play.                                                          |
+| Merit 1.3 | Console error on timer                                                                          |  Yes  | Add clearInterval when exited game during game play.                                                          |
+| Merit 6.1 | Error when timer runs out.                                                                      |  Yes  | Add clearInterval when exited game during game play.                                                          |
 
 ### Lighthouse
 
