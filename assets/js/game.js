@@ -30,7 +30,6 @@ class Game extends Board {
     this.currentPlayer = {};
     this.scoreboard = [];
     this.marmotNumberHtml = `<h4><span class="timer-container">Timer: <span class="timer-container__countdown">0</span></span></h4><h4 class="marmot-hit__left">Hits: <span class="marmot-hit__total">0</span></h4>`;
-
     this.hitMarmotDeclaration = () => this.hitMarmot();
 
     if (this.gameButtonsContainer) {
@@ -39,6 +38,7 @@ class Game extends Board {
     if (this.addPlayerButton) {
       this.recoverLocalStorageScores();
       this.addPlayerButton.addEventListener('click', this.addPlayerHandler.bind(this));
+      window.addEventListener('keydown', this.enterPlayerHandler.bind(this));
     }
   }
 
@@ -80,6 +80,7 @@ class Game extends Board {
    */
   startGame() {
     this.gameBoard.classList.add('active');
+    const hammer = new Hammer('#game-area.active', '.hammer');
     this.showHideExitBtn();
     this.changeGridLayout();
     this.createMarmotHoles();
@@ -119,6 +120,16 @@ class Game extends Board {
     button.setAttribute('data-type', type);
     button.innerHTML = type;
     return button;
+  }
+
+  /**
+   * Checks enter was pressed to continue to validation of adding player
+   * @param keypressEvent
+   */
+  enterPlayerHandler(keypressEvent) {
+    if (keypressEvent.key === 'Enter') {
+      this.addPlayerHandler();
+    }
   }
 
   /**
@@ -189,6 +200,7 @@ class Game extends Board {
    * @param score
    */
   endGameDisplay(score) {
+    this.gameButtonsContainer.classList.add('center');
     this.gameButtonsContainer.innerHTML = '';
 
     let maxResults = 5;
@@ -312,6 +324,7 @@ class Game extends Board {
     this.gameBoard.classList.remove(this.activeCls);
     this.removeGridLayout();
     this.showHideExitBtn();
+    this.gameButtonsContainer.classList.remove('center');
     this.createGameButtons();
   }
 

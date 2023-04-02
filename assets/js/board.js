@@ -63,8 +63,7 @@ class Board {
    */
   changeGridLayout() {
     this.holesContainer.innerHTML = this.resetToEmpty;
-
-    if (window.innerWidth > this.gameResponsiveMinWidth) {
+    if (window.innerHeight > 810 && window.innerWidth > this.gameResponsiveMinWidth) {
       document.body.classList.add(this.desktopCls);
       document.body.classList.remove(this.mobileCls);
       this.screenSize = this.desktopCls;

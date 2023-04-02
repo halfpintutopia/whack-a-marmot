@@ -11,7 +11,7 @@ class Hammer {
   }
 
   get gameContainer() {
-    return document.getElementById(this.gameContainerId);
+    return document.querySelector(this.gameContainerId);
   }
 
   get customCursor() {
